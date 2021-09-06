@@ -19,44 +19,44 @@ Páginas de modelos:
         Diseño
         Especificaciones
         Opcionales
-Model 3
-Fotos
-Diseño
-Especificaciones
-Opcionales
-Model X
-Fotos
-Diseño
-Especificaciones
-Opcionales
-Model Y
-Fotos
-Diseño
-Especificaciones
-Opcionales
+ - Model 3
+        Fotos
+        Diseño
+        Especificaciones
+        Opcionales
+ - Model X
+        Fotos
+        Diseño
+        Especificaciones
+        Opcionales
+ - Model Y
+        Fotos
+        Diseño
+        Especificaciones
+        Opcionales
 
 Accesorios
-Cargador de hogar / transformador
-Alfombras de goma
-Portabicicletas
-Barras de techo
-Valija de techo
+ - Cargador de hogar / transformador
+ - Alfombras de goma
+ - Portabicicletas
+ - Barras de techo
+ - Valija de techo
 
 Institucional
-Responsabilidad social
-Medio ambiente
-Historia de la marca
-Elon Musk
+ - Responsabilidad social
+ - Medio ambiente
+ - Historia de la marca
+ - Elon Musk
 
 Página de contacto
-Formulario
-Datos de contacto
+ - Formulario
+ - Datos de contacto
 
 Red de concesionarios y servicios
-Soporte técnico - servicio al cliente
-Google maps
+ - Soporte técnico - servicio al cliente
+ - Google maps
 
- 
+
 Integrantes del equipo:
  
 Alan Alfredo Bareiro : Técnico Electromecánico. Estudiante de tecnicatura en Programación.
