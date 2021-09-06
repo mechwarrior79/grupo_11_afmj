@@ -5,20 +5,20 @@ Será un sitio para la promoción de una marca de autos eléctricos, la visualiz
 Constará de las siguientes páginas:
 
 Página de inicio:
-Header con lanzamientos y proyectos (p.e. Cybertruck).
-Modelos.
-Fortalezas (énfasis en performance, autonomía y cuidado del ambiente).
-Calidad, innovación y diseño.
-Formulario de contacto.
-Red de concesionarios.
-Redes Sociales.
+ - Header con lanzamientos y proyectos (p.e. Cybertruck).
+ - Modelos.
+ - Fortalezas (énfasis en performance, autonomía y cuidado del ambiente).
+ - Calidad, innovación y diseño.
+ - Formulario de contacto.
+ - Red de concesionarios.
+ - Redes Sociales.
 
 Páginas de modelos:
-Model S
-Fotos
-Diseño
-Especificaciones
-Opcionales
+ - Model S
+        Fotos
+        Diseño
+        Especificaciones
+        Opcionales
 Model 3
 Fotos
 Diseño
