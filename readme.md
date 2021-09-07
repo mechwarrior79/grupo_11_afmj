@@ -60,8 +60,11 @@ Red de concesionarios y servicios
 Integrantes del equipo:
  
 Alan Alfredo Bareiro : Técnico Electromecánico. Estudiante de tecnicatura en Programación.
+
 Juan Ignacio Quinteros: Lic. en Administración de Empresas.
+
 Francisco Rivero: Lic. en Periodismo y Cs. de la Comunicación.
+
 Martin Gallego: Contador Público.
  
 Sitios de referencia:
