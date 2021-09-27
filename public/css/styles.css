@@ -1,3 +1,250 @@
-h1{
-    color: red;
+*{
+    margin: 0;
+    box-sizing: border-box;
+
 }
+
+h2{
+    color: #f9f8f8;
+    padding: 15px;
+    font-weight: 300;
+    text-align: left;
+    font-size: 28px;
+
+}
+
+h4{
+    color: #f9f8f8;
+    padding: 5px;
+}
+
+body{
+    font-family: 'Quicksand', sans-serif;
+   
+}
+
+header{
+    background-color: #f9f8f8;
+   
+}
+
+
+a,li{
+    list-style: none;
+    text-decoration: none;
+    color: #031926;
+}
+
+.main-nav-bar {
+    display: flex;
+    padding: 5px;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.nav-bar{
+    align-self: flex-end;
+    width: 45%;
+    display: none;
+    font-weight: 800;
+    font-size: 20px;
+}
+.search-bar{
+    width: 80%;
+    padding: 10px;
+    margin: 0 auto;
+}
+.searching{
+    display: flex;
+    width: 100%;
+    
+}
+
+.search{
+    width: 100%;
+    height: 25px;
+    border-radius: 5px;
+}
+.user,.buys,.news{
+    padding: 2px;
+    margin-right: 3px;
+}
+
+.logo-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 50%;
+}
+
+.banner{
+    margin: 0;
+}
+
+.banner img{
+   width: 100%;
+
+}
+
+main{
+    background-color:#031926 ;
+    margin-top: -8px;
+}
+
+.hoja{
+    color: green;
+}
+.bateria{
+    color: #721817;
+}
+
+.nuestros-productos, .productos-destacados{
+    display: flex;
+    flex-direction: column;
+}
+.info{
+    padding-top: 15px;
+    color: #f9f8f8;
+    text-align: center;
+    font-size: 14px;
+    
+}
+
+.product{
+    width: 95%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+.modelo, .oferta , .precio{
+    padding: 2px;
+    color: #f9f8f8;
+    font-weight: 600;
+}
+.modelo{
+    padding: 5px;
+    font-weight: 900;
+}
+
+.precio-oferta{
+    margin-top: 15px;
+    display: flex;
+    border-radius: 2px;
+    width: 80%;
+    font-size: 18px;
+}
+.precio{
+    width: 60%;
+
+}
+
+.oferta{
+    width: 40%;
+    color: green;
+    font-weight: 900;
+}
+.product img{
+    width: 100%;
+}
+
+
+
+.hamburguer-bar{
+    
+    align-self: center;
+    color: #031926;
+    max-width: 50px;
+    border-radius:25%;
+    text-align: center;
+    font-size: 45px;
+    padding: 3px;
+    margin-right: 15px;
+    
+}
+
+.corte{
+    display: flex;
+    /* margin-top: 25px; */
+    border-top: solid #721817 2px;
+    width: 95%;
+    /* justify-content: center; */
+    margin: 0 auto;
+}
+
+footer{
+    background-color: #f9f8f8;
+    display:flex;
+    flex-direction: column;
+}
+
+.info-footer{
+    text-align: center;
+    padding: 10px;
+}
+
+.item-1{
+    padding: 3px;
+    margin-top: 10px;
+    color: green;
+    align-self: center;
+    font-size: 40px;
+}
+.item-2{    
+    padding: 3px;
+    margin-top: 10px;
+    color: #721817;
+    align-self: center;
+    font-size: 40px;
+
+}
+.item-3{    
+    padding: 3px;
+    margin-top: 10px;
+    color: #031926;
+    align-self: center;
+    font-size: 40px;
+
+}
+
+.texto-footer{
+    display: flex;
+    flex-direction: column;
+}
+
+.copy{
+    padding: 5px;
+    margin-top: 10px;
+}
+
+
+
+@media (min-width: 768px){
+
+    .nav-bar{
+        display: block;
+    }
+
+    .hamburguer-bar{
+        display: none;
+    }
+
+    .logo{
+        width: 40%;
+    }
+
+    .nuestros-productos,.productos-destacados{
+       flex-direction: row;
+    }
+
+    .product{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        align-self: center;
+        padding: 12px;
+    }
+}
+
