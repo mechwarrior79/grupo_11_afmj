@@ -44,10 +44,10 @@ a,li{
 
 .nav-bar{
     align-self: flex-end;
-    width: 45%;
+    width: 30%;
     display: none;
     font-weight: 800;
-    font-size: 20px;
+    font-size: 18px;
 }
 .search-bar{
     width: 80%;
@@ -229,8 +229,12 @@ footer{
 
 
 
-@media (min-width: 400px){
+@media (min-width: 480px){
 
+
+    .banner img{
+        height: 35vw;
+    }
     .nav-bar{
         display: block;
     }
@@ -240,7 +244,7 @@ footer{
     }
 
     .logo{
-        width: 40%;
+        width: 30%;
     }
 
     .nuestros-productos,.productos-destacados{
@@ -254,11 +258,84 @@ footer{
         padding: 12px;
     }
 
-    .bici{
-        width: 100vw;
-    }
+
     .wall-conector{
         margin-bottom: 19px;
     }
+}
+
+@media (min-width: 768px){
+  
+    .caja-1,.caja-2,.caja-3{
+        display: flex;
+    }
+
+    .banner img{
+        height: 29vw;
+    }
+
+    .logo{
+        width: 25%;
+    }
+    .search-bar{
+        width: 60%;
+    }
+
+    .info{
+        font-size: 16px;
+        font-weight: 600;
+    }
+    a{
+        font-weight: 900;
+        font-size: 20px;
+    }
+
+    h2{
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    .footer-desk{
+        display: flex;
+        flex-direction: row;
+    }
+    .texto-footer{
+        margin-top: 30px;
+        font-weight:800;
+    }
+
+    .copy{
+        margin-top: 35px;
+    }
+
+
+   
+}
+
+@media (min-width:1200px){
+    .banner img{
+        height: 20vw;
+    }
+
+    .logo{
+        width: 20%;
+    }
+    .search-bar{
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    header {
+        display: flex;
+    }
+
+    .barra-general{
+        justify-content:space-around;
+        width: 85%;
+        margin: auto;
+    }
+
+    
+
 }
 
