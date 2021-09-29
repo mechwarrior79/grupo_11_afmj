@@ -22,5 +22,10 @@ app.get("/index", (req,res) => {
     res.sendFile(fileToSent);
 });
 
+app.get("/cart", (req,res) => {
+    const fileToSent = path.join(__dirname, "/views/cart.html" );
+    res.sendFile(fileToSent);
+});
+
 
 
