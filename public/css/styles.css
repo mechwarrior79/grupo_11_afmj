@@ -95,7 +95,7 @@ main{
 }
 
 .hoja{
-    color: green;
+    color:rgb( 34, 200, 81);
 }
 .bateria{
     color: #721817;
@@ -114,7 +114,7 @@ main{
 }
 
 .product{
-    width: 95%;
+    width: 90%;
     margin-top: 10px;
     margin-bottom: 10px;
     align-self: center;
@@ -128,6 +128,11 @@ main{
 .modelo{
     padding: 5px;
     font-weight: 900;
+}
+.wall-conector{
+    padding: 2px;
+    color: #f9f8f8;
+    font-weight: 600;
 }
 
 .precio-oferta{
@@ -144,7 +149,7 @@ main{
 
 .oferta{
     width: 40%;
-    color: green;
+    color: rgb( 34, 200, 81);
     font-weight: 900;
 }
 .product img{
@@ -189,7 +194,7 @@ footer{
 .item-1{
     padding: 3px;
     margin-top: 10px;
-    color: green;
+    color: rgb( 34, 200, 81);
     align-self: center;
     font-size: 40px;
 }
@@ -213,6 +218,8 @@ footer{
 .texto-footer{
     display: flex;
     flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .copy{
@@ -222,7 +229,7 @@ footer{
 
 
 
-@media (min-width: 768px){
+@media (min-width: 400px){
 
     .nav-bar{
         display: block;
@@ -245,6 +252,13 @@ footer{
         margin-bottom: 10px;
         align-self: center;
         padding: 12px;
+    }
+
+    .bici{
+        width: 100vw;
+    }
+    .wall-conector{
+        margin-bottom: 19px;
     }
 }
 
