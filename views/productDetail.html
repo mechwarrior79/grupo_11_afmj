@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/css/styles-productDetail.css" rel="stylesheet">
+
+    <!--fuente principal-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <!--fontawesom-->
+    <script src="https://kit.fontawesome.com/449719d5ec.js" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <header>
+      
+        <div class="barra-general">
+            <div class="logo-nav">
+            
+            
+            
+                <img class="logo" src="/images/logo-afmj01.png" alt="logo-afmj">
+            
+                <nav class="nav-bar">
+                
+                    <ul class="main-nav-bar">
+                        <li class="user"><a href=""> Usuario </a> </li>
+                        <li class="news"><a href=""> Registro </a></li>
+                        <li class="buys"><a href=""> Carrito </a></li>
+                    </ul>
+                  
+                  
+                </nav>
+              
+                <div class="hamburguer-bar">
+                    <i class="fas fa-caret-square-down"></i>
+                </div>
+              
+            </div>
+          
+            <div class="search-bar">
+            
+                <form action="busqueda.html" method="post" class="searching"> 
+                
+                    <input class="search" type="text" name="Search" placeholder="Busqueda" required> 
+                    <input type="submit" value="Ir"> 
+                
+                </form> 
+              
+            </div> 
+          
+        </div>
+      
+      
+    </header>
+
+    <div class="banner">
+
+     <img  src="/images/banner-afmj01.png" alt="banner">
+
+    </div>
+
+    <main>
+
+
+
+      <!-- CONTENEDOR MAYOR CON DETALLE DEl PRODUCTO Y CARUSEL DE IMAGENES -->  
+
+      <section class="main-container">
+
+          <div class="model-title">Model S</div> 
+
+          <!-- CONTENEDOR DE IMAGENES -->
+
+          <div class="images-container">
+          
+              <!-- IMAGENES CON NUMERO DE IMAGEN ASOCIADO EN TAMAÑO 100% --> 
+
+              <div class="images">
+                <div class="imageNumber">1 / 4</div>
+                  <img src="/images/productos/modelo-s/model-s-volante.jpg" style="width:100%">
+              </div>
+            
+              <div class="images">
+                <div class="imageNumber">2 / 4</div>
+                  <img src="/images/productos/modelo-s/model-s-panel-navegacion.jpg" style="width:100%">
+              </div>
+            
+              <div class="images">
+                <div class="imageNumber">3 / 4</div>
+                  <img src="/images/productos/modelo-s/model-s-ambiente-trasero.jpg" style="width:100%">
+              </div>
+            
+              <div class="images">
+                <div class="imageNumber">4 / 4</div>
+                  <img src="/images/productos/modelo-s/model-s-ambiente-delantero.jpg" style="width:100%">
+              </div>
+            
+          
+          
+              <!-- BOTON DE ATRAS Y ADELANTE PARA LAS FOTOS -->
+              
+              <a class="previous" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          
+            
+          
+              <!-- IMAGENES EN MINIATURA -->
+          
+              <div class="row">
+                  <div class="column">
+                    <img class="transp cursor" src="/images/productos/modelo-s/model-s-volante.jpg" style="width:100%" onclick="currentSlide(1)" alt="volante">
+                  </div>
+                  <div class="column"> 
+                    <img class="transp cursor" src="/images/productos/modelo-s/model-s-panel-navegacion.jpg" style="width:100%" onclick="currentSlide(2)" alt="panel-navegacion">
+                  </div>
+                  <div class="column">
+                    <img class="transp cursor" src="/images/productos/modelo-s/model-s-ambiente-trasero.jpg" style="width:100%" onclick="currentSlide(3)" alt="ambiente-trasero">
+                  </div>
+                  <div class="column">
+                    <img class="transp cursor" src="/images/productos/modelo-s/model-s-ambiente-delantero.jpg" style="width:100%" onclick="currentSlide(4)" alt="ambiente-delantero">
+                  </div>
+              </div>
+
+          </div>
+
+          <!-- SCRIPT JS AGREGADO PARA QUE CAMBIEN LOS NUMEROS DE IMAGENES Y CAMBIEN LAS FOTOS EN EL CARUSEL -->
+
+          <script>
+          
+              var slideIndex = 1;
+              showSlides(slideIndex);
+              
+              // CON ESTA FUNCION SE CONTROLAN LOS BOTONES DE ATRAS Y ADELANTE
+            
+              function plusSlides(n) {
+                showSlides(slideIndex += n);
+              }
+            
+              // CON ESTA FUNCION SE CONTROLAN LAS IMAGENES EN MINIATURA
+              
+              function currentSlide(n) {
+                showSlides(slideIndex = n);
+              }
+            
+              // CON ESTA FUNCION SE CONTROLAN LAS IMAGENES EN MINIATURA
+            
+              // CADA VEZ QUE SE MUESTRA UNA IMAGEN SE LE APLICA SUS EFECTOS
+            
+              //SE ESTRUCTURA PARA QUE SIEMPRE SEA UN CICLO CONTINUO, 
+              // ELIJAS PARA ADELANTE O ATRAS LOS BOTONES
+            
+              function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("images");
+                var dots = document.getElementsByClassName("transp");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                  slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+              }
+
+          </script>
+       
+        
+            <!-- CONTENEDOR DE PRODUCTO -->
+
+            <div class="product-container">
+            
+              <!-- SE DIVIDE EN 3 CONTENEDORES: DETALLE, BOTON DE MAS INFORMACION Y BOTON DE COMPRAR Y AGREGAR AL CARRITO  -->
+              
+              <!-- CONTENEDOR DE DETALLES DEL PRODUCTO Y CARACTERISTICAS -->
+              
+              <div class="product-details-container">
+                  </br>
+                  <h3 class="characteristics-title">Caracteristicas</h3>            
+                  </br>
+                  
+                  <div class="caracteristics-list"> 
+                  
+                    <div class="characteristic">Caracteristica 1 </div>
+                    <div class="characteristic">Caracteristica 2 </div>
+                    <div class="characteristic">Caracteristica 3 </div>
+                    <div class="characteristic">Caracteristica 4 </div>
+                  
+                  </div>   
+                
+                  </br>   
+                  
+                  <div class="description-list">   
+                  
+                    <div class="description">descripcion 1 </div>
+                    <div class="description">descripcion 2 </div>
+                    <div class="description">descripcion 3 </div>
+                    <div class="description">descripcion 4 </div>
+                  
+                  </div>
+                
+              </div>
+            
+              
+              
+              <!-- CONTENEDOR DE BOTON MAS INFO -->
+            
+              <div class="more-info-container">
+              
+                  <form action="#" method="POST">
+                  
+                    <div>
+                        <button type="submit" class="button-more-info">Más info+</button>
+                    </div>
+                  
+                  </form>
+                
+              </div>
+            
+             
+              <!--CONTENEDOR DE BOTONES COMPRAR Y AGREGAR CARRITO -->
+            
+              <div class="buttons-buy-addToChart">
+              
+                <form action="#" method="POST">
+                
+                    <button type="submit" class="button-buy-add">Comprar</button>
+                    <button type="submit" class="button-buy-add">Agregar al carrito</button>
+                
+                </form>
+              
+              </div>
+
+            </div>
+
+
+      </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-desk">
+
+
+        <div class="texto-footer">
+            <i class="item-1 fab fa-pagelines"></i> <p class="info-footer">Elijenos siempre por nuestro compromiso con el impacto ambiental, unete para obtener mas beneficios!</p>
+        </div>
+
+        <div class="texto-footer">
+            <i class=" item-2 fas fa-solar-panel"></i><p class="info-footer">Conoce nuestros medios de pago disponibles</p>
+        </div>
+        <div class="texto-footer">
+            <i class="item-3 fas fa-battery-full"></i><p class="info-footer">Ahorrate tiempo y energia, te lo llevamos a tu casa. Sigue tu envio desde aqui!</p>
+        </div>
+
+        </div>
+
+        <p class="copy">Copyright 2021.. Productos AFMJ el futuro es nuestro. Grupo 11</p>
+
+
+
+
+    </footer>
+
+
+    
+</body>
+
+</html>
