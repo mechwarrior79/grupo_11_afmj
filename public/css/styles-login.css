@@ -58,7 +58,9 @@ a,li{
 .search-bar{
     width: 80%;
     padding: 10px;
-    margin: 0 auto;
+    margin:auto;
+    margin-bottom: 20px;
+    
 }
 .searching{
     display: flex;
@@ -370,9 +372,6 @@ a:hover {text-decoration: none;
     .copy{
         margin-top: 35px;
     }
-
-
-   
 }
 
 @media (min-width:1200px){
@@ -385,8 +384,9 @@ a:hover {text-decoration: none;
     }
     .search-bar{
         width: 50%;
-        margin: 0 auto;
-    }
+        
+        
+       }
 
     header {
         display: flex;

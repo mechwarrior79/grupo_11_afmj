@@ -27,5 +27,38 @@ app.get("/cart", (req,res) => {
     res.sendFile(fileToSent);
 });
 
+app.get("/login", (req,res) => {
+    const fileToSent = path.join(__dirname, "/views/login.html" );
+    res.sendFile(fileToSent);
+});
+
+app.get("/productDetail", (req,res) => {
+    const fileToSent = path.join(__dirname, "/views/productDetail.html" );
+    res.sendFile(fileToSent);
+});
+
+app.get("/register", (req,res) => {
+    const fileToSent = path.join(__dirname, "/views/register.html" );
+    res.sendFile(fileToSent);
+})
+
+//post
+
+app.post("/login", (req,res) => {
+    res.redirect("/index");
+});
+
+app.post("/cart", (req,res) => {
+    res.redirect("/index");
+});
+
+app.post("/productDetail", (req,res) => {
+    res.redirect("/index");
+});
+
+app.post("/register", (req,res) => {
+    res.redirect("/index");
+});
+
 
 

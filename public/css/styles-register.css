@@ -90,86 +90,6 @@ a,li{
 
 }
 
-.icon{
-    margin-left: 2px;
-}
-
-main{
-    background-color:#031926 ;
-    margin-top: -8px;
-}
-
-.hoja{
-    color:rgb( 34, 200, 81);
-}
-.bateria{
-    color: #721817;
-}
-
-.nuestros-productos, .productos-destacados{
-    display: flex;
-    flex-direction: column;
-}
-.info{
-    padding-top: 15px;
-    color: #f9f8f8;
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: 10px;
-    
-}
-
-.product{
-    width: 90%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    align-self: center;
-}
-
-.modelo, .oferta , .precio{
-    padding: 2px;
-    color: #f9f8f8;
-    font-weight: 600;
-}
-.modelo{
-    padding: 5px;
-    font-weight: 900;
-}
-
-.paneles-solares{
-    padding: 2px;
-    color: #f9f8f8;
-    font-weight: 600;
-
-}
-.wall-conector{
-    padding: 2px;
-    color: #f9f8f8;
-    font-weight: 600;
-}
-
-.precio-oferta{
-    margin-top: 15px;
-    display: flex;
-    border-radius: 2px;
-    width: 80%;
-    font-size: 18px;
-}
-.precio{
-    width: 60%;
-
-}
-
-.oferta{
-    width: 40%;
-    color: rgb( 34, 200, 81);
-    font-weight: 900;
-}
-.product img{
-    width: 100%;
-}
-
-
 
 .hamburguer-bar{
     
@@ -184,14 +104,77 @@ main{
     
 }
 
-.corte{
-    display: flex;
-    /* margin-top: 25px; */
-    border-top: solid #721817 2px;
-    width: 95%;
-    /* justify-content: center; */
-    margin: 0 auto;
+/* CONFIGURACION DEL MAIN */
+
+main{
+    background-color:#031926 ;
+    margin-top: -8px;
+    
 }
+
+.register-container {
+  padding: 20px 15px;
+  width: 100%;
+  
+}
+
+.registration-title {
+  color: #f9f8f8;
+  font-weight: 300;
+  text-align: left;
+  font-size: 24px;
+  padding: 20px 0px;
+  text-align: center;
+  
+}
+
+.field {
+  margin-bottom: 10px;
+}
+
+
+label {
+    color: #f9f8f8;
+
+}
+
+.input {
+  width: 100%;
+  margin: 8px 0px;
+  padding: 8px 0px;
+  font-size: 16px;
+}
+
+
+.registration-button {
+  
+    border: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px 5px;
+    color: #721817;
+    background-color: #f9f8f8;
+}
+
+.login-cancel-button {
+    margin: 15px 0px;
+}
+
+
+/* CUANDO HAGO HOVER SOBRE LOS BOTONES DE INGRESAR, CANCELAR, OLVIDO DE CONTRASEÑA Y USUARIO, 
+Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
+  
+
+
+.registration-button:hover  {
+  color: #f9f8f8;
+  background-color: #721817;
+}
+
+
+
+/* CONFIGURACION DE LOS ELEMENTOS DEL FOOTER */
 
 footer{
     background-color: #f9f8f8;
@@ -240,10 +223,6 @@ footer{
     margin-top: 10px;
 }
 
-
-.container-fluid{
-    background-color: #031926;
-}
  
 a:hover {text-decoration: none; 
     color: var(--text-clr);    } 
@@ -251,14 +230,14 @@ a:hover {text-decoration: none;
 .carrito{ color: var(--text-clr); 
    font-size: 1.5rem; } 
 
-.main_cart { background: #f9f8f8; } 
+.main_cart { background: #fff; } 
 
 .card { border: none; } 
 
 .product_img img { min-width: 200px; 
    max-height: 200px; } 
 
-.product_name { color: #031926; 
+.product_name { color: black; 
    font-size: 1.4rem; 
    text-transform: capitalize; 
    font-weight: 500; } 
@@ -342,7 +321,7 @@ a:hover {text-decoration: none;
 
 
     .wall-conector{
-        margin-bottom: 10px;
+        margin-bottom: 19px;
     }
 }
 
@@ -389,12 +368,6 @@ a:hover {text-decoration: none;
     .copy{
         margin-top: 35px;
     }
-
-    /*
-    .product :hover{
-        box-shadow: 1px 1px 5px #721817;
-    }
-*/
 
    
 }

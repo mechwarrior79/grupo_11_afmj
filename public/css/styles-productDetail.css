@@ -53,7 +53,9 @@ a,li{
 .search-bar{
   width: 80%;
   padding: 10px;
-  margin: 0 auto;
+  margin: auto;
+  margin-bottom: 20px;
+  
 }
 .searching{
   display: flex;
@@ -131,6 +133,8 @@ div .images {
   color: #f9f8f8;
   font-size: 28px;
   padding: 12px 15px;
+  font-weight: 800;
+  margin-bottom: 20px;
   }
 
 
@@ -149,17 +153,17 @@ div .images {
   font-size: 20px;
 }
 
-
-
 .description, .characteristic {
   
   color: #f9f8f8;
   font-size: 14px;
   padding-bottom: 10px;
   font-weight: 900;
-  
 }
 
+.description-list{
+  text-align: center;
+}
   
   .more-info-container {
     
@@ -513,7 +517,7 @@ a:hover {text-decoration: none;
   }
   .search-bar{
       width: 50%;
-      margin: 0 auto;
+      
   }
 
   header {
