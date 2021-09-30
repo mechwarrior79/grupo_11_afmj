@@ -35,6 +35,10 @@ a,li{
     color: #031926;
 }
 
+a{
+    padding: 10px;
+}
+
 .main-nav-bar {
     display: flex;
     padding: 5px;
