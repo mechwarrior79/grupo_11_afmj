@@ -29,6 +29,8 @@ rgb( 34, 200, 81)  verde (ofertas/detalles)
  
 ## Enlace al trello del trabajo integrador: https://trello.com/b/lQ1WQVqD/proyecto-integrador#
 
+## Enlace de Github : https://github.com/mechwarrior79/grupo_11_afmj
+
 ## Sitios de referencia:
  
 https://www.tesla.com/ : su diseño innovador en la forma de presentar los productos en forma horizontal y desplazamiento visual nos resultó atractivo.
