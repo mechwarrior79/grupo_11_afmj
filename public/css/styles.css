@@ -36,7 +36,7 @@ a,li{
 }
 
 a{
-    padding: 10px;
+    padding: 5px;
 }
 
 .main-nav-bar {
@@ -73,6 +73,10 @@ a{
 .user,.buys,.news{
     padding: 2px;
     margin-right: 3px;
+}
+
+.user :hover,.buys:hover,.news:hover{
+    color: #721817;
 }
 
 .logo-nav {
@@ -323,6 +327,7 @@ a:hover {text-decoration: none;
     }
     .nav-bar{
         display: block;
+        width: 70%;
     }
 
     .hamburguer-bar{
@@ -354,6 +359,8 @@ a:hover {text-decoration: none;
   
     .caja-1,.caja-2,.caja-3{
         display: flex;
+        width: 95%;
+        margin: auto;
     }
 
     .banner img{
@@ -410,6 +417,7 @@ a:hover {text-decoration: none;
 
     .logo{
         width: 20%;
+        margin-top: 20px;
     }
     .search-bar{
         width: 50%;
@@ -418,6 +426,10 @@ a:hover {text-decoration: none;
 
     header {
         display: flex;
+    }
+
+    a{
+        padding: 10px;
     }
 
     .barra-general{
