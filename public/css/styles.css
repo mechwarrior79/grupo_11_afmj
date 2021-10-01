@@ -72,11 +72,15 @@ a{
 }
 .user,.buys,.news{
     padding: 2px;
-    margin-right: 3px;
+    margin-right: 2px;
+    transition: 450ms;
+
 }
 
 .user :hover,.buys:hover,.news:hover{
     color: #721817;
+    
+    
 }
 
 .logo-nav {
@@ -132,7 +136,15 @@ main{
     margin-top: 10px;
     margin-bottom: 10px;
     align-self: center;
+    width: 99.5%;
+    transition: 250ms;
 }
+
+.product:hover{
+    box-shadow: 0px 0px 8px #721817;
+    width: 100%;
+}
+
 
 .modelo, .oferta , .precio{
     padding: 2px;
