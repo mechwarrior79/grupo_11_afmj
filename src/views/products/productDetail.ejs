@@ -23,54 +23,9 @@
 
 <body>
 
-    <header>
-      
-        <div class="barra-general">
-            <div class="logo-nav">
-            
-            
-            
-                <img class="logo" src="/images/logo-afmj01.png" alt="logo-afmj">
-            
-                <nav class="nav-bar">
-                
-                    <ul class="main-nav-bar">
-                        <li class="user"><a href=""> Usuario </a> </li>
-                        <li class="news"><a href=""> Registro </a></li>
-                        <li class="buys"><a href=""> Carrito </a></li>
-                    </ul>
-                  
-                  
-                </nav>
-              
-                <div class="hamburguer-bar">
-                    <i class="fas fa-caret-square-down"></i>
-                </div>
-              
-            </div>
-          
-            <div class="search-bar">
-            
-                <form action="busqueda.html" method="post" class="searching"> 
-                
-                    <input class="search" type="text" name="Search" placeholder="Busqueda" required> 
-                    <input type="submit" value="Ir"> 
-                
-                </form> 
-              
-            </div> 
-          
-        </div>
-      
-      
-    </header>
-<!--
-    <div class="banner">
+    <!-- LLAMO AL HEADER DE PARTIALS-->
 
-     <img  src="/images/banner-afmj01.png" alt="banner">
-
-    </div>
-    -->
+    <%- include('../partials/header') %> 
 
     <main>
 
@@ -251,31 +206,9 @@
 
     </main>
 
+    <!-- LLAMO AL FOOTER DE PARTIALS-->
 
-    <footer>
-
-        <div class="footer-desk">
-
-
-        <div class="texto-footer">
-            <i class="item-1 fab fa-pagelines"></i> <p class="info-footer">Elijenos siempre por nuestro compromiso con el impacto ambiental, unete para obtener mas beneficios!</p>
-        </div>
-
-        <div class="texto-footer">
-            <i class=" item-2 fas fa-solar-panel"></i><p class="info-footer">Conoce nuestros medios de pago disponibles</p>
-        </div>
-        <div class="texto-footer">
-            <i class="item-3 fas fa-battery-full"></i><p class="info-footer">Ahorrate tiempo y energia, te lo llevamos a tu casa. Sigue tu envio desde aqui!</p>
-        </div>
-
-        </div>
-
-        <p class="copy">Copyright 2021.. Productos AFMJ el futuro es nuestro. Grupo 11</p>
-
-
-
-
-    </footer>
+    <%- include('../partials/footer') %> 
 
 
     

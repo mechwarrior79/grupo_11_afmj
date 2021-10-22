@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/css/styles-login.css" rel="stylesheet">
+
+    <!--fuente principal-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+    <!--fontawesom-->
+    <script src="https://kit.fontawesome.com/449719d5ec.js" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <!-- LLAMO AL HEADER DE PARTIALS-->
+
+    <%- include('../partials/header') %> 
+
+    
+    <main>
+        
+      <!-- FORMULARIO DE LOGIN -->
+
+      <!-- TITULO DEL LOGIN-->
+
+      <form action="/login" method="POST" class="create-formularie">
+
+            <h3 class="login-title"> Login de mi cuenta</h3>
+      
+      <!--  CAMPOS A COMPLETAR DEL NOMBRE USUARIO, PASSWORD  -->
+
+            <div class="field">
+                <label for="user-name">Nombre de usuario:</label>
+                <input type="text" name="user-name" id="user-name" minlength="1" required class="input">
+            </div>
+        
+            <div class="field">
+                <label for="user-password">Contraseña:</label>
+                <input type="password" name="user-password" id="user-password" required class="input">
+            </div>
+
+            <!-- BOTONES PARA INGRESAR Y CANCELAR -->
+        
+            <button type="submit" class="login-button">Ingresar</button>
+        
+            <button type="reset" class="login-button">Cancelar</button>
+        
+            <!-- CAMPOS PARA RECORDAR USUARIO Y PASSWORD Y BOTONES DE OLVIDO 
+            Y LINK A GENERAR USUARIO Y/O CONTRASEÑA--> 
+            
+            <div class="field">
+                <label for="user-remember-password">Recordar mi usuario</label>
+                <input type="checkbox" name="user-remember-password" value="user-remember-password">
+            </div>
+
+
+            <button type="submit" class="login-button">¿Olvidó su contraseña o usuario?</button>
+
+            <button type="submit" class="login-button">Crear nueva contraseña o usuario</button>
+
+      </form> 
+      
+
+    </main>
+
+     <!-- LLAMO AL FOOTER DE PARTIALS-->
+
+     <%- include('../partials/footer') %> 
+
+   
+
+    
+</body>
+
+</html>
