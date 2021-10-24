@@ -17,6 +17,12 @@ const controller = {
         res.render('./products/cart')
     },
 
+    //Muestro la lista de productos
+
+    list: (req,res) =>{
+        res.render ('./products/productList')
+    },
+
     // Creo un producto
 
     create: (req, res) => {

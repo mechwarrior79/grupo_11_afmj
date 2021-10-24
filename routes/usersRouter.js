@@ -10,9 +10,12 @@ const usersController = require('../controllers/usersController');
 
 // Con router, de acuerdo a la ruta que ponga, le digo que haga tal función 
 
+router.get('/login', usersController.login);
 
-router.get('/register/', usersController.register);
+router.get('/register', usersController.register);
 
-router.get('/login/', usersController.login);
+router.post ('/login', usersController.user);
+
+router.post ('/register',usersController.newRegister)
 
 module.exports = router;

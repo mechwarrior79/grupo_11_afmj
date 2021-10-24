@@ -16,6 +16,13 @@ const controller = {
 
     login: (req, res) => {
         res.render('./users/login')
+    },
+
+    user: (req,res) =>{
+        res.redirect ('../')
+    },
+    newRegister: (req,res) =>{
+        res.redirect ('../')
     }
   }
   

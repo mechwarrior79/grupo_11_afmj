@@ -13,13 +13,15 @@ const productsController = require('../controllers/productsController');
 // Con router, de acuerdo a la ruta que ponga, le digo que haga tal función 
 
 
-router.get('/productDetail/', productsController.productDetail);
+router.get('/detail', productsController.productDetail);
 
-router.get('/cart/', productsController.cart);
+router.get('/cart', productsController.cart);
 
-router.get('/create/', productsController.create);
+router.get('/list',productsController.list);
 
-router.get('/edit/', productsController.edit);
+router.get('/create', productsController.create);
+
+router.get('/edit', productsController.edit);
 
 
 

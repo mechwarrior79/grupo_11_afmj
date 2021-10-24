@@ -127,21 +127,9 @@ main{
     margin-top: -8px;
 }
 
-.create-formularie {
-  padding: 20px 15px;
-  width: 80%;
-  margin: auto;
-}
 
-.login-title {
-  color: #f9f8f8;
-  font-weight: 300;
-  text-align: left;
-  font-size: 24px;
-  padding-bottom: 20px; 
-  text-align: center;
-  
-}
+
+
 
 
 
@@ -164,25 +152,8 @@ label {
 }
 
 
-.login-button {
-  border: none;
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin: 5px 0px;
-  color: #721817;
-  background-color: #f9f8f8;
-}
-
-/* CUANDO HAGO HOVER SOBRE LOS BOTONES DE INGRESAR, CANCELAR, OLVIDO DE CONTRASEÑA Y USUARIO, 
-Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
-  
 
 
-.login-button:hover  {
-  color: #f9f8f8;
-  background-color: #721817;
-}
 
 
 

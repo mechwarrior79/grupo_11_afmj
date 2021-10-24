@@ -103,7 +103,7 @@ a{
 }
 
 .icon{
-    margin-left: 2px;
+    margin-left: 1px;
 }
 
 main{
@@ -142,7 +142,7 @@ main{
 
 .product:hover{
     box-shadow: 0px 0px 8px #721817;
-    width: 100%;
+    width: 100%;    
 }
 
 
@@ -261,6 +261,293 @@ footer{
 }
 
 
+/*hasta aca est el index*/
+
+.create-formularie {
+    padding: 20px 15px;
+    width: 80%;
+    margin: auto;
+  }
+
+
+.register-container {
+    padding: 20px 15px;
+    width: 80%;
+    margin: auto;
+    
+  }
+  .login-title {
+    color: #f9f8f8;
+    font-weight: 300;
+    text-align: left;
+    font-size: 24px;
+    padding-bottom: 20px; 
+    text-align: center;
+    
+  }
+  
+  .registration-title {
+    color: #f9f8f8;
+    font-weight: 300;
+    text-align: left;
+    font-size: 24px;
+    padding: 20px 0px;
+    text-align: center;
+    
+  }
+  
+  .field {
+    margin-bottom: 10px;
+  }
+  
+  
+  label {
+      color: #f9f8f8;
+  
+  }
+  
+  .input {
+    width: 100%;
+    margin: 8px 0px;
+    padding: 8px 0px;
+    font-size: 16px;
+  }
+  
+  .login-button {
+    border: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px 0px;
+    color: #721817;
+    background-color: #f9f8f8;
+  }
+
+  /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE INGRESAR, CANCELAR, OLVIDO DE CONTRASEÑA Y USUARIO, 
+Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
+  
+
+
+.login-button:hover  {
+    color: #f9f8f8;
+    background-color: #721817;
+  }
+  
+  
+  .registration-button {
+    
+      border: none;
+      font-size: 16px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin: 5px 5px;
+      color: #721817;
+      background-color: #f9f8f8;
+  }
+  
+  .login-cancel-button {
+      margin: 15px 0px;
+  }
+  
+  
+  /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE INGRESAR, CANCELAR, OLVIDO DE CONTRASEÑA Y USUARIO, 
+  Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
+    
+  
+  
+  .registration-button:hover  {
+    color: #f9f8f8;
+    background-color: #721817;
+  }
+
+  /*Hasta aca los formularios*/
+/* CONFIGURACION DE TITULOS, CONTENEDORES Y ELEMENTOS DE LOS CONTENEDORES  */
+
+/* CON ESTO LOGRO QUE LAS IMAGENES EN MINIATURA Y EL SLIDE QUEDEN PEGADOS SIN ESPACIO */
+
+div .images {
+    margin-bottom: -4px;
+  }
+   
+.model-title {
+  text-align: center;
+  color: #f9f8f8;
+  font-size: 28px;
+  padding: 12px 15px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  }
+
+
+.main-container {
+  padding-bottom: 20px;
+}
+
+.product-details-container {
+  margin-left: 10px;
+}
+
+.characteristics-title {
+  color: #f9f8f8;
+  font-weight: 300;
+  text-align: left;
+  font-size: 20px;
+}
+
+.description, .characteristic {
+  
+  color: #f9f8f8;
+  font-size: 14px;
+  padding-bottom: 10px;
+  font-weight: 900;
+}
+
+.description-list{
+  text-align: center;
+}
+  
+  .more-info-container {
+    
+    padding: 5px;
+    margin: 10px;
+    
+  }
+  
+  .button-more-info {
+    display: flex;
+    margin: auto;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-style: italic;
+    color: #721817;
+    background-color: #f9f8f8;
+  }
+  
+  
+  div.buttons-buy-addToChart > form {
+  
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .button-buy-add {
+    border-radius: 8px;
+    margin: 5px;
+    padding: 5px 25px;
+    font-size: 15px;
+    background-color: #f9f8f8;  
+    color: #757780;
+    
+    
+  /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE MAS INFO, COMPRAR Y AGREGAR AL CARRITO CAMBIAN DE FORMATO */
+  
+  }
+
+  .button-more-info:hover,
+  .button-buy-add:hover  {
+    color: #f9f8f8;
+    background-color: #721817;
+  }
+
+
+
+  
+  
+  /* HAGO QUE EL CONTENEDOR DE IMAGENES OCUPA UN 100% DE LA PANTALLA */
+  
+  .images-container {
+    height: 100%;
+    width: 100%;
+  }
+  
+    /* SE POSICIONA EL CONTENEDOR DE IMAGENES PARA QUE SE PUEDAN PONER LOS BOTONES DE ATRAS Y ADELANTE */
+  
+    .images-container  {
+      position: relative;
+    }
+    
+    /* SE OCULTAN LAS IMAGENES POR DEFAULT */
+  
+    .images {
+      display: none;
+    }
+    
+     /* FORMATO DEL TEXTO DEL NUMERO DE IMAGEN (1/4, 2/4, ETC. */
+  
+     .imageNumber {
+        color: #f2f2f2;
+        font-size: 14px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      
+    /* APARECE UN CURSOR CUANDO ME APOYO SOBRE UNA IMAGEN EN MINIATURA */
+  
+    .cursor {
+      cursor: pointer;
+    }
+    
+    /* CONFIGURACION DE BOTONES DE ATRAS Y ADELANTE DE IMAGENES */
+  
+    .previous,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    
+    /* POSICIONAMIENTO DEL BOTON DE ADELANTE A LA DERECHA */
+  
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    
+    /* CUANDO APOYE EL CURSOR EN EL BOTON DE ADELANTE Y ATRAS, QUE CAMBIE A UN POCO DE GRIS */
+    
+    .previous:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+   
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+    /* HAGO QUE HAYA 4 IMAGENES DISTRIBUIDAS A LO ANCHO */
+  
+    .column {
+      float: left;
+      width: 25%;
+    }
+    
+    /* AGREGO UN EFECTO DE TRANSPARENCIA CUANDO APOYO EN LAS IMAGENES DE MINIATURA */
+  
+    .transp {
+      opacity: 0.6;
+    }
+    
+    .active,
+    .transp:hover {
+      opacity: 1;
+    }
+  
+  /*hasta aca product detail*/
 .container-fluid{
     background-color: #031926;
 }
@@ -331,6 +618,9 @@ a:hover {text-decoration: none;
 .fa-heart:hover { color: red; }
 
 
+
+
+
 @media (min-width: 480px){
 
 
@@ -339,7 +629,7 @@ a:hover {text-decoration: none;
     }
     .nav-bar{
         display: block;
-        width: 70%;
+        width: 80%;
     }
 
     .hamburguer-bar{
@@ -347,7 +637,7 @@ a:hover {text-decoration: none;
     }
 
     .logo{
-        width: 30%;
+        width: 35%;
     }
 
     .nuestros-productos,.productos-destacados{

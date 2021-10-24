@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <!-- LLAMO AL HEAD DE PARTIALS-->
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="/css/styles-register.css" rel="stylesheet">
-
-    <!--fuente principal-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-
-    <!--fontawesom-->
-    <script src="https://kit.fontawesome.com/449719d5ec.js" crossorigin="anonymous"></script>
-
-    <title>Document</title>
-
-</head>
+    <%- include('../partials/head') %>
 
 <body>
 
@@ -37,7 +21,7 @@
               <!-- TITULO DEL REGISTRO-->
               
               
-              <form action="/register" method="POST">
+              <form action="../users/register" method="POST">
 
                 <div class="registration-title"> Ingresá tus datos para crear tu cuenta</div>
               

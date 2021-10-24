@@ -34,11 +34,12 @@ app.use(staticFiles);
 //Cuando use '/' se va a manejar desde mainRouter
 app.use('/', mainRouter);
 
+//Cuando use '/users' se va a manejar desde usersRouter
+app.use('/users', usersRouter);
+
 //Cuando use '/products' se va a manejar desde productsRouter
 app.use('/products', productsRouter);
 
-//Cuando use '/users' se va a manejar desde usersRouter
-app.use('/users', usersRouter);
 
 
 
