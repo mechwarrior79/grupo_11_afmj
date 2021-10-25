@@ -41,7 +41,7 @@ a{
 
 .main-nav-bar {
     display: flex;
-    padding: 5px;
+    padding: 2px;
     justify-content: flex-end;
     width: 100%;
 }
@@ -603,9 +603,11 @@ a:hover {text-decoration: none;
 
 .fa-heart:hover { color: red; }
 
-
-
-
+.text-nav-bar{
+    
+    font-size: 12px;
+    font-weight: 800;
+}
 
 @media (min-width: 480px){
 
@@ -645,10 +647,11 @@ a:hover {text-decoration: none;
 
 @media (min-width: 768px){
   
-    .caja-1,.caja-2,.caja-3{
-        display: flex;
-        width: 95%;
-        margin: auto;
+
+    .text-nav-bar{
+    
+        font-size: 18px;
+        font-weight: 800;
     }
 
     .banner img{
@@ -694,7 +697,6 @@ a:hover {text-decoration: none;
     }
 
    
-   
 }
 
 @media (min-width:1200px){
@@ -719,6 +721,11 @@ a:hover {text-decoration: none;
         padding: 10px;
     }
 
+    .caja-1,.caja-2,.caja-3{
+        display: flex;
+        width: 95%;
+        margin: auto;
+    }
     .barra-general{
         justify-content:space-around;
         width: 85%;
