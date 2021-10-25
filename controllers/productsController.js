@@ -26,15 +26,33 @@ const controller = {
     // Creo un producto
 
     create: (req, res) => {
-        res.send("Estamos en create de productos")
+        res.render('./products/productCreate')
     },
 
+    // Mensaje producto creado y testeando que lleguen bien los datos por parámetros 
+
+    created: (req, res) => {
+        let datosCreados=req.body;
+        console.log(datosCreados);
+        res.send( 'Producto creado')
+              
+    },
    
     // Edito los datos de un producto
     
     edit: (req, res) => {
-        res.send("Estamos en edit de productos")
+        res.render('./products/productUpdate')
+    },
+
+     // Mensaje producto modificado y testeando que lleguen bien los datos por parámetros 
+
+     modified: (req, res) => {
+        let datosModificados=req.body;
+        console.log(datosModificados);
+        res.send( 'Producto modificado')
+              
     }
+    
   }
   
   module.exports = controller;

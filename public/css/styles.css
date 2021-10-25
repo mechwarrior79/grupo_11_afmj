@@ -36,12 +36,12 @@ a,li{
 }
 
 a{
-    padding: 4px;
+    padding: 5px;
 }
 
 .main-nav-bar {
     display: flex;
-    padding: 2px;
+    padding: 5px;
     justify-content: flex-end;
     width: 100%;
 }
@@ -50,7 +50,7 @@ a{
     align-self: flex-end;
     width: 30%;
     display: none;
-    font-weight: 900;
+    font-weight: 800;
     font-size: 18px;
 }
 .search-bar{
@@ -71,8 +71,8 @@ a{
     border-radius: 5px;
 }
 .user,.buys,.news{
-    padding: 1px;
-    margin-right: 1px;
+    padding: 2px;
+    margin-right: 2px;
     transition: 450ms;
 
 }
@@ -80,13 +80,13 @@ a{
 .user :hover,.buys:hover,.news:hover{
     color: #721817;
     
+    
 }
 
 .logo-nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 1px;
 }
 
 .logo{
@@ -206,10 +206,10 @@ main{
 
 .corte{
     display: flex;
-    /* margin-top: 25px; */
+   
     border-top: solid #721817 2px;
     width: 95%;
-    /* justify-content: center; */
+  
     margin: 0 auto;
 }
 
@@ -318,9 +318,11 @@ footer{
     font-size: 16px;
     padding: 5px 10px;
     border-radius: 5px;
-    margin: 5px 0px;
+    margin: 5px 10px;
     color: #721817;
     background-color: #f9f8f8;
+    margin-left: 0px;
+
   }
 
   /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE INGRESAR, CANCELAR, OLVIDO DE CONTRASEÑA Y USUARIO, 
@@ -340,9 +342,10 @@ Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
       font-size: 16px;
       padding: 5px 10px;
       border-radius: 5px;
-      margin: 5px 5px;
+      margin: 5px 10px;
       color: #721817;
       background-color: #f9f8f8;
+      margin-left: 0px;
   }
   
   .login-cancel-button {
@@ -384,7 +387,7 @@ div .images {
 }
 
 .product-details-container {
-  margin-left: 10px;
+  margin: 15px 0px 15px 10px;
 }
 
 .characteristics-title {
@@ -406,23 +409,6 @@ div .images {
   text-align: center;
 }
   
-  .more-info-container {
-    
-    padding: 5px;
-    margin: 10px;
-    
-  }
-  
-  .button-more-info {
-    display: flex;
-    margin: auto;
-    font-size: 15px;
-    border-radius: 10px;
-    padding: 5px 10px;
-    font-style: italic;
-    color: #721817;
-    background-color: #f9f8f8;
-  }
   
   
   div.buttons-buy-addToChart > form {
@@ -438,16 +424,22 @@ div .images {
     font-size: 15px;
     background-color: #f9f8f8;  
     color: #757780;
-}
-       
+    
+    
   /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE MAS INFO, COMPRAR Y AGREGAR AL CARRITO CAMBIAN DE FORMATO */
   
+  }
+
   .button-more-info:hover,
   .button-buy-add:hover  {
     color: #f9f8f8;
     background-color: #721817;
   }
 
+
+
+  
+  
   /* HAGO QUE EL CONTENEDOR DE IMAGENES OCUPA UN 100% DE LA PANTALLA */
   
   .images-container {
@@ -542,10 +534,10 @@ div .images {
     }
   
   /*hasta aca product detail*/
-  
-  .container-fluid{
+.container-fluid{
     background-color: #031926;
 }
+ 
 a:hover {text-decoration: none; 
     color: var(--text-clr);    } 
 
@@ -611,11 +603,9 @@ a:hover {text-decoration: none;
 
 .fa-heart:hover { color: red; }
 
-.text-nav-bar{
-    
-    font-size: 13px;
-    font-weight: 800;
-}
+
+
+
 
 @media (min-width: 480px){
 
@@ -647,19 +637,19 @@ a:hover {text-decoration: none;
         padding: 12px;
     }
 
+
     .wall-conector{
         margin-bottom: 10px;
     }
 }
 
 @media (min-width: 768px){
-
-    .text-nav-bar{
-    
-        font-size: 18px;
-        font-weight: 800;
+  
+    .caja-1,.caja-2,.caja-3{
+        display: flex;
+        width: 95%;
+        margin: auto;
     }
-
 
     .banner img{
         height: 29vw;
@@ -678,7 +668,7 @@ a:hover {text-decoration: none;
     }
     a{
         font-weight: 900;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     h2{
@@ -699,21 +689,21 @@ a:hover {text-decoration: none;
         margin-top: 35px;
     }
 
-    /*
-    .product :hover{
-        box-shadow: 1px 1px 5px #721817;
+    .description-list{
+        text-align: left;
     }
-*/
+
+   
    
 }
 
-@media (min-width:1100px){
+@media (min-width:1200px){
     .banner img{
         height: 20vw;
     }
 
     .logo{
-        width: 30%;
+        width: 20%;
         margin-top: 20px;
     }
     .search-bar{
@@ -735,14 +725,23 @@ a:hover {text-decoration: none;
         margin: auto;
     }
 
-      
-    .caja-1,.caja-2,.caja-3{
+     /* HAGO QUE SE DISTRIBUYA EL PRODUCT CONTAINER EN 2 PARTES: EL DE LAS IMAGENES Y LOS DETALLES */
+
+   .images-product-container {
         display: flex;
-        width: 95%;
-        margin: auto;
     }
 
+    .product-details-container, .images-container {
+        width: 50%;
+        margin: 0px 10px;
+    }
 
+    /* AJUSTO EL PADDING PARA QUE QUEDE PAREJO CON LOS BOTONES DE COMPRAR, AGREGAR AL CARRITO */
+    /* Y EDITAR PRODUCTO */
+    
+    div.buttons-buy-addToChart > form{
+        padding-top: 15px;
+    }
 }
 
 

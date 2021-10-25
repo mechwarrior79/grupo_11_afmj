@@ -21,7 +21,11 @@ router.get('/list',productsController.list);
 
 router.get('/create', productsController.create);
 
-router.get('/edit', productsController.edit);
+router.post('/create/', productsController.created);
+
+router.get('/edit/', productsController.edit);
+
+router.put('/edit/', productsController.modified);
 
 
 

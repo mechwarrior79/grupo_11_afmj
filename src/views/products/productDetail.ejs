@@ -3,7 +3,7 @@
 
 <!-- LLAMO AL HEAD DE PARTIALS-->
 
-<%- include('../partials/head') %>
+<%- include('../partials/head', { title: 'Detalle de producto'}) %>
 
 <body>
 
@@ -15,176 +15,161 @@
 
 
 
-      <!-- CONTENEDOR MAYOR CON DETALLE DEl PRODUCTO Y CARUSEL DE IMAGENES -->  
+      <!-- CONTENEDOR MAYOR CON DETALLE DEl PRODUCTO, CARUSEL DE IMAGENES Y BOTONES DE COMPRAR, AGREGAR-->  
+      <!-- AL CARRITO Y EDITAR PRODUCTO -->
 
       <section class="main-container">
 
           <div class="model-title">Model S</div> 
 
-          <!-- CONTENEDOR DE IMAGENES -->
+          <!-- CONTENEDOR MAYOR CON CARUSEL DE IMAGENES Y DETALLES DEL PRODUCTO-->
 
-          <div class="images-container">
-          
-              <!-- IMAGENES CON NUMERO DE IMAGEN ASOCIADO EN TAMAÑO 100% --> 
+          <!-- ESTO ME SIRVE PARA HACER DISPLAY FLEX -->
 
-              <div class="images">
-                <div class="imageNumber">1 / 4</div>
-                  <img src="/images/productos/modelo-s/model-s-volante.jpg" style="width:100%">
-              </div>
-            
-              <div class="images">
-                <div class="imageNumber">2 / 4</div>
-                  <img src="/images/productos/modelo-s/model-s-panel-navegacion.jpg" style="width:100%">
-              </div>
-            
-              <div class="images">
-                <div class="imageNumber">3 / 4</div>
-                  <img src="/images/productos/modelo-s/model-s-ambiente-trasero.jpg" style="width:100%">
-              </div>
-            
-              <div class="images">
-                <div class="imageNumber">4 / 4</div>
-                  <img src="/images/productos/modelo-s/model-s-ambiente-delantero.jpg" style="width:100%">
-              </div>
-            
-          
-          
-              <!-- BOTON DE ATRAS Y ADELANTE PARA LAS FOTOS -->
-              
-              <a class="previous" onclick="plusSlides(-1)">&#10094;</a>
-              <a class="next" onclick="plusSlides(1)">&#10095;</a>
-          
-            
-          
-              <!-- IMAGENES EN MINIATURA -->
-          
-              <div class="row">
-                  <div class="column">
-                    <img class="transp cursor" src="/images/productos/modelo-s/model-s-volante.jpg" style="width:100%" onclick="currentSlide(1)" alt="volante">
-                  </div>
-                  <div class="column"> 
-                    <img class="transp cursor" src="/images/productos/modelo-s/model-s-panel-navegacion.jpg" style="width:100%" onclick="currentSlide(2)" alt="panel-navegacion">
-                  </div>
-                  <div class="column">
-                    <img class="transp cursor" src="/images/productos/modelo-s/model-s-ambiente-trasero.jpg" style="width:100%" onclick="currentSlide(3)" alt="ambiente-trasero">
-                  </div>
-                  <div class="column">
-                    <img class="transp cursor" src="/images/productos/modelo-s/model-s-ambiente-delantero.jpg" style="width:100%" onclick="currentSlide(4)" alt="ambiente-delantero">
-                  </div>
-              </div>
-
-          </div>
-
-          <!-- SCRIPT JS AGREGADO PARA QUE CAMBIEN LOS NUMEROS DE IMAGENES Y CAMBIEN LAS FOTOS EN EL CARUSEL -->
-
-          <script>
-          
-              var slideIndex = 1;
-              showSlides(slideIndex);
-              
-              // CON ESTA FUNCION SE CONTROLAN LOS BOTONES DE ATRAS Y ADELANTE
-            
-              function plusSlides(n) {
-                showSlides(slideIndex += n);
-              }
-            
-              // CON ESTA FUNCION SE CONTROLAN LAS IMAGENES EN MINIATURA
-              
-              function currentSlide(n) {
-                showSlides(slideIndex = n);
-              }
-            
-              // CON ESTA FUNCION SE CONTROLAN LAS IMAGENES EN MINIATURA
-            
-              // CADA VEZ QUE SE MUESTRA UNA IMAGEN SE LE APLICA SUS EFECTOS
-            
-              //SE ESTRUCTURA PARA QUE SIEMPRE SEA UN CICLO CONTINUO, 
-              // ELIJAS PARA ADELANTE O ATRAS LOS BOTONES
-            
-              function showSlides(n) {
-                var i;
-                var slides = document.getElementsByClassName("images");
-                var dots = document.getElementsByClassName("transp");
-                if (n > slides.length) {slideIndex = 1}
-                if (n < 1) {slideIndex = slides.length}
-                for (i = 0; i < slides.length; i++) {
-                  slides[i].style.display = "none";
-                }
-                for (i = 0; i < dots.length; i++) {
-                  dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex-1].style.display = "block";
-                dots[slideIndex-1].className += " active";
-              }
-
-          </script>
-       
-        
-            <!-- CONTENEDOR DE PRODUCTO -->
-
-            <div class="product-container">
-            
-              <!-- SE DIVIDE EN 3 CONTENEDORES: DETALLE, BOTON DE MAS INFORMACION Y BOTON DE COMPRAR Y AGREGAR AL CARRITO  -->
-              
-              <!-- CONTENEDOR DE DETALLES DEL PRODUCTO Y CARACTERISTICAS -->
-              
-              <div class="product-details-container">
-                  
-                  
-                  
-                    <h3 class="characteristics-title"> Protección para grandes impactos</h3>
+          <div class="images-product-container">
                 
+                <!-- CONTENEDOR DE IMAGENES -->
+                
+                <div class="images-container">
+                
+                    <!-- IMAGENES CON NUMERO DE IMAGEN ASOCIADO EN TAMAÑO 100% --> 
+                
+                    <div class="images">
+                      <div class="imageNumber">1 / 4</div>
+                        <img src="/images/productos/modelo-s/model-s-volante.jpg" style="width:100%">
+                    </div>
+                  
+                    <div class="images">
+                      <div class="imageNumber">2 / 4</div>
+                        <img src="/images/productos/modelo-s/model-s-panel-navegacion.jpg" style="width:100%">
+                    </div>
+                  
+                    <div class="images">
+                      <div class="imageNumber">3 / 4</div>
+                        <img src="/images/productos/modelo-s/model-s-ambiente-trasero.jpg" style="width:100%">
+                    </div>
+                  
+                    <div class="images">
+                      <div class="imageNumber">4 / 4</div>
+                        <img src="/images/productos/modelo-s/model-s-ambiente-delantero.jpg" style="width:100%">
+                    </div>
+                  
+                  
+                  
+                    <!-- BOTON DE ATRAS Y ADELANTE PARA LAS FOTOS -->
+
+                    <a class="previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  
+                  
+                  
+                    <!-- IMAGENES EN MINIATURA -->
+                  
+                    <div class="row">
+                        <div class="column">
+                          <img class="transp cursor" src="/images/productos/modelo-s/model-s-volante.jpg" style="width:100%" onclick="currentSlide(1)" alt="volante">
+                        </div>
+                        <div class="column"> 
+                          <img class="transp cursor" src="/images/productos/modelo-s/model-s-panel-navegacion.jpg" style="width:100%" onclick="currentSlide(2)" alt="panel-navegacion">
+                        </div>
+                        <div class="column">
+                          <img class="transp cursor" src="/images/productos/modelo-s/model-s-ambiente-trasero.jpg" style="width:100%" onclick="currentSlide(3)" alt="ambiente-trasero">
+                        </div>
+                        <div class="column">
+                          <img class="transp cursor" src="/images/productos/modelo-s/model-s-ambiente-delantero.jpg" style="width:100%" onclick="currentSlide(4)" alt="ambiente-delantero">
+                        </div>
+                    </div>
+                  
+                     <!-- SCRIPT JS AGREGADO PARA QUE CAMBIEN LOS NUMEROS DE IMAGENES Y CAMBIEN LAS FOTOS EN EL CARUSEL -->
+                  
+                    <script>
+                    
+                        var slideIndex = 1;
+                        showSlides(slideIndex);
+                    
+                        // CON ESTA FUNCION SE CONTROLAN LOS BOTONES DE ATRAS Y ADELANTE
+                    
+                        function plusSlides(n) {
+                          showSlides(slideIndex += n);
+                        }
+                      
+                        // CON ESTA FUNCION SE CONTROLAN LAS IMAGENES EN MINIATURA
+                      
+                        function currentSlide(n) {
+                          showSlides(slideIndex = n);
+                        }
+                      
+                        // CON ESTA FUNCION SE CONTROLAN LAS IMAGENES EN MINIATURA
+                      
+                        // CADA VEZ QUE SE MUESTRA UNA IMAGEN SE LE APLICA SUS EFECTOS
+                      
+                        //SE ESTRUCTURA PARA QUE SIEMPRE SEA UN CICLO CONTINUO, 
+                        // ELIJAS PARA ADELANTE O ATRAS LOS BOTONES
+                      
+                        function showSlides(n) {
+                          var i;
+                          var slides = document.getElementsByClassName("images");
+                          var dots = document.getElementsByClassName("transp");
+                          if (n > slides.length) {slideIndex = 1}
+                          if (n < 1) {slideIndex = slides.length}
+                          for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                          }
+                          for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                          }
+                          slides[slideIndex-1].style.display = "block";
+                          dots[slideIndex-1].className += " active";
+                        }
+                      
+                    </script>
+
+                </div>
+              
+              
+              
+              
+                <!-- CONTENEDOR DE PRODUCTO -->
+                      
+                <!-- CONTENEDOR DE DETALLES DEL PRODUCTO Y CARACTERISTICAS -->
+            
+                <div class="product-details-container">
+                
+                    <h3 class="characteristics-title"> Protección para grandes impactos</h3>
                     <div class="characteristic">El Model S está construido desde cero como un vehículo eléctrico, con una arquitectura de alta resistencia y un paquete de baterías colocado en el piso para una increíble protección de los ocupantes y un bajo riesgo de volcadura.Cada Model S incluye las últimas actualizaciones de seguridad activa de Tesla, como el Frenado automático de emergencia, sin costo adicional.</div>
-              </br>
+                    </br>
                     <h3 class="characteristics-title"> Autonomia mayor</h3>
                     <div class="characteristic">La plataforma de doble motor con traccion en las cuatro ruedas permite la autonomia mas larga y ofrece una potencia y una aceleracion inimaginable </div>
                   
-                  </div>   
+                    </br> 
                   
-                  </br>   
-                  
-                  <div class="description-list">   
-                  
-                    <div class="description">Potencia maxima: 1,020 hp </div>
-                    <div class="description">0 a 100 km/h: 2.1s</div>
-                    <div class="description">250 km/h 1/4 milla</div>
-                  
-                  </div>
-                
-              </div>
-            
-              
-              
-              <!-- CONTENEDOR DE BOTON MAS INFO -->
-            
-              <div class="more-info-container">
-              
-                  <form action="#" method="POST">
-                  
-                    <div>
-                        <button type="submit" class="button-more-info">Más info+</button>
+                    <div class="description-list">   
+                    
+                      <div class="description">Potencia maxima: 1,020 hp </div>
+                      <div class="description">0 a 100 km/h: 2.1s</div>
+                      <div class="description">250 km/h 1/4 milla</div>
+                    
                     </div>
                   
-                  </form>
-                
-              </div>
-            
-             
-              <!--CONTENEDOR DE BOTONES COMPRAR Y AGREGAR CARRITO -->
-            
-              <div class="buttons-buy-addToChart">
-              
-                <form action="#" method="POST">
-                
-                    <button type="submit" class="button-buy-add">Comprar</button>
-                    <button type="submit" class="button-buy-add">Agregar al carrito</button>
-                
-                </form>
-              
-              </div>
+                </div>
 
-            </div>
+                 
+          </div>
 
+          <!--CONTENEDOR DE BOTONES COMPRAR Y AGREGAR CARRITO -->
+                
+          <div class="buttons-buy-addToChart">
+                
+            <form action="#" method="POST">
+            
+                <button type="submit" class="button-buy-add">Comprar</button>
+                <button type="submit" class="button-buy-add">Agregar al carrito</button>
+            
+                <a href="../products/edit" class="button-buy-add">Editar producto</a>
+                
+            </form>
+          
+          </div>
 
       </section>
 
