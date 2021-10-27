@@ -36,7 +36,7 @@ a,li{
 }
 
 a{
-    padding: 5px;
+    padding: 2px;
 }
 
 .main-nav-bar {
@@ -71,8 +71,8 @@ a{
     border-radius: 5px;
 }
 .user,.buys,.news{
-    padding: 2px;
-    margin-right: 2px;
+    padding: 1px;
+    margin-right: 1px;
     transition: 450ms;
 
 }
@@ -225,14 +225,14 @@ footer{
 }
 
 .item-1{
-    padding: 3px;
+    padding: 2px;
     margin-top: 10px;
     color: rgb( 34, 200, 81);
     align-self: center;
     font-size: 40px;
 }
 .item-2{    
-    padding: 3px;
+    padding: 2px;
     margin-top: 10px;
     color: #721817;
     align-self: center;
@@ -240,7 +240,7 @@ footer{
 
 }
 .item-3{    
-    padding: 3px;
+    padding: 2px;
     margin-top: 10px;
     color: #031926;
     align-self: center;
@@ -605,7 +605,7 @@ a:hover {text-decoration: none;
 
 .text-nav-bar{
     
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 800;
 }
 
@@ -625,7 +625,7 @@ a:hover {text-decoration: none;
     }
 
     .logo{
-        width: 35%;
+        width: 30%;
     }
 
     .nuestros-productos,.productos-destacados{
