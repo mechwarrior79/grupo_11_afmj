@@ -28,28 +28,28 @@
                 <!-- CAMPOS A MODIFICAR DEL NOMBRE DEL PRODUCTO, DESCRIPCION E IMAGEN -->
               
                 <div class="field">
-                  <label for="product-name">Nombre del producto:</label>
-                  <input type="text" name="product-name" id="product-name" required minlenght="1" value="Viene por parámetro body campo product-name" class="input">
+                  <label for="productName">Nombre del producto:</label>
+                  <input type="text" name="productName" id="productName" required minlenght="1" value="Viene por parámetro body campo productName" class="input">
                 </div>
               
               
                 <div class="field">
-                  <label for="product-description">Descripción:</label>
-                  <textarea name="product-description" id="product-description" required minlenght="1" value="jajajaja" class="input"></textarea> 
+                  <label for="productDescription">Descripción:</label>
+                  <textarea name="productDescription" id="productDescription" required minlenght="1" value="jajajaja" class="input"></textarea> 
                 </div>
               
               
                 <div class="field">
-                  <label for="product-file">Imagen del producto:</label>
-                  <input type="file" name="product-file" id="product-file"  class="input">
+                  <label for="productFile">Imagen del producto:</label>
+                  <input type="file" name="productFile" id="productFile"  class="input">
                 </div>
               
               
-                <!-- CAMPOS A MODIFICAR DE LA CATEGORIA DEL PRODUCTO, COLORES Y PRECIO -->
+                 <!-- CAMPOS A COMPLETAR DE LA CATEGORIA DEL PRODUCTO, TIPO DE PRECIO, PRECIO Y DESCUENTO -->
               
                 <div class="field">
-                  <label for="product-category">Categoría de productos</label>
-                  <select name="product-category" required class="input" >
+                  <label for="productCategory">Categoría de productos</label>
+                  <select name="productCategory" required class="input" >
                     <option disabled hidden selected >Seleccionar categoría</option>
                     <option value="C">Autos</option>
                     <option value="SR">Techos solares</option>
@@ -57,11 +57,24 @@
                   </select>
                 </div> 
                 
-               
+                <div class="field">
+                  <label for="productStatus" class="form-label">Estado del producto</label>
+                  <select name="productStatus" id="productStatus" required class="input">
+                    <option disabled hidden selected>Seleccionar estado del producto</option>
+                    <option value="in-sale">En oferta</option>
+                    <option value="last-visited">Últimos visitados</option>
+                  </select>
+                </div>
+
                 
                 <div class="field">
-                  <label for="product-price">Precio</label>
-                  <input type="number" step="0.01" name="product-price" id="product-price" required value="00.00" class="input">     
+                  <label for="productPrice">Precio</label>
+                  <input type="number" step="0.01" name="productPrice" id="productPrice" required value="00.00" class="input">     
+                </div>
+
+                <div class="field">
+                  <label for="productDiscount">Descuento: </label>
+                  <input type="number" step="0.01" name="productDiscount" id="productDiscount" required class="input">     
                 </div>
               
               
