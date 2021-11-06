@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "user-login-name": "margallego",
+        "user-name": "Martin",
+        "user-surname": "Gallego",
+        "user-sex": "M",
+        "user-birth-date": "14/04/1978",
+        "user-email": "mgallego@hotmail.com",
+        "user-password": "mgallego",
+        "terminos": "terminos",
+        "novedades": "novedades"
+    },
+    {
+        "id": 2,
+        "user-login-name": "alanbar",
+        "user-name": "Alan",
+        "user-surname": "Barreiro",
+        "user-sex": "M",
+        "user-birth-date": "13/08/1984",
+        "user-email": "abarreiro@hotmail.com",
+        "user-password": "abarreiro",
+        "terminos": "terminos",
+        "novedades": ""
+    },
+    {
+        "id": 3,
+        "user-login-name": "josepeter",
+        "user-name": "Jose",
+        "user-surname": "Peter",
+        "user-sex": "X",
+        "user-birth-date": "27/02/1985",
+        "user-email": "jpeter@hotmail.com",
+        "user-password": "jpeter",
+        "terminos": "terminos",
+        "novedades": ""
+    },
+    {
+        "id": 4,
+        "user-login-name": "millonario21",
+        "user-name": "Marcelo",
+        "user-surname": "Gallardon",
+        "user-sex": "M",
+        "user-birth-date": "18/11/1996",
+        "user-email": "mgallardon@mysql.com",
+        "user-password": "mgallardo",
+        "terminos": "terminos",
+        "novedades": ""
+    },
+    {
+        "id": 5,
+        "user-login-name": "Johanna44",
+        "user-name": "Johanna",
+        "user-surname": "Silver",
+        "user-sex": "F",
+        "user-birth-date": "23/01/1993",
+        "user-email": "jsilver@hotmail.com",
+        "user-password": "jsilver",
+        "terminos": "terminos",
+        "novedades": ""
+    }
+]

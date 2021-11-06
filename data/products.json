@@ -1,0 +1,105 @@
+[
+    {
+        "id": 1,
+        "productName": "Paneles solares",
+        "productDescription": "Paneles solares",
+        "productFile": "solar01.jpg",
+        "productCategory": "SR",
+        "productStatus": "in-sale",
+        "productPrice": 60000,
+        "productDiscount": 15
+    },
+    {
+        "id": 2,
+        "productName": "Android help",
+        "productDescription": "Android help",
+        "productFile": "robotics-1.jfif",
+        "productCategory": "C",
+        "productStatus": "in-sale",
+        "productPrice": 90000,
+        "productDiscount": 10
+    },
+    {
+        "id": 3,
+        "productName": "Mini-Dron PG2021 HQ",
+        "productDescription": "Mini-Dron PG2021 HQ",
+        "productFile": "mini-dron.webp",
+        "productCategory": "SP",
+        "productStatus": "in-sale",
+        "productPrice": 60000,
+        "productDiscount": 30
+    },
+    {
+        "id": 4,
+        "productName": "Wall Conector",
+        "productDescription": "Wall Conector",
+        "productFile": "wall-conector.jpg",
+        "productCategory": "SP",
+        "productStatus": "in-sale",
+        "productPrice": 75000,
+        "productDiscount": 30
+    },
+    {
+        "id": 5,
+        "productName": "CyberTruck",
+        "productDescription": "CyberTruck",
+        "productFile": "Cybertruck_01.jfif",
+        "productCategory": "C",
+        "productStatus": "in-sale",
+        "productPrice": 2100000,
+        "productDiscount": 25
+    },
+
+    {
+        "id": 6,
+        "productName": "Paneles solares",
+        "productDescription": "Paneles solares",
+        "productFile": "solar01.jpg",
+        "productCategory": "SR",
+        "productStatus": "last-visited",
+        "productPrice": 60000,
+        "productDiscount": 15
+    },
+    {
+        "id": 7,
+        "productName": "Android help",
+        "productDescription": "Android help",
+        "productFile": "robotics-1.jfif",
+        "productCategory": "C",
+        "productStatus": "last-visited",
+        "productPrice": 90000,
+        "productDiscount": 10
+    },
+    {
+        "id": 8,
+        "productName": "Mini-Dron PG2021 HQ",
+        "productDescription": "Mini-Dron PG2021 HQ",
+        "productFile": "mini-dron.webp",
+        "productCategory": "SP",
+        "productStatus": "last-visited",
+        "productPrice": 60000,
+        "productDiscount": 30
+    },
+    {
+        "id": 9,
+        "productName": "Wall Conector",
+        "productDescription": "Wall Conector",
+        "productFile": "wall-conector.jpg",
+        "productCategory": "SP",
+        "productStatus": "last-visited",
+        "productPrice": 75000,
+        "productDiscount": 30
+    },
+    {
+        "id": 10,
+        "productName": "CyberTruck",
+        "productDescription": "CyberTruck",
+        "productFile": "Cybertruck_01.jfif",
+        "productCategory": "C",
+        "productStatus": "last-visited",
+        "productPrice": 2100000,
+        "productDiscount": 25
+    }
+
+    
+]
