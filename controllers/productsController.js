@@ -20,10 +20,21 @@ const controller = {
 
     // Derivo cada función a la página que le corresponde
     
+
+     //Muestro la lista de productos
+
+     index: (req,res) =>{
+        res.render ('./products/productList', {'products':products})
+    },
+
     // Veo el detalle del producto
 
     productDetail: (req, res) => {
-        res.render('./products/productDetail')
+        const id = req.params.id;
+        const product = products.find (product=>{
+            return product.id == id
+        })
+        res.render('./products/productDetail', {'product': product})
     },
 
      // Muestro el carrito de compras
@@ -32,12 +43,7 @@ const controller = {
         res.render('./products/cart')
     },
 
-    //Muestro la lista de productos
-
-    list: (req,res) =>{
-        res.render ('./products/productList')
-    },
-
+   
     // Creo un producto
 
     create: (req, res) => {

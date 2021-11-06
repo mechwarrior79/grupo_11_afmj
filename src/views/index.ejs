@@ -16,216 +16,99 @@
         <p class="info"> <i class="hoja fas fa-leaf"></i> Productos con impacto positivo <i class="bateria fas fa-battery-three-quarters"></i></p>
 
         
-        <h2>Nuestros productos</h2>
-        
-        <div class="caja-1">
-
-            <section class="productos-destacados">
-    
-                <article class="product">
-
-                    <a href="./products/detail">
-    
-                        <p class="modelo">Paneles solares</p>
-    
-                        <img src="/images/productos/solar01.jpg" alt="producto1">
-                        <div class="precio-oferta"><p class="precio">$60000</p><p class="oferta">%15 off</p></div>
-                        
-                    </a>
-                    
-    
-                </article>
-    
-                <article class="product">
-
-                    <a href="./products/detail">
-    
-                        <p class="modelo">Android help</p>
-    
-                        <img src="/images/productos/robotics-1.jfif" alt="producto2">
-                        <div class="precio-oferta"><p class="precio">$90000</p><p class="oferta">%10 off</p></div>
-
-                    </a>
-                </article>
-    
-               
-    
-            </section>
-    
-            <section class="productos-destacados">
-
-                
-    
-                <article class="product">
-                    <a href="./products/detail">
-    
-                        <p class="modelo">Mini-Dron PG2021 HQ</p>
-    
-                        <img src="/images/productos/mini-dron.webp" alt="producto2">
-                        <div class="precio-oferta"><p class="precio">$60000</p><p class="oferta">%30 off</p></div>
-                    </a>
-                </article>
-    
-                
-    
-                <article class="product">
-
-                    <a href="./products/detail">
-    
-                        <p class="wall-conector">Wall Conector<p>
-    
-                        <img src="/images/productos/wall-conector.jpg" alt="producto2">
-                        <div class="precio-oferta"><p class="precio">$75000</p><p class="oferta">%30 off</p></div>
-                    </a>
-                </article>
-
-    
-            </section>
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Accesorios</h2>
+                </div>
+                <!-- Accesorios -->
+                <% products.forEach(product => {%>
+                    <% if(product.productCategory == "accesory"){ %> 
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <section class="product-box">
+                                <a href="/products/<%=product.id%>">
+                                    <figure class="product-box_image">
+                                        <img src="/images/productos/<%=product.productImage%> " alt="imagen de producto">
+                                    </figure>
+                                    <article class="product-box_data">
+                                        <h2>$<%= product.productPrice %>  </h2>
+                                        <span><%= product.productDiscount %>  % OFF</span>
+                                        <p><%= product.productName %></p>
+                                        <i class="hoja fas fa-leaf"></i>
+                                    </article>
+                                </a>
+                            </section>
+                        </div>
+                    <%}%>     
+                <%});%> 
+            </div>
         </div>
+        <!-- /accesorios -->
         
         <div class="corte"> </div>
 
-        <h2>Autos Electricos</h2>
-        
-        <div class="caja-2">
-
-            <section class="productos-destacados">
-    
-                <article class="product">
-
-                    <a href="./products/detail">
-    
-                        <p class="modelo">Modelo S</p>
-    
-                        <img src="/images/productos/modelsplaid-1.jfif" alt="producto1">
-                        <div class="precio-oferta"><p class="precio">$1400000</p><p class="oferta">%15 off</p></div>
-
-                    </a>
-    
-                    
-    
-                </article>
-    
-                <article class="product">
-
-                    <a href="./products/detail">
-    
-                        <p class="modelo">CyberTruck</p>
-    
-                        <img src="images/productos/Cybertruck_01.jfif" alt="producto2">
-                        
-                        <div class="precio-oferta"><p class="precio">$2100000</p><p class="oferta">%25 off</p></div>
-                    </a>
-
-                </article>
-    
-               
-    
-            </section>
-            <section class="productos-destacados">
-    
-                <article class="product">
-
-                    <a href="./products/detail">
-    
-                        <p class="modelo">Modelo 3</p>
-    
-                        <img src="/images/productos/Model3_26.jfif" alt="producto2">
-                        <div class="precio-oferta"><p class="precio">$1600000</p><p class="oferta">%10 off</p></div>
-                    </a>
-
-                </article>
-                
-    
-                
-    
-                <article class="product">
-
-                    <a href="./products/detail">
-    
-                        <p class="modelo">Roadster<p>
-    
-                        <img src="/images/productos/Roadster_01.jfif" alt="producto2">
-                        <div class="precio-oferta"><p class="precio">$1700000</p><p class="oferta">%25 off</p></div>
-
-                    </a>
-
-                </article>
-
-    
-            </section>
+        <!-- Autos Electricos -->
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Autos Electricos</h2>
+                </div>
+                <% products.forEach(product => {%>
+                    <% if(product.productCategory == "electric-car"){ %> 
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <section class="product-box">
+                                <a href="/products/<%= product.id%>">
+                                    <figure class="product-box_image">
+                                        <img src="/images/productos/<%= product.productImage %> " alt="imagen de producto">
+                                    </figure>
+                                    <article class="product-box_data">
+                                        <h2>$<%= product.productPrice %>  </h2>
+                                        <span><%= product.productDiscount %>  % OFF</span>
+                                        <p><%= product.productName %> </p>
+                                        <i class="hoja fas fa-leaf"></i>
+                                    </article>
+                                </a>
+                            </section>
+                        </div>
+                    <%}%>     
+                <%});%> 
+            </div>
         </div>
-            
+        <!-- /Autos Electricos -->
+        
         <div class="corte"> </div>
-
-        <h2>Productos destacados en oferta</h2>
         
-        <div class="caja-3">
-
-            <section class="productos-destacados">
-
-                <article class="product">
-
-                    <a href="./products/detail">
-
-                        <p class="modelo">Roadster</p>
-
-                        <img src="/images/productos/Roadster_01.jfif" alt="producto1">
-                        <div class="precio-oferta"><p class="precio">$1700000</p><p class="oferta">%25 off</p></div>
-
-                    </a>
-
-                </article>
-
-                <article class="product">
-
-                    <a href="./products/detail">
-
-                        <p class="modelo">CyberTruck</p>
-
-                        <img src="images/productos/Cybertruck_01.jfif" alt="producto2">
-                        <div class="precio-oferta"><p class="precio">$2100000</p><p class="oferta">%25 off</p></div>
-                    </a>
-
-                </article>
-           
-            </section>
-
-            <section class="productos-destacados">
-
-                <article class="product">
-
-                    <a href="./products/detail">
-
-                        <p class="modelo">Mini-Dron PG2021 HQ</p>
-
-                        <img src="/images/productos/mini-dron.webp" alt="producto2">
-                        <div class="precio-oferta"><p class="precio">$60000</p><p class="oferta">%30 off</p></div>
-
-                    </a>
-                </article>
-
-
-            
-
-                <article class="product">
-
-                    <a href="./products/detail">
-
-                        <p class="wall-conector">Wall Conector<p>
-
-                        <img src="/images/productos/wall-conector.jpg" alt="producto2">
-                        <div class="precio-oferta"><p class="precio">$75000</p><p class="oferta">%30 off</p></div>
-                    </a>
-                </article>
-
-            </section>
+        <div class="container products-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="products-title">Productos destacados en oferta</h2>
+                </div>
+                <!-- Productos destacados en oferta -->
+                <% products.forEach(product => {%>
+                    <% if(product.productStatus == "in-sale"){ %> 
+                        <div class="col-12 col-sm-6 col-lg-3">
+                            <section class="product-box">
+                                <a href="/products/<%= product.id%>">
+                                    <figure class="product-box_image">
+                                        <img src="/images/productos/<%=product.productImage%> " alt="imagen de producto">
+                                    </figure>
+                                    <article class="product-box_data">
+                                        <h2>$<%= product.productPrice %>  </h2>
+                                        <span><%= product.productDiscount %>  % OFF</span>
+                                        <p><%= product.productName %> </p>
+                                        <i class="hoja fas fa-leaf"></i>
+                                    </article>
+                                </a>
+                            </section>
+                        </div>
+                    <%}%>     
+                <%});%> 
+            </div>
         </div>
+        <!-- /Productos destacados en oferta -->
 
     </main>
 
-    
- 
     <!-- LLAMO AL FOOTER DE PARTIALS-->
 
     <%- include('./partials/footer') %> 

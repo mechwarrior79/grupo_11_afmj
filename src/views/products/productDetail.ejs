@@ -13,6 +13,8 @@
 
     <main>
 
+      <p class="info"> <i class="hoja fas fa-leaf"></i> Productos con impacto positivo <i class="bateria fas fa-battery-three-quarters"></i></p>
+
 
 
       <!-- CONTENEDOR MAYOR CON DETALLE DEl PRODUCTO, CARUSEL DE IMAGENES Y BOTONES DE COMPRAR, AGREGAR-->  
@@ -20,7 +22,7 @@
 
       <section class="main-container">
 
-          <div class="model-title">Model S</div> 
+          <div class="model-title"><%=product.productName%></div> 
 
           <!-- CONTENEDOR MAYOR CON CARUSEL DE IMAGENES Y DETALLES DEL PRODUCTO-->
 
@@ -36,22 +38,22 @@
                 
                     <div class="images">
                       <div class="imageNumber">1 / 4</div>
-                        <img src="/images/productos/modelo-s/model-s-volante.jpg" style="width:100%">
+                        <img src="/images/productos/<%=product.productImage%>" style="width:100%">
                     </div>
                   
                     <div class="images">
                       <div class="imageNumber">2 / 4</div>
-                        <img src="/images/productos/modelo-s/model-s-panel-navegacion.jpg" style="width:100%">
+                        <img src="/images/productos/<%=product.productImage%>" style="width:100%">
                     </div>
                   
                     <div class="images">
                       <div class="imageNumber">3 / 4</div>
-                        <img src="/images/productos/modelo-s/model-s-ambiente-trasero.jpg" style="width:100%">
+                        <img src="/images/productos/<%=product.productImage%>" style="width:100%">
                     </div>
                   
                     <div class="images">
                       <div class="imageNumber">4 / 4</div>
-                        <img src="/images/productos/modelo-s/model-s-ambiente-delantero.jpg" style="width:100%">
+                        <img src="/images/productos/<%=product.productImage%>" style="width:100%">
                     </div>
                   
                   
@@ -63,22 +65,23 @@
                   
                   
                   
-                    <!-- IMAGENES EN MINIATURA -->
+                    <!-- IMAGENES EN MINIATURA 
                   
                     <div class="row">
                         <div class="column">
-                          <img class="transp cursor" src="/images/productos/modelo-s/model-s-volante.jpg" style="width:100%" onclick="currentSlide(1)" alt="volante">
+                          <img class="transp cursor" src="/images/productos/<%=product.productImage%>" style="width:100%" onclick="currentSlide(1)" alt="volante">
                         </div>
                         <div class="column"> 
-                          <img class="transp cursor" src="/images/productos/modelo-s/model-s-panel-navegacion.jpg" style="width:100%" onclick="currentSlide(2)" alt="panel-navegacion">
+                          <img class="transp cursor" src="/images/productos/<%=product.productImage%>" style="width:100%" onclick="currentSlide(2)" alt="panel-navegacion">
                         </div>
                         <div class="column">
-                          <img class="transp cursor" src="/images/productos/modelo-s/model-s-ambiente-trasero.jpg" style="width:100%" onclick="currentSlide(3)" alt="ambiente-trasero">
+                          <img class="transp cursor" src="/images/productos/<%=product.productImage%>" style="width:100%" onclick="currentSlide(3)" alt="ambiente-trasero">
                         </div>
                         <div class="column">
-                          <img class="transp cursor" src="/images/productos/modelo-s/model-s-ambiente-delantero.jpg" style="width:100%" onclick="currentSlide(4)" alt="ambiente-delantero">
+                          <img class="transp cursor" src="/images/productos/<%=product.productImage%>" style="width:100%" onclick="currentSlide(4)" alt="ambiente-delantero">
                         </div>
                     </div>
+                    -->
                   
                      <!-- SCRIPT JS AGREGADO PARA QUE CAMBIEN LOS NUMEROS DE IMAGENES Y CAMBIEN LAS FOTOS EN EL CARUSEL -->
                   
@@ -135,22 +138,31 @@
             
                 <div class="product-details-container">
                 
-                    <h3 class="characteristics-title"> Protección para grandes impactos</h3>
-                    <div class="characteristic">El Model S está construido desde cero como un vehículo eléctrico, con una arquitectura de alta resistencia y un paquete de baterías colocado en el piso para una increíble protección de los ocupantes y un bajo riesgo de volcadura.Cada Model S incluye las últimas actualizaciones de seguridad activa de Tesla, como el Frenado automático de emergencia, sin costo adicional.</div>
+                    <h3 class="characteristics-title"> <%= product.productMainDescription%></h3>
+                    <!--
+                    <div class="characteristic"><%= product.dataChar1%></div>
                     </br>
-                    <h3 class="characteristics-title"> Autonomia mayor</h3>
-                    <div class="characteristic">La plataforma de doble motor con traccion en las cuatro ruedas permite la autonomia mas larga y ofrece una potencia y una aceleracion inimaginable </div>
+                    <h3 class="characteristics-title"> <%= product.characteristic2%></h3>
+                    <div class="characteristic"><%= product.dataChar2%></div>
+                    -->
                   
                     </br> 
                   
                     <div class="description-list">   
                     
-                      <div class="description">Potencia maxima: 1,020 hp </div>
+                      <div class="description"><%= product.productSecondaryDescription%></div>
+                      <!--
                       <div class="description">0 a 100 km/h: 2.1s</div>
                       <div class="description">250 km/h 1/4 milla</div>
-                    
+                    -->
+                    <br></br>
+                    <p class="info-1" >
+                      <del><span>$<%= product.productPrice %></span></del>
+                      <b style="color: green;">/<%= product.productDiscount %> % OFF</b>
+                    </p>
+                    <p class="info-2">$<%= product.productPrice - (product.productPrice/100 *product.productDiscount)%></p>
                     </div>
-                  
+ 
                 </div>
 
                  

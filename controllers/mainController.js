@@ -22,7 +22,7 @@ const controller = {
 
   index: (req, res) => {
       res.render('index', { 
-        productsSent : products })
+        'products' : products })
   }
 
 }

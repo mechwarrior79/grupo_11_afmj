@@ -12,12 +12,13 @@ const productsController = require('../controllers/productsController');
 
 // Con router, de acuerdo a la ruta que ponga, le digo que haga tal función 
 
+//get de product
+router.get('/',productsController.index);
 
-router.get('/detail', productsController.productDetail);
+//get de product con id
+router.get('/:id', productsController.productDetail);
 
 router.get('/cart', productsController.cart);
-
-router.get('/list',productsController.list);
 
 router.get('/create', productsController.create);
 
