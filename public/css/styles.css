@@ -277,7 +277,8 @@ footer{
     padding: 5px 10px;
     border-radius: 5px;
     margin: 5px 10px;
-    color: #721817;
+    color:#031926 ;
+    font-weight: 800;
     background-color: #f9f8f8;
     margin-left: 0px;
 
@@ -290,7 +291,7 @@ Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
 
 .login-button:hover  {
     color: #f9f8f8;
-    background-color: #721817;
+    background-color: rgb( 34, 200, 81);
   }
   
   
@@ -301,13 +302,15 @@ Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
       padding: 5px 10px;
       border-radius: 5px;
       margin: 5px 10px;
-      color: #721817;
       background-color: #f9f8f8;
       margin-left: 0px;
+      color:#031926 ;
+      font-weight: 800;
   }
   
   .login-cancel-button {
       margin: 15px 0px;
+     
   }
   
   
@@ -318,7 +321,7 @@ Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
   
   .registration-button:hover  {
     color: #f9f8f8;
-    background-color: #721817;
+    background-color: rgb( 34, 200, 81);
   }
 
   /*Hasta aca los formularios*/
@@ -382,7 +385,8 @@ div .images {
     padding: 5px 25px;
     font-size: 15px;
     background-color: #f9f8f8;  
-    color: #757780;
+    color: #031926;
+    font-weight: 600;
     
     
   /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE MAS INFO, COMPRAR Y AGREGAR AL CARRITO CAMBIAN DE FORMATO */
@@ -392,7 +396,7 @@ div .images {
   .button-more-info:hover,
   .button-buy-add:hover  {
     color: #f9f8f8;
-    background-color: #721817;
+    background-color: rgb( 34, 200, 81);
   }
 
 
@@ -617,9 +621,10 @@ img {
   
   .product-box_data span {
     font-size: 1.3em;
-    font-weight: 400;
+    font-weight: 800;
     color: var(--green);
     margin: 0 0 0 20px;
+    color: rgb( 34, 200, 81);
   }
   
   .product-box_data p {
@@ -665,7 +670,7 @@ img {
   }
 
   .fa-leaf:before {
-    color: green;
+    color: rgb( 34, 200, 81);
     content: "\f06c";
 }
   
