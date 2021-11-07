@@ -21,39 +21,47 @@
               <!-- TITULO DEL REGISTRO-->
               
               
-              <form action="../products/create" method="POST">
+              <form action="../products/" method="POST" enctype="multipart/form-data">
 
                 <div class="registration-title"> Ingresá los datos para crear el producto</div>
               
-                <!-- CAMPOS A COMPLETAR DEL NOMBRE DEL PRODUCTO, DESCRIPCION E IMAGEN -->
+                <!-- CAMPOS A COMPLETAR DEL NOMBRE, DESCRIPCION PRINCIPAL Y SECUNDARIA DEL PRODUCTO -->
               
                 <div class="field">
                   <label for="productName">Nombre del producto:</label>
                   <input type="text" name="productName" id="productName" required minlenght="1" class="input">
                 </div>
               
-              
+                
                 <div class="field">
-                  <label for="productDescription">Descripción:</label>
-                  <textarea name="productDescription" id="productDescription" required minlenght="1" class="input"></textarea> 
+                  <label for="productMainDescription">Descripción principal:</label>
+                  <textarea name="productMainDescription" id="productMainDescription" required minlenght="1" class="input"></textarea> 
+                </div>
+
+
+                <div class="field">
+                  <label for="productSecondaryDescription">Descripción secundaria:</label>
+                  <textarea name="productSecondaryDescription" id="productSecondaryDescription" required minlenght="1" class="input"></textarea> 
                 </div>
               
+
               
-                <div class="field">
-                  <label for="productFile">Imagen del producto:</label>
-                  <input type="file" name="productFile" id="productFile"  class="input">
-                </div>
+               
               
               
-               <!-- CAMPOS A COMPLETAR DE LA CATEGORIA DEL PRODUCTO, TIPO DE PRECIO, PRECIO Y DESCUENTO -->
+               <!-- CAMPOS A COMPLETAR DE LA IMAGEN, CATEGORIA DEL PRODUCTO, TIPO DE PRECIO, PRECIO Y DESCUENTO -->
               
+               <div class="field">
+                <input type="file" name="newProductImage">
+              </div>
+
                 <div class="field">
                   <label for="productCategory">Categoría de productos</label>
                   <select name="productCategory" required class="input" >
                     <option disabled hidden selected>Seleccionar categoría</option>
-                    <option value="C">Autos</option>
-                    <option value="SR">Techos solares</option>
-                    <option value="SP">Paneles solares</option>
+                    <option value="electric-car">Autos</option>
+                    <option value="accesory">Techos solares</option>
+                    <option value="accesory">Paneles solares</option>
                   </select>
                 </div> 
 

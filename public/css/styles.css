@@ -4,6 +4,8 @@
 
 }
 
+
+
 h2{
     color: #031926;
     padding: 15px;
@@ -373,13 +375,15 @@ div .images {
   
   
   
-  div.buttons-buy-addToChart > form {
+  .buttons-buy-addToChart   {  
   
     display: flex;
     justify-content: space-around;
-  }
-  
+    
+  } 
+
   .button-buy-add {
+   
     border-radius: 8px;
     margin: 5px;
     padding: 5px 25px;
@@ -387,11 +391,13 @@ div .images {
     background-color: #f9f8f8;  
     color: #031926;
     font-weight: 600;
-    
+  }  
+  
+ 
     
   /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE MAS INFO, COMPRAR Y AGREGAR AL CARRITO CAMBIAN DE FORMATO */
   
-  }
+ 
 
   .button-more-info:hover,
   .button-buy-add:hover  {
