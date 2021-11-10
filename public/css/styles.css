@@ -4,15 +4,12 @@
 
 }
 
-
-
 h2{
     color: #031926;
     padding: 15px;
     font-weight: 300;
     text-align: left;
     font-size: 28px;
-
 }
 
 h4{
@@ -24,7 +21,6 @@ body{
     font-family: 'Quicksand', sans-serif;
    
 }
-
 header{
     background-color: #f9f8f8;
    
@@ -106,6 +102,7 @@ a{
 
 .icon{
     margin-left: 1px;
+    display: block;
 }
 
 main{
@@ -115,7 +112,7 @@ main{
 
 .info{
   font-weight: 500;
-  padding-top: 15px;
+ 
   color: #f9f8f8;
   text-align: center;
   font-size: 20px;
@@ -135,7 +132,7 @@ main{
     flex-direction: column;
 }
 .info-1{
-    padding-top: 10px;
+   
     color: #f9f8f8;
     text-align: center;
     font-size: 25px;
@@ -143,11 +140,10 @@ main{
     
 }
 .info-2{
-  padding-top: 10px;
+  
     color: rgb( 34, 200, 81);
     text-align: center;
     font-size: 40px;
-    margin-bottom: 5px;
     font-weight: 800;
 }
 
@@ -225,14 +221,14 @@ footer{
 
 .create-formularie {
     padding: 20px 15px;
-    width: 80%;
+    width: 60%;
     margin: auto;
   }
 
 
 .register-container {
     padding: 20px 15px;
-    width: 80%;
+    width: 60%;
     margin: auto;
     
   }
@@ -258,8 +254,12 @@ footer{
   
   .field {
     margin-bottom: 10px;
+  
   }
   
+  .check{
+    text-align: center;
+  }
   
   label {
       color: #f9f8f8;
@@ -271,6 +271,7 @@ footer{
     margin: 8px 0px;
     padding: 8px 0px;
     font-size: 16px;
+    border-radius: 8px;
   }
   
   .login-button {
@@ -283,7 +284,14 @@ footer{
     font-weight: 800;
     background-color: #f9f8f8;
     margin-left: 0px;
+   
+    text-align: center;
 
+  }
+
+  .buttons-login{
+    display: flex;
+    justify-content: center;
   }
 
   /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE INGRESAR, CANCELAR, OLVIDO DE CONTRASEÑA Y USUARIO, 
@@ -312,8 +320,11 @@ Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
   
   .login-cancel-button {
       margin: 15px 0px;
-     
+     display: flex;
+    justify-content: center;
   }
+
+ 
   
   
   /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE INGRESAR, CANCELAR, OLVIDO DE CONTRASEÑA Y USUARIO, 
@@ -351,13 +362,13 @@ div .images {
 }
 
 .product-details-container {
-  margin: 15px 0px 15px 10px;
+  margin: 35px 0px 15px 10px;
 }
 
 .characteristics-title {
   color: #f9f8f8;
-  font-weight: 300;
-  text-align: left;
+  font-weight: 400;
+  text-align: center;
   font-size: 20px;
 }
 
@@ -366,11 +377,13 @@ div .images {
   color: #f9f8f8;
   font-size: 16px;
   font-weight: 900;
+  margin-bottom: -15px;
+
 }
 
 .description-list{
   text-align: center;
-  padding: 20px;
+ padding: 2px;
 }
   
   
@@ -378,21 +391,27 @@ div .images {
   .buttons-buy-addToChart   {  
   
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap; 
+    align-items: center;
+    margin-top: 10px;
     
   } 
 
   .button-buy-add {
    
     border-radius: 8px;
-    margin: 5px;
-    padding: 5px 25px;
-    font-size: 15px;
+    margin-top: 20px;
+    
+    padding: 5px 20px;
+    font-size: 14px;
     background-color: #f9f8f8;  
     color: #031926;
-    font-weight: 600;
+    font-weight: 700;
+    margin-right: 5px;
   }  
   
+ 
  
     
   /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE MAS INFO, COMPRAR Y AGREGAR AL CARRITO CAMBIAN DE FORMATO */
@@ -578,7 +597,15 @@ a:hover {text-decoration: none;
     font-weight: 800;
 }
 
-/*====== Products ======*/
+
+.eliminar{
+  transition: 350;
+}
+.eliminar :hover {
+  background-color: #721817;
+}
+
+/*--------products-----------*/
 
 img {
   width: 100%;
@@ -612,11 +639,12 @@ img {
   }
   
   .product-box_data {
-    padding: 9px;
+    padding: 1px;
     position: relative;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: space-evenly;
   }
   
   .product-box_data h2 {
@@ -645,11 +673,10 @@ img {
   
   .product-box_data i {
     color: var(--green);
-    font-size: 1.8em;
+    font-size: 1.4em;
     width: 35px;
     height: 35px;
     text-align: center;
-    border: solid 1px;
     border-radius: 50%;
     position: absolute;
     top: -8px;
@@ -696,6 +723,14 @@ img {
     .logo{
         width: 30%;
     }
+
+    
+    .product-box_data {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+
+    }
    
 
 }
@@ -708,7 +743,7 @@ img {
 }
 
     .text-nav-bar{
-    
+        
         font-size: 18px;
         font-weight: 800;
     }
@@ -742,12 +777,20 @@ img {
         font-weight: 700;
     }
 
+    footer{
+      margin-top: 10px;
+      padding: 10px;
+    }
+
     .footer-desk{
+     
+      padding: 10px;
         display: flex;
         flex-direction: row;
     }
     .texto-footer{
-        margin-top: 30px;
+     
+        margin-top: 25px;
         font-weight:800;
     }
 
@@ -763,6 +806,20 @@ img {
 }
 
 @media (min-width:1200px){
+
+  .eliminar{
+    margin-bottom: 12px;
+   
+  }
+ 
+  .buttons-buy-addToChart {
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-right: 0px;
+    align-items: center;
+    margin-top: -10px;
+   
+}
     .banner img{
         height: 20vw;
     }

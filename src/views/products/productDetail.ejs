@@ -162,30 +162,32 @@
                     </p>
                     <p class="info-2">$<%= product.productPrice - (product.productPrice/100 *product.productDiscount)%></p>
                     </div>
+
+                    <!--CONTENEDOR DE BOTONES COMPRAR, AGREGAR CARRITO, ELIMINAR Y EDITAR PRODUCTO -->
+                
+          <div class="buttons-buy-addToChart">
+                
+            
+            
+            <button type="submit" class="button-buy-add">Comprar</button>
+            <button type="submit" class="button-buy-add">Agregar al carrito</button>
+        
+            <a href="/products/edit/<%= product.id %>" class="button-buy-add">Editar producto</a>
+
+            <form class="eliminar" action="/products/delete/<%= product.id %>?_method=DELETE" method="POST"> 
+              <button type="submit" class="button-buy-add">Eliminar producto</button>
+            </form>
+            
+      
+      
+      </div>
  
                 </div>
 
                  
           </div>
 
-          <!--CONTENEDOR DE BOTONES COMPRAR, AGREGAR CARRITO, ELIMINAR Y EDITAR PRODUCTO -->
-                
-          <div class="buttons-buy-addToChart">
-                
-            
-            
-                <button type="submit" class="button-buy-add">Comprar</button>
-                <button type="submit" class="button-buy-add">Agregar al carrito</button>
-            
-                <a href="/products/edit/<%= product.id %>" class="button-buy-add">Editar producto</a>
-
-                <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST"> 
-                  <button type="submit" class="button-buy-add">Eliminar producto</button>
-                </form>
-                
           
-          
-          </div>
 
       </section>
 

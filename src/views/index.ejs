@@ -11,17 +11,21 @@
 
     <%- include('./partials/header') %>
 
-    <main>
+    <main class="">
 
         <p class="info"> <i class="hoja fas fa-leaf"></i> Productos con impacto positivo <i class="bateria fas fa-battery-three-quarters"></i></p>
 
         
         <div class="container products-wrapper">
             <div class="row">
+
                 <div class="col-12">
+
                     <h2 class="products-title">Accesorios</h2>
                 </div>
+
                 <!-- Accesorios -->
+
                 <% products.forEach(product => {%>
                     <% if(product.productCategory == "accesory"){ %> 
                         <div class="col-12 col-sm-6 col-lg-3">
@@ -41,6 +45,7 @@
                         </div>
                     <%}%>     
                 <%});%> 
+
             </div>
         </div>
         <!-- /accesorios -->
@@ -48,6 +53,7 @@
         <div class="corte"> </div>
 
         <!-- Autos Electricos -->
+
         <div class="container products-wrapper">
             <div class="row">
                 <div class="col-12">

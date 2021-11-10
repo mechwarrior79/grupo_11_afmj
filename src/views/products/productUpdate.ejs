@@ -23,7 +23,7 @@
               
               <form action="/products/edit/<%= productSent.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
-                <div class="registration-title"> Modificá los datos del producto: <%= productSent.productName %> </div>
+                <div class="registration-title"> Modificá los datos del producto: <strong style="color: green"> <%= productSent.productName %> </strong></div>
               
                 <!-- CAMPOS A MODIFICAR DEL NOMBRE, DESCRIPCION PRINCIPAL Y SECUNDARIA DEL PRODUCTO  -->
               
@@ -59,8 +59,8 @@
                   <select name="productCategory" required class="input" >
                     <option disabled hidden selected ><%= productSent.productCategory%></option>
                     <option value="electric-car">Autos</option>
-                    <option value="accesory">Techos solares</option>
-                    <option value="accesory">Paneles solares</option>
+                    <option value="accesory">Accesorios</option>
+                    
                   </select>
                 </div> 
                 
