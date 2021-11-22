@@ -1,3 +1,10 @@
+
+//Permite codificar (hashear) la password del usuario y comparar su contenido para el login
+const bcryptjs = require('bcryptjs');
+
+//Permite ver el resulado de las validaciones de datos
+const { validationResult } = require('express-validator'); 
+
 //Permite usar archivos
 const fs = require('fs');
 
@@ -5,10 +12,10 @@ const fs = require('fs');
 const path = require('path'); 
 
 
-//Defino en productsFilePath la ruta en donde está el archivo JSON products
+//Defino en usersFilePath la ruta en donde está el archivo JSON users
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
-/*En products almaceno el contenido del archivo JSON convertido en un array de
+/*En users almaceno el contenido del archivo JSON convertido en un array de
 objetos literales*/
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
@@ -43,6 +50,19 @@ const controller = {
 
     newRegister: (req, res) => {
 
+        /*
+        // Muestra los errores de validación en el request. Me dice cuáles campos tuvieron error
+        const resultValidation = validationResult(req);
+        
+        //Me fijo si resultValidation tiene errores fijandome si su longitud es mayor a 0
+        if ( resultValidation.length > 0 ) { 
+        //Si hay errores le paso
+
+
+
+        }*/
+
+        
         let newUser = {/*Creo el objeto literal almacenando los datos recogidos del formulario
             por medio del req.body
             De esta forma hago que coincida con el objeto del formato JSON del archivo de la base de
@@ -55,7 +75,8 @@ const controller = {
             sex: req.body.sex,
             birthDate: req.body.birthDate,
             email: req.body.email,
-            password: req.body.password,
+            //Hasheo la password que me vino cargado en el formulario
+            password: bcryptjs.hashSync(req.body.password, 10), 
            //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
             image: req.file ? req.file.filename : "defaultUser.png" 
             }
@@ -74,7 +95,7 @@ const controller = {
           
             
         //res.redirect ('../')
-        //res.send(req.body)
+        
     }
   }
   

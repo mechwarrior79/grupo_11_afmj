@@ -53,5 +53,27 @@
   "email": "jsilver@hotmail.com",
   "password": "jsilver",
   "image": "defaultUser.png"
+ },
+ {
+  "id": 6,
+  "userLogin": "luis",
+  "name": "Pantalla ",
+  "surname": "adfadsfasdf",
+  "sex": "M",
+  "birthDate": "1212-02-11",
+  "email": "martin.gallego_ar@yahoo.com",
+  "password": "1",
+  "image": "1637621055568model-s-volante.jpg"
+ },
+ {
+  "id": 7,
+  "userLogin": "luis",
+  "name": "jore",
+  "surname": "ggggg",
+  "sex": "M",
+  "birthDate": "2000-12-12",
+  "email": "martingallego_ar@yahoo.com.ar",
+  "password": "$2a$10$q7pZkUH7zqZKPD0N8XM9we9Ikmdvy0LcxuAfwATi3.Z1Oyo.V.aiG",
+  "image": "1637624599691model-s-ambiente-trasero.jpg"
  }
 ]
