@@ -1,62 +1,57 @@
 [
-    {
-        "id": 1,
-        "user-login-name": "margallego",
-        "user-name": "Martin",
-        "user-surname": "Gallego",
-        "user-sex": "M",
-        "user-birth-date": "14/04/1978",
-        "user-email": "mgallego@hotmail.com",
-        "user-password": "mgallego",
-        "terminos": "terminos",
-        "novedades": "novedades"
-    },
-    {
-        "id": 2,
-        "user-login-name": "alanbar",
-        "user-name": "Alan",
-        "user-surname": "Barreiro",
-        "user-sex": "M",
-        "user-birth-date": "13/08/1984",
-        "user-email": "abarreiro@hotmail.com",
-        "user-password": "abarreiro",
-        "terminos": "terminos",
-        "novedades": ""
-    },
-    {
-        "id": 3,
-        "user-login-name": "josepeter",
-        "user-name": "Jose",
-        "user-surname": "Peter",
-        "user-sex": "X",
-        "user-birth-date": "27/02/1985",
-        "user-email": "jpeter@hotmail.com",
-        "user-password": "jpeter",
-        "terminos": "terminos",
-        "novedades": ""
-    },
-    {
-        "id": 4,
-        "user-login-name": "millonario21",
-        "user-name": "Marcelo",
-        "user-surname": "Gallardon",
-        "user-sex": "M",
-        "user-birth-date": "18/11/1996",
-        "user-email": "mgallardon@mysql.com",
-        "user-password": "mgallardo",
-        "terminos": "terminos",
-        "novedades": ""
-    },
-    {
-        "id": 5,
-        "user-login-name": "Johanna44",
-        "user-name": "Johanna",
-        "user-surname": "Silver",
-        "user-sex": "F",
-        "user-birth-date": "23/01/1993",
-        "user-email": "jsilver@hotmail.com",
-        "user-password": "jsilver",
-        "terminos": "terminos",
-        "novedades": ""
-    }
+ {
+  "id": 1,
+  "userLogin": "margallego",
+  "name": "Martin",
+  "surname": "Gallego",
+  "sex": "M",
+  "birthDate": "14/04/1978",
+  "email": "mgallego@hotmail.com",
+  "password": "mgallego",
+  "image": "defaultUser.png"
+ },
+ {
+  "id": 2,
+  "userLogin": "alanbar",
+  "name": "Alan",
+  "surname": "Barreiro",
+  "sex": "M",
+  "birthDate": "13/08/1984",
+  "email": "abarreiro@hotmail.com",
+  "password": "abarreiro",
+  "image": "defaultUser.png"
+ },
+ {
+  "id": 3,
+  "userLogin": "josepeter",
+  "name": "Jose",
+  "surname": "Peter",
+  "sex": "X",
+  "birthDate": "27/02/1985",
+  "email": "jpeter@hotmail.com",
+  "password": "jpeter",
+  "image": "defaultUser.png"
+ },
+ {
+  "id": 4,
+  "userLogin": "millonario21",
+  "name": "Marcelo",
+  "surname": "Gallardon",
+  "sex": "M",
+  "birthDate": "18/11/1996",
+  "email": "mgallardon@mysql.com",
+  "password": "mgallardo",
+  "image": "defaultUser.png"
+ },
+ {
+  "id": 5,
+  "userLogin": "Johanna44",
+  "name": "Johanna",
+  "surname": "Silver",
+  "sex": "F",
+  "birthDate": "23/01/1993",
+  "email": "jsilver@hotmail.com",
+  "password": "jsilver",
+  "image": "defaultUser.png"
+ }
 ]

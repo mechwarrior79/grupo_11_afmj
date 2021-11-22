@@ -27,35 +27,35 @@
              </div>
               
               
-              <form action="../users/register" method="POST">
+              <form action="../users/register" method="POST" enctype="multipart/form-data">
 
                 <div class="registration-title"> Ingresá tus datos para crear tu cuenta</div>
               
                 <!-- CAMPOS A COMPLETAR DEL NOMBRE DE USUARIO, NOMBRE Y APELLIDO -->
               
                 <div class="field">
-                  <label for="userLoginName">Nombre de usuario:</label>
-                  <input type="text" name="userLoginName" id="userLoginName" required minlenght="1" class="input">
+                  <label for="userLogin">Nombre de usuario:</label>
+                  <input type="text" name="userLogin" id="userLogin" required minlenght="1" class="input">
                 </div>
               
               
                 <div class="field">
-                  <label for="userName">Nombre:</label>
-                  <input type="text" name="userName" id="userName" required minlenght="1" class="input">
+                  <label for="name">Nombre:</label>
+                  <input type="text" name="name" id="name" required minlenght="1" class="input">
                 </div>
               
               
                 <div class="field">
-                  <label for="userSurname">Apellido:</label>
-                  <input type="text" name="userSurname" id="userSurname" required  minlenght="1" class="input">
+                  <label for="surname">Apellido:</label>
+                  <input type="text" name="surname" id="surname" required  minlenght="1" class="input">
                 </div>
               
               
                 <!-- CAMPOS A COMPLETAR DEL SEXO, FECHA DE NACIMIENTO Y E-MAIL -->
               
                 <div class="field">
-                  <label for="userSex">Sexo:</label>
-                  <select name="userSex" class="input" >
+                  <label for="sex">Sexo:</label>
+                  <select name="sex" class="input" >
                     <option disabled hidden selected>Seleccionar sexo</option>
                     <option value="F">Femenino</option>
                     <option value="M">Masculino</option>
@@ -65,45 +65,33 @@
                 
                 
                 <div class="field">
-                  <label for="userBirthDate">Fecha de nacimiento </label>
-                  <input type="date" name="userBirthDate" id="userBirthDate" required class="input">     
+                  <label for="birthDate">Fecha de nacimiento </label>
+                  <input type="date" name="birthDate" id="birthDate" required class="input">     
                 </div>
               
                 <div class="field">
-                  <label for="userEmail">Correo electrónico:</label>
-                  <input type="email" name="userEmail" id="userEmail" required class="input" >
+                  <label for="email">Correo electrónico:</label>
+                  <input type="email" name="email" id="email" required class="input" >
                 </div>
               
               
-                <!-- CAMPOS A COMPLETAR DE CONTRASEÑA Y REPETIR CONTRASEÑA -->
+                <!-- CAMPOS A COMPLETAR DE CONTRASEÑA Y REPETIR CONTRASEÑA E IMAGEN -->
               
                 <div class="field">
-                  <label for="userPassword">Contraseña:</label>
-                  <input type="password" name="userPassword" id="userPassword" required  minlenght="1" class="input">
+                  <label for="password">Contraseña:</label>
+                  <input type="password" name="password" id="password" required  minlenght="1" class="input">
                 </div>
               
                 <div class="field">
-                  <label for="userRepeatPassword">Repetir contraseña:</label>
-                  <input type="password" name="userRepeatPassword" id="userRepeatPassword" required  minlenght="1" class="input">
+                  <label for="repeatPassword">Repetir contraseña:</label>
+                  <input type="password" name="repeatPassword" id="repeatPassword" required  minlenght="1" class="input">
                 </div>
                 
-                 <!-- CAMPOS DE ACEPTAR TERMINOS DE PRIVACIDAD Y SOLICITAR NOVEDADES DE PRODUCTOS -->
-              
-                 <div class="field">
-                    <label>
-                      <input type="checkbox" name="terminos" required value="terminos">
-                      Leí y acepto los términos y condiciones y la política de privacidad.
-                    </label>
-                 </div>
-              
-                
-                 <div class="field">
-                    <label>
-                      <input type="checkbox" name="novedades" value="novedades">
-                      Me gustaría recibir novedades sobre los productos.
-                    </label>
-                 </div>
-              
+                <div class="field">
+                  <input type="file" name="newUserImage">
+                </div>
+
+                 
                  <!-- BOTONES PARA INGRESAR Y CANCELAR REGISTRO -->
                 
                  <div class="login-cancel-button">
@@ -114,8 +102,6 @@
                 
                  </div>
                 
-                 <!-- MENU INICIAR SESION SI ESTOY REGISTRADO  -->
-              
                  
                 
               </form>

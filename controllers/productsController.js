@@ -59,15 +59,15 @@ const controller = {
         datos */
 
         id: products[products.length - 1].id + 1, //Es la última posición del id de products + 1
-        productName: req.body.productName,
-        productMainDescription: req.body.productMainDescription,
-        productSecondaryDescription: req.body.productSecondaryDescription,
-        productCategory: req.body.productCategory,
-        productStatus: req.body.productStatus,
-        productPrice: req.body.productPrice,
-        productDiscount: req.body.productDiscount,
+        name: req.body.name,
+        mainDescription: req.body.mainDescription,
+        secondaryDescription: req.body.secondaryDescription,
+        category: req.body.category,
+        status: req.body.status,
+        price: req.body.price,
+        discount: req.body.discount,
        //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
-        productImage: req.file ? req.file.filename : "default-image.png" 
+        image: req.file ? req.file.filename : "default-image.png" 
         }
         
 
@@ -126,18 +126,18 @@ const controller = {
             literales. */
             {
                 id: id, //Tomo el id que me pasaron por parámetro
-                productName: req.body.productName,
-                productMainDescription: req.body.productMainDescription,
-                productSecondaryDescription: req.body.productSecondaryDescription,
-                productCategory: req.body.productCategory,
-                productStatus: req.body.productStatus,
-                productPrice: req.body.productPrice,
-                productDiscount: req.body.productDiscount,
+                name: req.body.name,
+                mainDescription: req.body.mainDescription,
+                secondaryDescription: req.body.secondaryDescription,
+                category: req.body.category,
+                status: req.body.status,
+                price: req.body.price,
+                discount: req.body.discount,
                 
                 /*Pregunto si recibo un archivo con la imagen
                 Si me llegó un archivo lo tomo, sino pongo el archivo que vino originalmente */
                 
-                productImage: req.file ? req.file.filename : productToEdit.productImage   
+                image: req.file ? req.file.filename : productToEdit.image   
             }
 
         // Reemplazo en la posición real del array el producto modificado
