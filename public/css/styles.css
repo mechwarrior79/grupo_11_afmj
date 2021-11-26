@@ -294,6 +294,9 @@ footer{
     justify-content: center;
   }
 
+
+
+ 
   /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE INGRESAR, CANCELAR, OLVIDO DE CONTRASEÑA Y USUARIO, 
 Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
   
@@ -336,6 +339,14 @@ Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
     color: #f9f8f8;
     background-color: rgb( 34, 200, 81);
   }
+
+
+ /* CONFIGURACION DEL MENSAJE DE ERROR EN EL LOGIN */
+
+ .textError {
+  color: red;
+  border: red;
+}
 
   /*Hasta aca los formularios*/
 /* CONFIGURACION DE TITULOS, CONTENEDORES Y ELEMENTOS DE LOS CONTENEDORES  */

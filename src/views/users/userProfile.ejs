@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- LLAMO AL HEAD DE PARTIALS-->
+
+<%- include('../partials/head', { title: 'Perfil de usuario'}) %>
+
+<body>
+
+    <!-- LLAMO AL HEADER DE PARTIALS-->
+
+    <%- include('../partials/header') %> 
+	
+	<!-- Container -->
+
+	<h2>Hola <%= user.fullName%> </h2>
+	<div><%=user.email%></div>
+	<a href="/">Home</a>
+	<a href="/users/logout">Logout</a>
+	<img src="/images/users/<%=user.image%>" width=10px style="border-radius: 100%;" alt="imagen del usuario">
+	
+	 
+	 <!-- LLAMO AL FOOTER DE PARTIALS-->
+
+     <%- include('../partials/footer') %> 
+</body>
+</html>

@@ -75,5 +75,82 @@
   "email": "martingallego_ar@yahoo.com.ar",
   "password": "$2a$10$q7pZkUH7zqZKPD0N8XM9we9Ikmdvy0LcxuAfwATi3.Z1Oyo.V.aiG",
   "image": "1637624599691model-s-ambiente-trasero.jpg"
+ },
+ {
+  "id": 8,
+  "userLogin": "12121212",
+  "name": "12121212",
+  "surname": "12121212",
+  "sex": "M",
+  "birthDate": "2020-11-11",
+  "email": "mgallego@hotmail.com",
+  "password": "$2a$10$GjrFEHtnomraiSeEEsLgG.W./UScat.XVNwWUeXuh7AJck.v3VpbK",
+  "image": "1637626005201model-s-ambiente-delantero.jpg"
+ },
+ {
+  "id": 9,
+  "userLogin": "12121212",
+  "name": "12121212",
+  "surname": "12121212",
+  "sex": "M",
+  "birthDate": "2020-11-11",
+  "email": "mgallego@hotmail.com",
+  "password": "$2a$10$VC/T.mSsoPY6N7dmNAufN.aiaYL1lnjmqQIAydxK/Iw0lhNzP2g7e",
+  "image": "1637626707206model-s-ambiente-trasero.jpg"
+ },
+ {
+  "id": 10,
+  "userLogin": "12121212",
+  "name": "12121212",
+  "surname": "12121212",
+  "sex": "M",
+  "birthDate": "2020-11-11",
+  "email": "mgallego@hotmail.com",
+  "password": "$2a$10$U.GgndCdJ6ZFPWXcw7zX8OTMcAwLtsuP5/6Sw4Euv1FJlZ1D/KmHa",
+  "image": "1637626772091model-s-ambiente-trasero.jpg"
+ },
+ {
+  "id": 11,
+  "userLogin": "12121212",
+  "name": "Un nombre",
+  "surname": "1111",
+  "sex": "M",
+  "birthDate": "2020-11-11",
+  "email": "mgallego@hotmail.com",
+  "password": "$2a$10$TapkbjZvRAjXr4ACBErgfeEyuDcZ34z.AaGoFVO0kzaBK9WjSrqMO",
+  "image": "defaultUser.png"
+ },
+ {
+  "id": 12,
+  "userLogin": "2313123",
+  "name": "213213",
+  "surname": "12312",
+  "sex": "X",
+  "birthDate": "2121-11-11",
+  "email": "mgallego@hotmail.com",
+  "password": "$2a$10$uaFd02oz0H0q0PvMcQCIyuhRC82WVG/SZJXxIO6wShivzKM9AR4/m",
+  "image": "defaultUser.png"
+ },
+ {
+  "id": 13,
+  "userLogin": "2313123",
+  "name": "213213",
+  "surname": "12312",
+  "sex": "X",
+  "birthDate": "2121-11-11",
+  "email": "mgallego@hotmail.com",
+  "password": "$2a$10$hJ8RYqAZwrJ0yxzebKRI.uWuyka8dxNuP54SY1IYnHO5UkxMUT0e.",
+  "image": "defaultUser.png"
+ },
+ {
+  "id": 14,
+  "userLogin": "mg1978",
+  "name": "g  ",
+  "surname": "g",
+  "sex": "M",
+  "birthDate": "2021-11-10",
+  "email": "m@m.com",
+  "password": "$2a$10$euqHsrCxobiGCS5QXQzYU.CshaqouK.JLEgPLcml7WpAn4Y3mAn9C",
+  "image": "1637796056620model-s-volante.jpg"
  }
 ]

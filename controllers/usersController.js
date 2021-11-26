@@ -29,6 +29,24 @@ const controller = {
 
     // Derivo cada función a la página que le corresponde
     
+    //Busca el usuario por mail usando cookies
+
+    userFromCookie: (marParams) => {
+    
+    console.log('marParams es: ' + marParams);
+    
+    /* Guardo en userToLogin el usuario que está guardado en el email de la cookie y retorno el objeto literal
+    del usuario */
+    
+    let userToLogin = users.find( user => {
+        return user.email == marParams;
+    });
+
+    return userToLogin;
+
+    },
+
+
 
     // Creación de usuario registrandolo
 
@@ -38,12 +56,95 @@ const controller = {
 
     // Login de usuario
 
-    login: (req, res) => {
+    login: (req, res) => { 
+        console.log(req.cookies);
+
         res.render('./users/login')
     },
 
-    user: (req,res) =>{
+    /*profile: (req,res) =>{
         res.redirect ('../')
+    },*/
+
+    loginProcess: (req, res) => {
+
+        console.log(req.body);
+
+        /* Busco al usuario por email y guardo los datos de la búsqueda del usuario en la variable 
+        userToLogin*/
+       
+        let userToLogin = users.find( user => {
+            return user.email == req.body.email;
+        });
+
+        
+        /* Si encuentro un usuario pregunto si su password es la misma que tengo hasheada.
+        Si es verdad redirijo al usuario al perfil de su usuario.
+        Sino lo redirecciono al login con mensajes de error */
+
+        if (userToLogin) { //Si existe el usuario en la base de datos
+
+        /* Comparo la password que me vino por el request del body con la password
+        hasheada y guardo el resultado de la comparación en isOkPassword. Puede ser true o false */
+
+                                                    //texto plano       //texto hasheado
+            let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+
+            if (isOkPassword) { /* Si la password ingresada es correcta, ya puedo loguear al usuario
+                en su página de perfil */
+                
+
+                /* Con esto guardo todos los datos del usuario a lo largo de todas las páginas del 
+                navegador */
+
+                req.session.userLogged = userToLogin;
+
+                /* Verifico en el request del body si está tildado "Recordar usuario".
+                Si está puesto, quiere decir que el usuario está logueado, con lo cual
+                voy a guardar en la cookie userEmail el email que me vino en el request del body
+                con duración 30 segundos de prueba
+                */
+
+                if (req.body.rememberUser) {
+                    res.cookie('userEmail', req.body.email, { maxAge: ( 1000 * 60 ) } );
+                    
+                }
+
+                //Redirecciono al usuario a su página de perfil
+
+                return res.redirect('./profile');
+            }
+            
+            //Si hay algo mal se redirecciona a la página del login mandando un mensaje de error
+
+            return res.render('./users/login', {
+                errors: {
+                    email: {
+                        msg: 'Email y/o password inválidos'
+                    }
+                }
+            });
+
+        }
+
+        return res.render('./users/login', {
+            errors: {
+                email: {
+                    msg: 'Email no encontrado en la base de datos'
+                }
+            }
+        });
+
+    },
+
+    profile: (req, res) => {
+
+        /* A la página del profile le voy a mandar un objeto literal que tiene la información guardada 
+        en session con los datos del usuario logueado (userLogged) */
+        
+        return res.render('./users/userProfile', {
+             user: req.session.userLogged
+        });
     },
 
     // Almaceno los datos cargados en el formulario de creación en la base de datos 
@@ -58,10 +159,21 @@ const controller = {
         if ( resultValidation.length > 0 ) { 
         //Si hay errores le paso
 
-
-
         }*/
 
+        // Antes de crear al usuario me tengo que fijar si hay un usuario creado con el mismo email
+
+        /* Busco al usuario por email y guardo los datos de la búsqueda del usuario a crear en la variable 
+        userInDB*/
+       
+        const userInDB = users.find( user => {
+            return user.email == req.body.email;
+        });
+
+        // Si el mail del usuario está repetido, lo mando a la página del login
+        if (userInDB) { 
+            res.redirect('/users/login');
+        };
         
         let newUser = {/*Creo el objeto literal almacenando los datos recogidos del formulario
             por medio del req.body
@@ -75,7 +187,7 @@ const controller = {
             sex: req.body.sex,
             birthDate: req.body.birthDate,
             email: req.body.email,
-            //Hasheo la password que me vino cargado en el formulario
+            //Hasheo la password que me vino cargada en el formulario
             password: bcryptjs.hashSync(req.body.password, 10), 
            //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
             image: req.file ? req.file.filename : "defaultUser.png" 
@@ -90,13 +202,23 @@ const controller = {
             //Guardo users actualizado en la base de datos
             fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
     
-             // Lo redirige a la página de users donde muestra la lista actualizada
-            res.redirect('/');
-          
-            
-        //res.redirect ('../')
+             // Lo redirige a la página principal donde muestra la lista actualizada
+            res.redirect('/');     
         
+    },
+
+    logout: (req, res) => {
+        
+        //Borra todo lo que está en sesión
+        req.session.destroy();
+
+        //Destruyo la cookie para que cuando me loguee de vuelta no me aparezca el usuario
+        res.clearCookie('userEmail');
+
+        //Lo redirijo al '/' de la página
+        return res.redirect('/');
     }
+
   }
   
   module.exports = controller;

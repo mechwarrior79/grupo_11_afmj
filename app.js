@@ -1,7 +1,12 @@
-const express = require ("express");
+const express = require ('express');
+const session = require('express-session');
 const path = require("path");
 const app = express();
 const methodOverride = require('method-override'); //Sirve para poder usar los métodos PUT y DELETE
+const cookies = require ('cookie-parser'); //Sirve para poder usar las cookies 
+
+//Para saber si un usuario está logueado
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 
 // Defino las variables en donde se van a ubicar las rutas
@@ -21,6 +26,23 @@ app.use(methodOverride('_method')); //Cuando ponga _method se aplica methodOverr
 
 //Defino en dónde se va a ubicar la carpeta /views
 app.set('views', path.join(__dirname, '/src/views/'));
+
+
+
+//Defino las variables de session para poder guardar datos de mi sesión de usuario
+app.use(session({
+    secret: 'Palabra secreta',
+    resave: false,
+    saveUninitialized: false
+}));
+
+//Sirve para poder usar las cookies
+app.use(cookies());
+
+
+//Sirve para poder usar el middleware userLoggedMiddleware para saber si un usuario está logueado
+app.use(userLoggedMiddleware);
+
 
 
 //Inicializo ejs

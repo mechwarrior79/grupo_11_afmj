@@ -25,8 +25,14 @@
       <!--  CAMPOS A COMPLETAR DEL NOMBRE USUARIO, PASSWORD  -->
 
             <div class="field">
-                <label for="name">Nombre de usuario:</label>
-                <input type="text" name="name" id="name" minlength="1" required class="input">
+                <label for="email">Correo electrónico:</label>
+                <input type="text" name="email" id="email" minlength="1" required class="input">
+                <!-- SI HUBO ERRORES Y SI VINO EN LOS ERRORES EL CAMPO EMAIL IMPRIMO UN MENSAJE DE ERROR  -->
+                <% if (locals.errors && errors.email) { %>
+                    <div class="textError">
+                        <%= errors.email.msg %>
+                    </div>
+                <% } %>
             </div>
         
             <div class="field">
@@ -46,8 +52,8 @@
             Y LINK A GENERAR USUARIO Y/O CONTRASEÑA--> 
             
             <div class="field check">
-                <label for="rememberPassword">Recordar mi usuario</label>
-                <input type="checkbox" name="rememberPassword" value="rememberPassword">
+                <label for="rememberUser">Recordar mi usuario</label>
+                <input type="checkbox" name="rememberUser" value="on">
             </div>
 
             <div class="buttons-login">

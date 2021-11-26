@@ -10,7 +10,11 @@ const multer = require('multer');
 //Habilito la función body del paquete de express-validator para validar los campos que vienen en req.body
 const { body } = require('express-validator');
 
+//Defino la variable del middleware guestMiddleware
+const guestMiddleware = require('../middlewares/guestMiddleware');
 
+//Defino la variable del middleware authMiddleware
+const authMiddleware = require('../middlewares/authMiddleware');
 
 // Guardo en la variable usersController la ruta y el archivo que tiene todas las funciones que está en controllers/usersController.js
 
@@ -47,15 +51,31 @@ const upload = multer ({storage}); //Ejecuto multer pasando como objeto literal 
 
 // Con router, de acuerdo a la ruta que ponga, le digo que haga tal función 
 
-router.get('/login', usersController.login);
+//Login del usuario
+/*Con guestMiddleware hago que si hay alguien en sesión, mi sistema lo redirija a la página 
+de perfil del usuario */
+router.get('/login', guestMiddleware, usersController.login);
 
-router.get('/register', usersController.register);
+//Registro del usuario
+/* Con guestMiddleware hago que si hay alguien en sesión, mi sistema lo redirija a la página 
+de perfil del usuario */ 
+router.get('/register', guestMiddleware, usersController.register);
 
-router.post ('/login', usersController.user);
+//Proceso la información cargada en el login del usuario
+router.post ('/login', usersController.loginProcess);
 
-/* Almaceno la información cargada del formulario en la base de datos y valido los campos
-con un array después de haber agregado el archivo de multer */
+//Perfil del usuario
+/* Con authMiddleware hago que si no hay nadie en sesión, mi sistema lo redirija a la página 
+del login */ 
+router.get ('/profile/', authMiddleware, usersController.profile);
+
+/* Almaceno la información cargada del formulario en la base de datos y agrego el archivo de la imagen
+subido por multer */
 
 router.post ('/register', upload.single('newUserImage'), usersController.newRegister)
+
+//Logout del usuario
+router.get ('/logout/', usersController.logout);
+
 
 module.exports = router;
