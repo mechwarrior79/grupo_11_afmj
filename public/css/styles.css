@@ -85,11 +85,13 @@ a{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
 }
 
 .logo{
     width: 50%;
 }
+
 
 .banner{
     margin: 0;
@@ -103,6 +105,53 @@ a{
 .icon{
     margin-left: 1px;
     display: block;
+}
+
+.img-user{
+  margin-top: 7px;
+  width: 3%;
+  height: 50%;
+}
+
+.hi-user{
+  text-align: center;
+  margin-top: 6px;
+  margin-right: 4px;
+  color: #f9f8f8;
+}
+
+.img-user-profile{
+  width: 60%;
+  margin-bottom: 15px;
+}
+
+.info-img{
+  text-align: center;
+  margin-top: 15px;
+}
+.info-profile{
+  text-align: center;
+  color: #f9f8f8;
+ 
+}
+
+.link-profile{
+  color: #f9f8f8;
+  padding: 5px;
+ 
+}
+
+.welcome{
+  margin-top:1rem;  
+}
+
+.link-profile:hover{
+  color: rgb( 34, 200, 81);
+}
+
+.user-info{
+  color: rgb( 34, 200, 81);
+  font-weight: 300;
 }
 
 main{
@@ -604,7 +653,7 @@ a:hover {text-decoration: none;
 
 .text-nav-bar{
     
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 800;
 }
 
@@ -807,6 +856,10 @@ img {
 
     .copy{
         margin-top: 35px;
+    }
+
+    .img-user-profile{
+      width: 30%;
     }
 /*
     .description-list{

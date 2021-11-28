@@ -5,7 +5,7 @@
 
         <div class="logo-nav">
 
-            <img class="logo" src="/images/logo-afmj01.png" alt="logo-afmj"> 
+           <img class="logo" src="/images/logo-afmj01.png" alt="logo-afmj"> 
 
             <nav class="nav-bar">
 
@@ -16,8 +16,8 @@
 
                     <% if (locals.isLogged) { %>
 
-                        Hi <%= locals.userLogged.name %> 
-                        <img src="/images/users/<%= locals.userLogged.image %>" alt="">
+                       <li class="buys"><a class="text-nav-bar" href="/users/profile"><%= locals.userLogged.name %></a></li> 
+                        <img class="img-user" src="/images/users/<%= locals.userLogged.image %>" width=10px style="border-radius: 100%;" alt="">
 
                         <li class="buys"><a class="text-nav-bar" href="/products/create">Crear<i class="icon fas fa-plus-square"></i></a></li>
                         <li class="buys"><a class="text-nav-bar" href="/products/cart">Carrito<i class="icon fas fa-shopping-cart"></i></a></li>               

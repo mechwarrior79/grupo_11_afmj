@@ -14,11 +14,11 @@
   "id": 2,
   "userLogin": "alanbar",
   "name": "Alan",
-  "surname": "Barreiro",
+  "surname": "Bareiro",
   "sex": "M",
   "birthDate": "13/08/1984",
-  "email": "abarreiro@hotmail.com",
-  "password": "abarreiro",
+  "email": "abareiro@hotmail.com",
+  "password": "abareiro",
   "image": "defaultUser.png"
  },
  {
@@ -152,5 +152,16 @@
   "email": "m@m.com",
   "password": "$2a$10$euqHsrCxobiGCS5QXQzYU.CshaqouK.JLEgPLcml7WpAn4Y3mAn9C",
   "image": "1637796056620model-s-volante.jpg"
+ },
+ {
+  "id": 15,
+  "userLogin": "Alan",
+  "name": "Alan",
+  "surname": "Bareiro",
+  "sex": "M",
+  "birthDate": "2021-11-24",
+  "email": "alanalfredobareiro@gmail.com",
+  "password": "$2a$10$aOncnwLZss6wwhW4v.mkReCZyEi5hPz0qwxVj4QmFiDLuzvarwgiO",
+  "image": "1638117416221perfil.jpeg"
  }
 ]
