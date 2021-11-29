@@ -4,7 +4,7 @@
   "description": "**Público Objetivo:** Está orientado a hombres y mujeres comprendidos entre los 27 y 60 años siendo el cuidado y protección del medio ambiente su principal preocupación. Segmento ABC 1, urbano, early adopters, estudios universitarios/postgrado, propietarios de su vivienda.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",

@@ -25,7 +25,7 @@ app.use(methodOverride('_method')); //Cuando ponga _method se aplica methodOverr
 
 
 //Defino en dónde se va a ubicar la carpeta /views
-app.set('views', path.join(__dirname, '/src/views/'));
+app.set('views', path.join(__dirname, './views/'));
 
 
 

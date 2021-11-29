@@ -20,8 +20,6 @@ objetos literales*/
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 
-
-
 // Cargo las funciones que quiero que haga
 // Las derivo por render al archivo ejs que le diga
 
@@ -33,7 +31,7 @@ const controller = {
 
     userFromCookie: (marParams) => {
     
-    console.log('marParams es: ' + marParams);
+    /*console.log('marParams es: ' + marParams);*/
     
     /* Guardo en userToLogin el usuario que está guardado en el email de la cookie y retorno el objeto literal
     del usuario */
@@ -45,8 +43,6 @@ const controller = {
     return userToLogin;
 
     },
-
-
 
     // Creación de usuario registrandolo
 
@@ -68,7 +64,7 @@ const controller = {
 
     loginProcess: (req, res) => {
 
-        console.log(req.body);
+       /* console.log(req.body);*/
 
         /* Busco al usuario por email y guardo los datos de la búsqueda del usuario en la variable 
         userToLogin*/
@@ -106,8 +102,7 @@ const controller = {
                 */
 
                 if (req.body.rememberUser) {
-                    res.cookie('userEmail', req.body.email, { maxAge: ( 1000 * 60 ) } );
-                    
+                    res.cookie('userEmail', req.body.email, { maxAge: ( 1000 * 60 ) } );     
                 }
 
                 //Redirecciono al usuario a su página de perfil
