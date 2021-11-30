@@ -1,20 +1,18 @@
-RETROSPECTIVA TERCERO SPRINT
+RETROSPECTIVA CUARTO SPRINT
 
-A partir del análisis sobre nuestra forma de trabajo de nuestro tercero sprint el grupo pudo llegar a las siguientes conclusiones:
+A partir del análisis sobre nuestra forma de trabajo de nuestro cuarto sprint el grupo pudo llegar a las siguientes conclusiones:
 
 1. Comenzar a hacer:
 
-Implementar por semana días determinados para poder coordinar el trabajo del proyecto integrador y realizar reuniones semanales.
-
+Empezar a hacer charlas antes de las clases. 
 2. Hacer más:
 
-Mantener una charla fluida.
+Distribuir más las tareas de acuerdo a la complejidad de las mismas.
 
 3. Continuar haciendo:
 
 Interacción entre los integrantes del grupo, comentarnos las dificultades presentadas al momento de realizar las tareas designadas.
-
-De esta forma el grupo promueve la mejora continua del mismo.  
+Promoviendo la mejora continua.  
 
 4. Hacer menos:
 
