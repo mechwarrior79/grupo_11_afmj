@@ -4,7 +4,8 @@ A partir del análisis sobre nuestra forma de trabajo de nuestro cuarto sprint e
 
 1. Comenzar a hacer:
 
-Empezar a hacer charlas antes de las clases. 
+Empezar a hacer charlas antes de las clases. Implementar la logica de KISS.
+
 2. Hacer más:
 
 Distribuir más las tareas de acuerdo a la complejidad de las mismas.
