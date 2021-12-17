@@ -163,5 +163,16 @@
   "email": "alanalfredobareiro@gmail.com",
   "password": "$2a$10$.p0FgyFrOHnJ2xloRjjCU.jQQGf0rAKGNNHf59JLZ8TmUU.nMGrXO",
   "image": "1638313949633racs logo.jfif"
+ },
+ {
+  "id": 16,
+  "userLogin": "Alan",
+  "name": "Alan",
+  "surname": "Bareiro",
+  "sex": "M",
+  "birthDate": "2021-12-10",
+  "email": "alanalfredobareiro@gmail.com",
+  "password": "$2a$10$j9MfEu7Zk5/AdGLlNNd8c.K/jFwTVFEtKO.RLghanutEAzDHSiSeq",
+  "image": "1639765540518racs logo.jfif"
  }
 ]

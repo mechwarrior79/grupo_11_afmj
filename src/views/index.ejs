@@ -27,7 +27,7 @@
                 <!-- Accesorios -->
 
                 <% products.forEach(product => {%>
-                    <% if(product.category == "accesory"){ %> 
+                    <% if(product.categoryId == 2){ %> 
                         <div class="col-12 col-sm-6 col-lg-3">
                             <section class="product-box">
                                 <a href="/products/list/<%=product.id%>">
@@ -60,7 +60,7 @@
                     <h2 class="products-title">Autos Electricos</h2>
                 </div>
                 <% products.forEach(product => {%>
-                    <% if(product.category == "electric-car"){ %> 
+                    <% if(product.categoryId == 1){ %> 
                         <div class="col-12 col-sm-6 col-lg-3">
                             <section class="product-box">
                                 <a href="/products/list/<%= product.id%>">
@@ -91,7 +91,7 @@
                 </div>
                 <!-- Productos destacados en oferta -->
                 <% products.forEach(product => {%>
-                    <% if(product.status == "in-sale"){ %> 
+                    <% if(product.statusId == 1){ %> 
                         <div class="col-12 col-sm-6 col-lg-3">
                             <section class="product-box">
                                 <a href="/products/list/<%= product.id%>">

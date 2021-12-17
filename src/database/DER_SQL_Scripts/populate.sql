@@ -62,46 +62,46 @@ INSERT INTO afmjdb.users (id, name, surname, birthDate, email, password, image, 
 
 -- TABLA products
 INSERT INTO afmjdb.products (id, name, mainDescription, secondaryDescription, image, price, discount, categoryId, statusId) VALUES
-(1, "Solar Roof", "El Solar Roof es el √∫nico techo que puede ayudar a pagarse solo con la energ√≠a que produce. Alimente su hogar con
-energ√≠a solar y tome el control de su recibo mensual de electricidad.", 
+(1, "Solar Roof", "El Solar Roof es el ˙nico techo que puede ayudar a pagarse solo con la energÌa que produce. Alimente su hogar con
+energÌa solar y tome el control de su recibo mensual de electricidad.", 
 "Se paga solo con el tiempo, ademas de reducir el impacto negativo en nuestro plante. --Potencia de carga max 50A, 2200 w 220v--",
 "solar01.jpg", 60000, 15, 2, 2),
-(2, "Android Bot", "Android Bot tendr√° una altura de 1,72 metros y un peso cercano a 57 kilos, y se espera que sea capaz de 
-transportar cargas de hasta 20 kilos, e incluso levantar hasta 68 kilos en peso muerto. Su velocidad m√°xima para andar ser√° de 
-8 kil√≥metros por hora.", 
-"Tesla Bot, que tendr√° manos con cinco dedos y vendr√° en blanco y negro ser√° amistoso y construido de tal manera que en todo caso 
-puedas huir de √©l y apagarlo",
+(2, "Android Bot", "Android Bot tendr· una altura de 1,72 metros y un peso cercano a 57 kilos, y se espera que sea capaz de 
+transportar cargas de hasta 20 kilos, e incluso levantar hasta 68 kilos en peso muerto. Su velocidad m·xima para andar ser· de 
+8 km/h.", 
+"Tesla Bot, que tendr· manos con cinco dedos y vendr· en blanco y negro ser· amistoso y construido de tal manera que en todo caso 
+puedas huir de Èl y apagarlo",
 "robotics-1.jfif", 90000, 10, 2, 2),
-(3, "Mini-Dron PG2021 HQ", "El peque√±o dron integra una c√°mara de un sensor de 1/2,3 pulgadas capaz de capturar v√≠deos 
-a 2,7K a 30 frames por segundo y 1.080p a 60 fps y fotograf√≠as a 12 megap√≠xeles. El estabilizador de tres ejes busca que los v√≠deos 
-sean fluidos y estables","Asciende en vertical mientras encuadra el objetivo con la c√°mara apuntando hacia abajo. Puede 
+(3, "Mini-Dron PG2021 HQ", "El pequeÒo dron integra una c·mara de un sensor de 1/2,3 pulgadas capaz de capturar vÌdeos 
+a 2,7K a 30 frames por segundo y 1.080p a 60 fps y fotografÌas a 12 megapÌxeles. El estabilizador de tres ejes busca que los vÌdeos 
+sean fluidos y estables","Asciende en vertical mientras encuadra el objetivo con la c·mara apuntando hacia abajo. Puede 
 fijar un limite de altura de 40 a 120 pies", 
 "mini-dron-2.webp", 60000, 30, 2, 1),
 (4, "Home Charger", "El Wall Connector es un accesorio de carga universal para autos Electricos, que se instala de forma permanente 
 en una pared o un poste. Instale la unidad en un interruptor de 60 Amps.", 
-"El mejor lugar para cargar tu Tesla es en casa, por la noche. Solo tiene que conectarlo cuando llegue a tu casa y despertar√° con 
-una carga completa cada ma√±ana",
+"El mejor lugar para cargar tu Tesla es en casa, por la noche. Solo tiene que conectarlo cuando llegue a tu casa y despertar· con 
+una carga completa cada maÒana",
 "wall-conector-3.jpg", 75000, 30, 2, 1),
-(5, "Modelo S", "El Model S est√° construido desde cero como un veh√≠culo el√©ctrico, con una arquitectura de alta resistencia y un 
-paquete de bater√≠as colocado en el piso para una incre√≠ble protecci√≥n de los ocupantes y un bajo riesgo de volcadura.",
-"Las plataformas del Model S unen las tecnolog√≠as de sistema de propulsi√≥n y bater√≠a para un performance, autonom√≠a y eficiencia 
+(5, "Modelo S", "El Model S est· construido desde cero como un vehÌculo elÈctrico, con una arquitectura de alta resistencia y un 
+paquete de baterÌas colocado en el piso para una increÌble protecciÛn de los ocupantes y un bajo riesgo de volcadura.",
+"Las plataformas del Model S unen las tecnologÌas de sistema de propulsiÛn y baterÌa para un performance, autonomÌa y eficiencia 
 inigualables-Potencia maxima: 1,020 hp 0 a 100 km/h: 2.1s 250 km/h 1/4 milla-", 
 "modelsplaid-1.jfif", 1400000, 15, 1, 2),
-(6, "CyberTruck", "Cybertruck est√° fabricado con un revestimiento exterior para m√°xima durabilidad y protecci√≥n de los 
-pasajeros. Cuenta con un exoesqueleto casi impenetrable ya que todos los componentes est√°n dise√±ados para proporcionar resistencia y
+(6, "CyberTruck", "Cybertruck est· fabricado con un revestimiento exterior para m·xima durabilidad y protecciÛn de los 
+pasajeros.Cuenta con un exoesqueleto impenetrable ya que todos los componentes est·n diseÒados para proporcionar resistencia y
  firmeza superiores.",
-"Velocidad y versatilidad, solo posible con un dise√±o totalmente el√©ctrico. --Potencia maxima: 1,020 hp 0 a 100 km/h: 2.1s 250 km/h 
-1/4 milla-- lo que permite que la aceleraci√≥n vaya de 0 a 60 mph en tan solo 2.9 segundos y hasta 500 millas de autonom√≠a.",
+"Velocidad y versatilidad, solo posible con un diseÒo totalmente elÈctrico. --Potencia maxima: 1,020 hp 0 a 100 km/h: 2.1s 250 km/h 
+1/4 milla-- lo que permite que la aceleraciÛn vaya de 0 a 60 mph en tan solo 2.9 segundos y hasta 500 millas de autonomÌa.",
 "Cybertruck_01.jfif", 2100000, 25, 1, 1),
-(7, "Modelo 3", "El Model 3 ofrece la opci√≥n de motor dual con tracci√≥n integral, ruedas √úberturbine de 20, frenos de gran desempe√±o
- y suspensi√≥n m√°s baja para mayor control total en todas las condiciones clim√°ticas.",
-"La tracci√≥n en todas las ruedas del Motor dual controla instant√°neamente la tracci√≥n y el torque en todas las condiciones clim√°ticas.
+(7, "Modelo 3", "El Model 3 ofrece la opciÛn de motor dual con tracciÛn integral, ruedas ‹berturbine de 20, frenos de gran desempeÒo
+ y suspensiÛn m·s baja para mayor control total en todas las condiciones clim·ticas.",
+"La tracciÛn en todas las ruedas del Motor dual controla instant·neamente la tracciÛn y el torque en todas las condiciones clim·ticas.
 Potencia maxima: 995 hp 0 a 100 km/h: 3.3s 261 km/h 1/4 milla--",
 "Model3_26.jfif", 1600000, 10, 1, 2),
-(8, "Roadster", "El Tesla Roadster es un deportivo con una relaci√≥n entre potencia y peso suficiente para ser el mas r√°pido del mundo. 
-Su transmisi√≥n de potencia entre bater√≠as y motores el√©ctricos muy superior a la que nunca antes visto en un coche el√©ctrico",
-"Con capacidad de almacenamiento en bater√≠as de 200 kWh., el doble de la capacidad que puede acumular un Tesla Model S, 
-o un Tesla Model X, cuenta con una autonom√≠a el√©ctrica de 1000 kil√≥metros--",
+(8, "Roadster", "El Tesla Roadster es un deportivo con una relaciÛn entre potencia y peso suficiente para ser el mas r·pido del mundo. 
+Su transmisiÛn de potencia entre baterÌas y motores elÈctricos muy superior a la que nunca antes visto en un coche elÈctrico",
+"Con capacidad de almacenamiento en baterÌas de 200 kWh., el doble de la capacidad que puede acumular un Tesla Model S, 
+o un Tesla Model X, cuenta con una autonomÌa elÈctrica de 1000 kilÛmetros--",
  "Roadster_01.jfif", 1700000, 25, 1, 1); 
 
 

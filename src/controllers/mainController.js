@@ -10,7 +10,11 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 
 /*En products almaceno el contenido del archivo JSON convertido en un array de
 objetos literales*/
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+//Permite usar las bases de datos
+const { Product } = require('../database/models');
+const { Op } = require('sequelize');
 
 
 // Cargo las funciones que quiero que haga
@@ -21,8 +25,14 @@ const controller = {
 // Sirve para mostrar la página principal con el listado de productos
 
   index: (req, res) => {
-      res.render('index', { 
-        'products' : products })
+    
+    Product.findAll()
+      .then(products=>{
+        res.render('index', {products});
+      })
+
+      /*res.render('index', { 
+        'products' : products })*/
   }
 
 }

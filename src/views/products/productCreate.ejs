@@ -58,18 +58,25 @@
                 <div class="field">
                   <label for="category">Categoría de productos</label>
                   <select name="category" required class="input" >
-                    <option disabled hidden selected>Seleccionar categoría</option>
-                    <option value="electric-car">Autos</option>
-                    <option value="accesory">Accesorios</option>
+
+                    <option value="" disabled selected>- Seleccionar categoría - </option>
+                        <% allCategories.forEach(category => { %>
+                        <option value="<%= category.id %>"><%= category.category %></option>
+                        <% }); %>
+
+
                   </select>
                 </div> 
 
                 <div class="field">
                   <label for="status" class="form-label">Estado del producto</label>
                   <select name="status" id="status" required class="input">
-                    <option disabled hidden selected>Seleccionar estado del producto</option>
-                    <option value="in-sale">En oferta</option>
-                    <option value="last-visited">Últimos visitados</option>
+
+                    <option value="" disabled selected>- Seleccionar estado del producto - </option>
+                    <% allStatuses.forEach(status => { %>
+                    <option value="<%= status.id %>"><%= status.status %></option>
+                    <% }); %>
+                    
                   </select>
                 </div>
                 

@@ -10,7 +10,14 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 
 /*En products almaceno el contenido del archivo JSON convertido en un array de
 objetos literales*/
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+//Permite usar las bases de datos
+const { Product } = require('../database/models');
+const { Category } = require('../database/models');
+const { Status } = require('../database/models');
+const { Op } = require('sequelize');
+
 
 
 // Cargo las funciones que quiero que haga
@@ -23,17 +30,29 @@ const controller = {
      //Muestro la lista de productos
 
      index: (req,res) =>{
-        res.render ('./products/productList', {'products':products})
+
+        Product.findAll()
+            .then(products=>{
+                res.render ('./products/productList', {products})
+            })
+
+       /*res.render ('./products/productList', {'products':products})*/
     },
 
     // Veo el detalle del producto
 
     productDetail: (req, res) => {
-        const id = req.params.id;
+
+        Product.findByPk(req.params.id)
+            .then(product=>{
+                res.render ('./products/productDetail', {product})
+            });
+
+        /*const id = req.params.id;
         const product = products.find (product=>{
             return product.id == id
         })
-        res.render('./products/productDetail', {'product': product})
+        res.render('./products/productDetail', {'product': product})*/
     },
 
      // Muestro el carrito de compras
@@ -46,7 +65,17 @@ const controller = {
     // Creo un producto
 
     create: (req, res) => {
-        res.render('./products/productCreate')
+
+        let promCategory = Category.findAll();
+        let promStatus = Status.findAll();
+        
+        Promise
+        .all([promCategory, promStatus])
+        .then(([allCategories, allStatuses]) => {
+            return res.render('./products/productCreate', {allCategories,allStatuses})})
+        .catch(error => res.send(error))
+
+        /*res.render('./products/productCreate')*/
     },
 
     // Almaceno los datos cargados en el formulario de creación en la base de datos 
