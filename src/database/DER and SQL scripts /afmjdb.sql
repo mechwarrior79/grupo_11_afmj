@@ -45,13 +45,6 @@ CREATE TABLE `sexes` (
    PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `carts` (
-   `id` INT NOT NULL,
-   `productId` INT NOT NULL,
-   `quantity` INT NOT NULL,
-   `userId` INT NOT NULL,
-   PRIMARY KEY (`id`)
-);
 
 CREATE TABLE `roles` (
    `id` INT NOT NULL AUTO_INCREMENT,
@@ -67,7 +60,3 @@ ALTER TABLE `products` ADD CONSTRAINT `FK_e580169d-ca26-4a68-9401-cf14d94d1f9e` 
 ALTER TABLE `users` ADD CONSTRAINT `FK_132e1e7d-aed9-407b-9402-043eb17ed85e` FOREIGN KEY (`sexId`) REFERENCES `sexes`(`id`)  ;
 
 ALTER TABLE `users` ADD CONSTRAINT `FK_e8c52e6f-d69d-454d-b79f-ff7b41d2b754` FOREIGN KEY (`roleId`) REFERENCES `roles`(`id`)  ;
-
-ALTER TABLE `carts` ADD CONSTRAINT `FK_0c13bad9-d04a-45f4-b2c9-bd3c2605146e` FOREIGN KEY (`userId`) REFERENCES `users`(`id`)  ;
-
-ALTER TABLE `carts` ADD CONSTRAINT `FK_50e3a3c2-6a9f-4ef0-8859-268e4b133ef5` FOREIGN KEY (`productId`) REFERENCES `products`(`id`)  ;

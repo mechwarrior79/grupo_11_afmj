@@ -11,6 +11,10 @@ const fs = require('fs');
 //Permite usar direcciones de rutas
 const path = require('path'); 
 
+//Permite usar las bases de datos
+const { User } = require('../database/models');
+const { Op } = require('sequelize');
+
 
 //Defino en usersFilePath la ruta en donde está el archivo JSON users
 const usersFilePath = path.join(__dirname, '../data/users.json');
@@ -24,6 +28,13 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 // Las derivo por render al archivo ejs que le diga
 
 const controller = {
+
+    list: (req, res) => {
+        User.findAll()
+            .then( ( users ) => {
+                res.send( {users} );
+            });
+    },
 
     // Derivo cada función a la página que le corresponde
     

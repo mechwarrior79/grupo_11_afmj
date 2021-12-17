@@ -51,6 +51,9 @@ const upload = multer ({storage}); //Ejecuto multer pasando como objeto literal 
 
 // Con router, de acuerdo a la ruta que ponga, le digo que haga tal función 
 
+router.get('/list', usersController.list);
+
+
 //Login del usuario
 /*Con guestMiddleware hago que si hay alguien en sesión, mi sistema lo redirija a la página 
 de perfil del usuario */

@@ -1,10 +1,10 @@
 //CONFIGURO LA TABLA CON VARIOS PARAMETROS
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, dataTypes) => {
     let alias = 'User'; // Uso 'User' para llamar esta tabla siempre   
 
     let cols = { //Defino las variables de los campos de la tabla y sus tipos
-        id : {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,

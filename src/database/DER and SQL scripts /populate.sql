@@ -26,8 +26,6 @@ DELETE FROM afmjdb.roles;
 ALTER TABLE afmjdb.roles AUTO_INCREMENT = 1; 
 
 -- TABLA carts. Opcional no aplicable al proyecto
-DELETE FROM afmjdb.carts;
-ALTER TABLE afmjdb.carts AUTO_INCREMENT = 1; 
 
 /* ==================================================================================================== */
 
@@ -105,9 +103,6 @@ Su transmisión de potencia entre baterías y motores eléctricos muy superior a
 "Con capacidad de almacenamiento en baterías de 200 kWh., el doble de la capacidad que puede acumular un Tesla Model S, 
 o un Tesla Model X, cuenta con una autonomía eléctrica de 1000 kilómetros--",
  "Roadster_01.jfif", 1700000, 25, 1, 1); 
-
- 
-
 
 
 /*  TABLA carts. Opcional no aplicable al proyecto */ 
