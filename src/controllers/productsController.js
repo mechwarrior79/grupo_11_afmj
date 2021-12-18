@@ -35,7 +35,7 @@ const controller = {
             .then(products=>{
                 res.render ('./products/productList', {products})
             })
-
+        //Logica de JSON
        /*res.render ('./products/productList', {'products':products})*/
     },
 
@@ -48,6 +48,8 @@ const controller = {
                 res.render ('./products/productDetail', {product})
             });
 
+
+        //Logica de JSON    
         /*const id = req.params.id;
         const product = products.find (product=>{
             return product.id == id
@@ -75,18 +77,36 @@ const controller = {
             return res.render('./products/productCreate', {allCategories,allStatuses})})
         .catch(error => res.send(error))
 
+        //Logica de JSON
         /*res.render('./products/productCreate')*/
     },
 
     // Almaceno los datos cargados en el formulario de creación en la base de datos 
 
     created: (req, res) => {
+        Product.create(
+            {
+                name: req.body.name,
+                mainDescription: req.body.mainDescription,
+                secondaryDescription: req.body.secondaryDescription,
+                categoryId: req.body.category,
+                statusId: req.body.status,
+                price: req.body.price,
+                discount: req.body.discount,
+                //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
+                image: req.file ? req.file.filename : "default-image.png" 
+            }
+        )
+        .then(()=> {
+            return res.redirect('/products')})            
+        .catch(error => res.send(error))
 
-        let newProduct = {/*Creo el objeto literal almacenando los datos recogidos del formulario
+        //Logica de JSON
+        /*let newProduct = {/*Creo el objeto literal almacenando los datos recogidos del formulario
         por medio del req.body
         De esta forma hago que coincida con el objeto del formato JSON del archivo de la base de
         datos */
-
+            /*
         id: products[products.length - 1].id + 1, //Es la última posición del id de products + 1
         name: req.body.name,
         mainDescription: req.body.mainDescription,
@@ -110,29 +130,53 @@ const controller = {
 
          // Lo redirige a la página de productos donde muestra la lista actualizada
         res.redirect('/products');
-      
+      */
         
     },
    
     // Busco los datos de un producto y mando el formulario para editarlo (vino por GET)
     
     edit: (req, res) => {
+       
+/*
+        
+        let promProducts = Product.findByPk(productId,{include: ['category','status']});
+        let promCategory = Category.findAll();
+        let promStatus = Status.findAll();*/
+        let productId = req.params.id;
+        Product.findByPk(productId)
+
+            .then(product=>{
+                res.render ('./products/productUpdate', {product})
+        });
+
+        
+
+        /*
+        Promise
+        .all([promProducts, promCategory, promStatus])
+        .then(([product, allCategories, allStatuses]) => {
+            return res.render('./products/productUpdate', {product, allCategories, allStatuses})})
+        .catch(error => res.send(error))
+        */
     
-        // En la variable id tengo el id del producto a modificar que me mandaron por parámetro en req.params.id
-        const id = req.params.id;
+        //Logica de JSON
+
+        /* En la variable id tengo el id del producto a modificar que me mandaron por parámetro en req.params.id*/
+        //const id = req.params.id;
         
         /* Busco el producto con la variable id y guardo los datos del producto a modificar en la variable 
         product*/
        
         
-        const product = products.find(product => {
+       /* const product = products.find(product => {
             return product.id == id;
         }) 
 
         // Mando al formulario para hacer la actualización de datos 
 
         res.render('./products/productUpdate', { productSent : product });
-
+        */
     },
 
 
