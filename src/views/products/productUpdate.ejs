@@ -54,32 +54,29 @@
               
                  <!-- CAMPOS A MODIFICAR DE LA CATEGORIA DEL PRODUCTO, TIPO DE PRECIO, PRECIO Y DESCUENTO -->
               
-                <div class="field">
+                 <div class="field">
                   <label for="category">Categoría de productos</label>
-
-                  <!--
                   <select name="category" required class="input" >
 
-                   
+                    <option value="" disabled selected>- Seleccionar categoría - </option>
+                        <% allCategories.forEach(category => { %>
+                        <option value="<%= category.id %>"><%= category.category %></option>
+                        <% }); %>
 
-                   
-                    
+
                   </select>
-                  -->
-                </div> 
+                </div>  
                 
                 <div class="field">
                   <label for="status" class="form-label">Estado del producto</label>
+                  <select name="status" id="status" required class="input">
 
-                  <!--
-                  <select name="status" id="status" required class="input"> 
-
-
-                   
-                      
-                      
-                    </select>
-                  -->
+                    <option value="" disabled selected>- Seleccionar estado del producto - </option>
+                    <% allStatuses.forEach(status => { %>
+                    <option value="<%= status.id %>"><%= status.status %></option>
+                    <% }); %>
+                    
+                  </select>
                 </div>
 
                 
