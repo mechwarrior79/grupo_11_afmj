@@ -1,25 +1,26 @@
-RETROSPECTIVA CUARTO SPRINT
+RETROSPECTIVA QUINTO SPRINT
 
-A partir del análisis sobre nuestra forma de trabajo de nuestro cuarto sprint el grupo pudo llegar a las siguientes conclusiones:
+A partir del análisis sobre nuestra forma de trabajo de nuestro segundo sprint el grupo pudo llegar a las siguientes conclusiones:
 
 1. Comenzar a hacer:
 
-Empezar a hacer charlas antes de las clases. Implementar la logica de KISS.
+Actualizar temas pendientes. 
 
 2. Hacer más:
 
-Distribuir más las tareas de acuerdo a la complejidad de las mismas.
+Mantener una charla fluida. Diariamente trabajar en el sprint, asi de esta manera se pueden detectar errores a tiempo.
 
 3. Continuar haciendo:
 
-Interacción entre los integrantes del grupo, comentarnos las dificultades presentadas al momento de realizar las tareas designadas.
-Promoviendo la mejora continua.  
+Interacción entre los integrantes del grupo.
+
+Promover la mejora continua del mismo.  
 
 4. Hacer menos:
 
-No avisar si se hace algún “push” en el proyecto sin antes dar aviso a los demás integrantes del grupo, así de esta manera nos evitamos dolores de cabeza a futuro.
-
+Hincapié en detalles que no son requeridos y que no agregan nada de valor para lograr el objetivo esperado.
+Por ejemplo: poner un botón de una función cuando el cliente nunca nos pidió que estuviese esa función y no agrega nada al proyecto.
 
 5. Dejar de hacer:
 
-No querer hacer todos los push del proyecto cerca del tiempo de entrega: programar mejor el trabajo.
+No avisar si se hace algún “push” en el proyecto sin antes dar aviso a los demás integrantes del grupo, así de esta manera nos evitamos dolores de cabeza a futuro.

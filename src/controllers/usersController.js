@@ -56,11 +56,8 @@ const controller = {
 
     loginProcess: (req, res) => {
 
- 
         //  Busco al usuario por email y guardo los datos de la búsqueda del usuario en la variable 
         //  userToLogin
-        
-    
         User.findAll({
             where: {
                 email: req.body.email
@@ -95,8 +92,8 @@ const controller = {
                 //     Con esto guardo todos los datos del usuario a lo largo de todas las páginas del 
                 //     navegador y le borro el campo de la password al userToLogin por seguridad
 
-                        // delete userToLogin[0].dataValues.password;
-                        //req.session.userLogged = userToLogin;
+                         delete userToLogin[0].dataValues.password;
+                         req.session.userLogged = userToLogin;
 
                 //          /* Verifico en el request del body si está tildado "Recordar usuario".
                 //          Si está puesto, quiere decir que el usuario está logueado, con lo cual
