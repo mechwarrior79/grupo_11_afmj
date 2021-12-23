@@ -120,6 +120,7 @@ a{
   color: #f9f8f8;
 }
 
+
 .img-user-profile{
   width: 60%;
   margin-bottom: 15px;
@@ -138,14 +139,33 @@ a{
 .link-profile{
   color: #f9f8f8;
   padding: 5px;
- 
+  font-size: 25px;
+
+}
+
+.link-profile-out{
+  color: #721817;
+  font-size: 25px;
+  padding: 5px;
+
+}
+
+.center {
+  text-align: center;
+}
+
+.link-profile-2{
+  color: #f9f8f8;
+  padding: 10px;
+  margin-left: 20px;
+
 }
 
 .welcome{
   margin-top:1rem;  
 }
 
-.link-profile:hover{
+.link-profile, .link-profile-2:hover{
   color: rgb( 34, 200, 81);
 }
 
@@ -678,6 +698,11 @@ img {
   
   .products-title {
     font-size: 2.5em;
+    font-weight: 400;
+    color: #f9f8f8;
+  }
+  .no-products {
+    font-size: 1.8rem;
     font-weight: 400;
     color: #f9f8f8;
   }

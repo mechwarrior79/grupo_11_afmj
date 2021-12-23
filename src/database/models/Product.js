@@ -53,17 +53,17 @@ module.exports = (sequelize, dataTypes) => {
 
     //Defino las relaciones que hay entre esta tabla y las demás
     Product.associate = function (models) {
+
         Product.belongsTo(models.Category, { // models.Category -> Product es el valor del alias en Category.js
             as: 'category', // El nombre del modelo
-            foreign_key: 'categoryId' // Es el campo en Product que la vincula con esta tabla
+            foreignKey: 'categoryId' // Es el campo en Product que la vincula con esta tabla
         });
-    }
     
-    Product.associate = function (models) {
         Product.belongsTo(models.Status, { // models.Status -> Product es el valor del alias en Status.js
             as: 'status', // El nombre del modelo
-            foreign_key: 'statusId' // Es el campo en Product que la vincula con esta tabla
+            foreignKey: 'statusId' // Es el campo en Product que la vincula con esta tabla
         });
     }
+
     return Product;
 };

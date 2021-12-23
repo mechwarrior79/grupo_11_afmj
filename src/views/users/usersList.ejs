@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- LLAMO AL HEAD DE PARTIALS-->
+
+    <%- include('../partials/head', { title: 'Listado de productos'}) %>
+
+<body>
+
+    <!-- LLAMO AL HEADER DE PARTIALS-->
+
+    <%- include('../partials/header') %>
+
+    <main>
+
+        <p class="info"> <i class="hoja fas fa-leaf"></i> Productos con impacto positivo <i class="bateria fas fa-battery-three-quarters"></i></p>
+
+        <!-- todos los productos -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title center">Listado de usuarios</h2>
+			</div>
+		
+		<% users.forEach( user => { %>	
+				<a class="link-profile-2" href="/users/detail/<%= user.id%>"> <%= user.id %> - <i class="hoja fas fa-leaf"></i> <%= user.name %> <%= user.surname %>  </a>
+        <% }); %>
+
+		</div>
+
+	</div>
+
+	<!-- Agrego botones de agregar usuario y de volver a la página principal -->
+
+	<div class="buttons-buy-addToChart">
+		<a class="login-button" href="/users/add">Agregar un usuario</a>
+		<a class="login-button" href="/">Página principal</a>
+	</div>
+
+    </main>
+
+    <!-- LLAMO AL FOOTER DE PARTIALS-->
+
+    <%- include('../partials/footer') %> 
+
+</body>
+
+</html>
+
+
+
+      

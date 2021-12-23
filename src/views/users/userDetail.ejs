@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- LLAMO AL HEAD DE PARTIALS-->
+
+<%- include('../partials/head', { title: 'Perfil de usuario'}) %>
+
+<body >
+
+	<main>
+
+    <!-- LLAMO AL HEADER DE PARTIALS-->
+
+    <%- include('../partials/header') %> 
+
+	
+	
+	<!-- Container -->
+	<p class="info"> <i class="hoja fas fa-leaf"></i> Productos con impacto positivo <i class="bateria fas fa-battery-three-quarters"></i></p>
+
+	<div class="info-profile">
+		<a class="link-profile" href="/">Home</a>
+		<a class="link-profile-out"  href="/users/logout">Logout</a>
+		<h3 class="info-profile welcome">Bienvenido/a : <strong class="user-info"><%= user.name%></strong></h3> 
+	</div>
+
+	<div class="info-img">
+		<img class="img-user-profile" src="/images/users/<%=user.image%>"  alt="imagen del usuario">
+	</div>
+
+	<!-- MUESTRO LOS DATOS DEL USUARIO -->
+	<br>
+	<div class="info-profile">
+		<h5>Email: <strong class="user-info"><%=user.email%></strong></h5>
+		<h5>Nombre: <strong class="user-info"><%= user.name %>  </strong></h5>
+		<h5>Apellido: <strong class="user-info"><%= user.surname %></strong>  </h5>
+		<h5>Fecha de nacimiento: <strong class="user-info"><%= user.birthDate %> </strong> </h5>
+		<h5>Sexo: <strong class="user-info"><%= user.sex.sex %></strong>  </h5>
+		<h5>Rol: <strong class="user-info"><%= user.role.role %> </strong> </h5>
+
+	</div>
+	
+	</br>
+
+	<!-- BOTONES DE ACCESO PARA AGREGAR, EDITAR, ELIMINAR USUARIO Y LISTADO DE USUARIOS -->
+
+	
+		<div class="buttons-buy-addToChart">
+			<a class="login-button" href="/users/add">Agregar</a>
+			
+			<a class="login-button" href="/users/edit/<%=user.id%>">Editar</a>
+			
+			<a class="login-button" href="/users/delete/<%=user.id%>">Eliminar</a>
+			
+			<a class="login-button" href="/users/list">Listado de usuarios</a>
+		</div>
+		
+	
+	 
+	 <!-- LLAMO AL FOOTER DE PARTIALS-->
+
+     <%- include('../partials/footer') %> 
+	</main>
+</body>
+</html>

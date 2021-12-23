@@ -55,15 +55,15 @@ module.exports = (sequelize, dataTypes) => {
     User.associate = function (models) {
         User.belongsTo(models.Role, { // models.Role -> User es el valor del alias en Role.js
             as: 'role', // El nombre del modelo
-            foreign_key: 'roleId' // Es el campo en User que la vincula con esta tabla
+            foreignKey: 'roleId' // Es el campo en User que la vincula con esta tabla
         });
-    }
-    
-    User.associate = function (models) {
+
         User.belongsTo(models.Sex, { // models.Sex -> User es el valor del alias en Sex.js
             as: 'sex', // El nombre del modelo
-            foreign_key: 'sexId' // Es el campo en User que la vincula con esta tabla
-        });
-    }
+            foreignKey: 'sexId' // Es el campo en User que la vincula con esta tabla
+        }); 
+
+    };
+    
     return User;
 };

@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
     Sex.associate = function (models) {
         Sex.hasMany(models.User, { // models.User -> User es el valor del alias en User.js
             as: 'sexes', // El nombre del modelo pero en plural
-            foreign_key: 'sexId' // Es el campo en User que la vincula con esta tabla
+            foreignKey: 'sexId' // Es el campo en User que la vincula con esta tabla
         });
     }
     

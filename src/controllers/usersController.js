@@ -1,4 +1,5 @@
 
+
 //Permite codificar (hashear) la password del usuario y comparar su contenido para el login
 const bcryptjs = require('bcryptjs');
 
@@ -12,218 +13,382 @@ const fs = require('fs');
 const path = require('path'); 
 
 //Permite usar las bases de datos
-const { User } = require('../database/models');
+const { User, Role, Sex } = require('../database/models'); //De los modelos voy a usar estas tablas
 const { Op } = require('sequelize');
 
 
-//Defino en usersFilePath la ruta en donde está el archivo JSON users
-const usersFilePath = path.join(__dirname, '../data/users.json');
 
-/*En users almaceno el contenido del archivo JSON convertido en un array de
-objetos literales*/
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+// //Defino en usersFilePath la ruta en donde está el archivo JSON users
+// const usersFilePath = path.join(__dirname, '../data/users.json');
+
+// /*En users almaceno el contenido del archivo JSON convertido en un array de
+// objetos literales*/
+// const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 
 // Cargo las funciones que quiero que haga
-// Las derivo por render al archivo ejs que le diga
+
 
 const controller = {
+
+    //Listo los usuarios cargados en la base de datos
 
     list: (req, res) => {
         User.findAll()
             .then( ( users ) => {
-                res.send( {users} );
-            });
+                res.render('./users/usersList', { users } ); // Renderizo la vista usersList pasando 
+                // como datos todos los usuarios
+            })
+            //Si hay errores en el proceso se nos muestra
+            .catch((error) => res.send(error));
     },
 
-    // Derivo cada función a la página que le corresponde
-    
-    //Busca el usuario por mail usando cookies
+   
 
-    userFromCookie: (marParams) => {
-    
-    /*console.log('marParams es: ' + marParams);*/
-    
-    /* Guardo en userToLogin el usuario que está guardado en el email de la cookie y retorno el objeto literal
-    del usuario */
-    
-    let userToLogin = users.find( user => {
-        return user.email == marParams;
-    });
-
-    return userToLogin;
-
-    },
-
-    // Creación de usuario registrandolo
-
-    register: (req, res) => {
-        res.render('./users/register')
-    },
 
     // Login de usuario
 
     login: (req, res) => { 
-        console.log(req.cookies);
-
-        res.render('./users/login')
+        //console.log(req.session);
+        res.render('./users/userLogin')
     },
 
-    /*profile: (req,res) =>{
-        res.redirect ('../')
-    },*/
 
     loginProcess: (req, res) => {
 
-       /* console.log(req.body);*/
-
-        /* Busco al usuario por email y guardo los datos de la búsqueda del usuario en la variable 
-        userToLogin*/
-       
-        let userToLogin = users.find( user => {
-            return user.email == req.body.email;
-        });
-
+ 
+        //  Busco al usuario por email y guardo los datos de la búsqueda del usuario en la variable 
+        //  userToLogin
         
-        /* Si encuentro un usuario pregunto si su password es la misma que tengo hasheada.
-        Si es verdad redirijo al usuario al perfil de su usuario.
-        Sino lo redirecciono al login con mensajes de error */
-
-        if (userToLogin) { //Si existe el usuario en la base de datos
-
-        /* Comparo la password que me vino por el request del body con la password
-        hasheada y guardo el resultado de la comparación en isOkPassword. Puede ser true o false */
-
-                                                    //texto plano       //texto hasheado
-            let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
-
-            if (isOkPassword) { /* Si la password ingresada es correcta, ya puedo loguear al usuario
-                en su página de perfil */
-                
-
-                /* Con esto guardo todos los datos del usuario a lo largo de todas las páginas del 
-                navegador */
-
-                req.session.userLogged = userToLogin;
-
-                /* Verifico en el request del body si está tildado "Recordar usuario".
-                Si está puesto, quiere decir que el usuario está logueado, con lo cual
-                voy a guardar en la cookie userEmail el email que me vino en el request del body
-                con duración 30 segundos de prueba
-                */
-
-                if (req.body.rememberUser) {
-                    res.cookie('userEmail', req.body.email, { maxAge: ( 1000 * 60 ) } );     
-                }
-
-                //Redirecciono al usuario a su página de perfil
-
-                return res.redirect('./profile');
+    
+        User.findAll({
+            where: {
+                email: req.body.email
             }
+        })
+        .then( (userToLogin) => {
+
             
-            //Si hay algo mal se redirecciona a la página del login mandando un mensaje de error
 
-            return res.render('./users/login', {
-                errors: {
-                    email: {
-                        msg: 'Email y/o password inválidos'
-                    }
-                }
-            });
+            if (userToLogin.length > 0) { // Con esto me fijo si existe el usuario en la base de datos
+                                       // Si existe el mail del usuario va a tener un largo en caracteres
+                                       // mayor a 0
 
-        }
+                
+                //  Si encuentro un usuario pregunto si su password es la misma que tengo hasheada.
+                //  Si es verdad redirijo al usuario al perfil de su usuario.
+                //  Sino lo redirecciono al login con mensajes de error 
 
-        return res.render('./users/login', {
-            errors: {
-                email: {
-                    msg: 'Email no encontrado en la base de datos'
-                }
+                //  /* Comparo la password que me vino por el request del body con la password
+                //  hasheada y guardo el resultado de la comparación en isOkPassword. Puede ser true o false */
+                
+    
+
+                                                             //texto plano       //texto hasheado
+                    let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin[0].dataValues.password);
+                    
+                    if (isOkPassword) { /* Si la password ingresada es correcta, ya puedo loguear al usuario
+                         en su página de perfil */
+
+                   
+
+                //     Con esto guardo todos los datos del usuario a lo largo de todas las páginas del 
+                //     navegador y le borro el campo de la password al userToLogin por seguridad
+
+                        // delete userToLogin[0].dataValues.password;
+                        //req.session.userLogged = userToLogin;
+
+                //          /* Verifico en el request del body si está tildado "Recordar usuario".
+                //          Si está puesto, quiere decir que el usuario está logueado, con lo cual
+                //          voy a guardar en la cookie userEmail el email que me vino en el request del body
+                //          con duración 30 segundos de prueba
+                //          */
+
+                //          if (req.body.rememberUser) {
+                //              res.cookie('userEmail', req.body.email, { maxAge: ( 1000 * 60 ) } );     
+                //          }
+
+                        // Redirecciono al usuario a su página de perfil
+
+                        
+                        return res.redirect('./detail/' + userToLogin[0].dataValues.id);
+                        
+                     }
+
+                //      //Si hay algo mal se redirecciona a la página del login mandando un mensaje de error
+
+                     return res.render('./users/userlogin', {
+                         errors: {
+                             email: {
+                                 msg: 'Contraseña inválida'
+                             }
+                         }
+                     });
+
+                //  }
+
+                //  return res.render('./users/login', {
+                //      errors: {
+                //          email: {
+                //              msg: 'Email no encontrado en la base de datos'
+                //          }
+                //      }
+                //  });
+                // )
+
+
+                // PARA VER CON MAS TIEMPO LAS VALIDACIONES
+                // return res.render('./users/userAdd', {
+                //     errors: {
+                //          email: {
+                //              msg: 'Este email ya está registrado'
+                //          }
+                //     },
+                //     oldData: req.body
+                // });
+                //res.send('encontrado');
+            
+            } else { // Si no existe el mail del usuario va a tener un largo en caracteres
+                     // igual a 0 
+
+                // Mando un mensaje de error diciendo que el email no fue encontrado
+            
+                return res.render('./users/userLogin', {
+                         errors: {
+                             email: {
+                                 msg: 'Email no encontrado en la base de datos'
+                             }
+                         }
+                     });
+                
             }
-        });
-
-    },
-
-    profile: (req, res) => {
-
-        /* A la página del profile le voy a mandar un objeto literal que tiene la información guardada 
-        en session con los datos del usuario logueado (userLogged) */
+        })
         
-        return res.render('./users/userProfile', {
-             user: req.session.userLogged
-        });
+        // Si no hubo errores lo redirige a la página donde muestra la lista actualizada de usuarios
+        .catch((error) => res.send(error));
+                
     },
+
+    
+    // Creación de usuario registrandolo
+
+    add: (req, res) => {
+        let promRole = Role.findAll();
+        let promSex = Sex.findAll();
+        Promise
+        .all([promRole, promSex])
+        .then( ([allRoles, allSexes]) => {
+            return res.render('./users/userAdd', { allRoles, allSexes } ); // Renderizo la vista userAdd tomando 
+                // los datos de las tablas Role y Sex
+            })
+            //Si hay errores en el proceso se nos muestra
+            .catch((error) => res.send(error));
+    },
+
+   
 
     // Almaceno los datos cargados en el formulario de creación en la base de datos 
 
-    newRegister: (req, res) => {
+    create: (req, res) => {
 
-        /*
-        // Muestra los errores de validación en el request. Me dice cuáles campos tuvieron error
-        const resultValidation = validationResult(req);
-        
-        //Me fijo si resultValidation tiene errores fijandome si su longitud es mayor a 0
-        if ( resultValidation.length > 0 ) { 
-        //Si hay errores le paso
-
-        }*/
-
-        // Antes de crear al usuario me tengo que fijar si hay un usuario creado con el mismo email
-
-        /* Busco al usuario por email y guardo los datos de la búsqueda del usuario a crear en la variable 
-        userInDB*/
        
-        const userInDB = users.find( user => {
-            return user.email == req.body.email;
-        });
+            // Antes de crear al usuario me tengo que fijar si hay un usuario creado con el mismo email
 
-        // Si el mail del usuario está repetido, lo mando a la página del login
-        if (userInDB) { 
-            res.redirect('/users/login');
-        };
-        
-        let newUser = {/*Creo el objeto literal almacenando los datos recogidos del formulario
-            por medio del req.body
-            De esta forma hago que coincida con el objeto del formato JSON del archivo de la base de
-            datos */
-    
-            id: users[users.length - 1].id + 1, //Es la última posición del id de users + 1
-            userLogin: req.body.userLogin,
-            name: req.body.name,
-            surname: req.body.surname,
-            sex: req.body.sex,
-            birthDate: req.body.birthDate,
-            email: req.body.email,
-            //Hasheo la password que me vino cargada en el formulario
-            password: bcryptjs.hashSync(req.body.password, 10), 
-           //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
-            image: req.file ? req.file.filename : "defaultUser.png" 
-            }
-            
-    
-            //Agrego los datos del nuevo usuario a la base de datos
-    
-            //Agrego este nuevo usuario a users con un push
-            users.push(newUser);
-    
-            //Guardo users actualizado en la base de datos
-            fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-    
-             // Lo redirige a la página principal donde muestra la lista actualizada
-            res.redirect('/');     
-        
+            // Busco si el email que vino en el req.body que ingresó el nuevo usuario a crear está en la base 
+            // de datos
+            // El resultado de la búsqueda lo almaceno en userInDb
+            // Si existe userInDb quiere decir que el usuario existe, con lo cual voy a redirigirlo
+            // a la pantalla de login
+            // Sino lo creo al usuario en la base de datos
+
+
+            User.findAll({
+                where: {
+                    email: req.body.email
+                }
+            })
+            .then( (userInDb) => {
+                //console.log(userInDb);
+                if (userInDb.length > 0) { // Con esto me fijo si existe el usuario en la base de datos
+                                           // Si existe el mail del usuario userInDb va a tener un largo en caracteres
+                                           // mayor a 0
+
+                    res.redirect('../users/login');
+
+                    // PARA VER CON MAS TIEMPO LAS VALIDACIONES
+                    // return res.render('./users/userAdd', {
+                    //     errors: {
+                    //          email: {
+                    //              msg: 'Este email ya está registrado'
+                    //          }
+                    //     },
+                    //     oldData: req.body
+                    // });
+                
+                } else { // Si no existe el mail del usuario userInDb va a tener un largo en caracteres
+                         // igual a 0 
+
+                    //Creo el nuevo usuario en la base de datos con los datos recogidos del req.body 
+                    
+                    User.create ({
+                        name: req.body.name,
+                        surname: req.body.surname,
+                        sexId: req.body.sexId,
+                        birthDate: req.body.birthDate,
+                        email: req.body.email,
+                        roleId: req.body.roleId,
+                        //Hasheo la password que me vino cargada en el formulario
+                        password: bcryptjs.hashSync(req.body.password, 10), 
+                        //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
+                        image: req.file ? req.file.filename : "defaultUser.png" 
+                    })
+
+                    // Si no hubo errores lo redirige a la página donde muestra la lista actualizada de usuarios
+                    .then( () => {
+                        return res.redirect('/users/list'); 
+                    })
+                    .catch((error) => res.send(error));
+                    
+                    
+                }
+            })
+            .catch((error) => res.send(error));
+
+                    
     },
+
+
+    // Llamo la información del usuario cargada en la base de datos 
+
+    edit: (req, res) => {
+        // Cargo la información de las 3 bases de datos
+        let promUser = User.findByPk(req.params.id);
+        let promRole = Role.findAll();
+        let promSex = Sex.findAll();
+        Promise
+        .all([promUser, promRole, promSex])
+        .then( ([user, allRoles, allSexes]) => {
+            return res.render('./users/userEdit', { user, allRoles, allSexes } ); // Renderizo la vista userEdit tomando 
+                // los datos de las tablas Role, Sex y los datos del usuario a editar
+            })
+        //Si hay errores en el proceso se nos muestra
+        .catch((error) => res.send(error));
+    },
+
+
+    // Almaceno los datos modificados del usuario en la base de datos 
+    
+    update: (req, res) => {
+
+        /* Guardo los datos del usuario a modificar en la variable 
+        userToEdit */
+
+        let userToEdit;
+
+        User.findByPk(req.params.id)
+                .then( ( user ) => {
+                   userToEdit = user;
+                   User.update (
+                    {
+                        name: req.body.name,
+                        surname: req.body.surname,
+                        sexId: req.body.sexId,
+                        birthDate: req.body.birthDate,
+                        email: req.body.email,
+                        roleId: req.body.roleId,
+        
+                        /*Pregunto si recibo un archivo con la imagen
+                        Si me llegó un archivo lo tomo, sino pongo el archivo que vino originalmente */
+                        
+                        image: req.file ? req.file.filename : userToEdit.image   
+                    },
+                    {
+                        where: 
+                            { id: req.params.id }
+                    })
+                    .then( ()  => {
+                        return res.redirect('/users/list'); 
+                    })
+                    //Si hay errores en el proceso se nos muestra
+                    .catch((error) => res.send(error));
+                } )
+                
+                //Si hay errores en el proceso se nos muestra
+                .catch((error) => res.send(error));
+            
+
+       
+    },
+
+
+    //Elimino al usuario de la base de datos
+
+    destroy: (req, res) => {
+
+        User.destroy ( {
+            where: 
+                    { id: req.params.id },
+
+            force: true // Por si hubiera problemas fuerzo al sistema para que lo elimine
+            })
+
+            .then( ()  => {
+                return res.redirect('/users/list'); 
+            })
+            //Si hay errores en el proceso se nos muestra
+            .catch((error) => res.send(error));
+           
+    },
+
+
+    // Proceso de salir de sesión del usuario
 
     logout: (req, res) => {
         
-        //Borra todo lo que está en sesión
+       /*  //Borra todo lo que está en sesión
         req.session.destroy();
 
         //Destruyo la cookie para que cuando me loguee de vuelta no me aparezca el usuario
         res.clearCookie('userEmail');
 
         //Lo redirijo al '/' de la página
-        return res.redirect('/');
+        return res.redirect('/'); */
+    },
+
+     //Muestro el perfil del usuario
+
+     detail: (req, res) => {
+        
+        // A la página del profile le voy a mandar la información del usuario de la base de datos 
+        // almacenada en el req.params.id que viene por parámetro
+        
+        User.findByPk(req.params.id,  {
+        // Vinculo la información guardada en los modelos Role y Sex con esta tabla
+            include: [ {association: 'role' } ,  { association: 'sex' } ] 
+            })
+            .then( ( user ) => {
+                //console.log('estas en profile');
+                //console.log('Usuario en sesion: ' + req.session.userLogged);
+               
+                //En la vista cuando vea los detalles le paso los datos de mi usuario en sesion
+                res.render('./users/userDetail', { user } ); 
+            } )
+            
+            //Si hay errores en el proceso se nos muestra
+            .catch((error) => res.send(error));
+
+      
+
+        // VER que tiene la información guardada 
+        // en session con los datos del usuario logueado (userLogged) 
+        
+        //return res.render('./users/userProfile', {
+          //   user: req.session.userLogged
+        //});
     }
+
+
+    
 
   }
   

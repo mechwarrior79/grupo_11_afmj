@@ -30,7 +30,7 @@
                     <% } else { %>
 
                         <li class="user"><a class="text-nav-bar" href="/users/login">Usuario<i class="icon fas fa-user"></i> </a> </li>
-                        <li class="news"><a class="text-nav-bar" href="/users/register">Registro<i class="icon fas fa-sign-in-alt"></i></a></li>
+                        <li class="news"><a class="text-nav-bar" href="/users/add">Registro<i class="icon fas fa-sign-in-alt"></i></a></li>
                         <li class="buys"><a class="text-nav-bar" href="/products/cart">Carrito<i class="icon fas fa-shopping-cart"></i></a></li>
                         <li class="buys"><a class="text-nav-bar" href="/products/">Productos<i class="icon fas fa-clipboard-list"></i></a></li>
                     
@@ -47,17 +47,17 @@
             </div>
 
         </div>
-
         <div class="search-bar">
 
-            <form action="busqueda.html" method="post" class="searching"> 
+            <form action="/products/search" method="post" class="searching"> 
             
-                <input class="search" type="text" name="Search" placeholder="Busqueda" required> 
-                <input type="submit" value="Ir"> 
+                <input class="search" type="text" name="search" placeholder="Busqueda" required>
+                <!--<button type="button" class="btn btn-primary btn-sm">?</button> --> 
+                <input type="submit" value="Ir">
             
             </form> 
 
-        </div> 
+        </div>  
 
     </div>
 

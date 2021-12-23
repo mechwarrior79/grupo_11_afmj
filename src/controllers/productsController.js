@@ -18,8 +18,6 @@ const { Category } = require('../database/models');
 const { Status } = require('../database/models');
 const { Op } = require('sequelize');
 
-
-
 // Cargo las funciones que quiero que haga
 // Las derivo por render al archivo ejs que le diga
 
@@ -35,6 +33,7 @@ const controller = {
             .then(products=>{
                 res.render ('./products/productList', {products})
             })
+            .catch((error) => res.send(error))
         //Logica de JSON
        /*res.render ('./products/productList', {'products':products})*/
     },
@@ -46,7 +45,8 @@ const controller = {
         Product.findByPk(req.params.id)
             .then(product=>{
                 res.render ('./products/productDetail', {product})
-            });
+            })
+            .catch((error) => res.send(error))
 
 
         //Logica de JSON    
@@ -179,34 +179,39 @@ const controller = {
 
      // Con los datos actualizados del producto los reemplazo en el archivo (vino por PUT)
 
-     edited: (req, res) => {
+    edited: (req, res) => {
 
          /*falta la funcionalidad que si no se agrega una imagen nueva te deje por defecto la imagen anterior
          ahora esta funcioando que si no se coloca una imagen nueva te pisa la vieja por una por defecto*/
+        let productToEdit;
 
-        Product.update(
-            {
-                name: req.body.name,
-                mainDescription: req.body.mainDescription,
-                secondaryDescription: req.body.secondaryDescription,
-                categoryId: req.body.category,
-                statusId: req.body.status,
-                price: req.body.price,
-                discount: req.body.discount,
-                //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
-                image: req.file ? req.file.filename : "default-image.png" 
-            },
-            {
-                where: {id:req.params.id}
-            }
-        )
-            .then(()=>{
-                return res.redirect('/products')
+        Product.findByPk(req.params.id) 
+            .then((product)=>{
+                productToEdit = product;   
+                Product.update(
+                    {
+                        name: req.body.name,
+                        mainDescription: req.body.mainDescription,
+                        secondaryDescription: req.body.secondaryDescription,
+                        categoryId: req.body.category,
+                        statusId: req.body.status,
+                        price: req.body.price,
+                        discount: req.body.discount,
+                        //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
+                        image: req.file ? req.file.filename : productToEdit.image 
+                    },
+                    {
+                        where: {id:req.params.id}
+                    }
+                )
+                .then(()=>{
+                    return res.redirect('/products')
+                })
+                .catch(error => res.send(error))
             })
-
-
-        },
-
+            .catch(error => res.send(error))   
+    },
+       
 
      /*
         // En la variable id tengo el id del producto a modificar que me mandaron por parámetro en req.params.id
@@ -260,8 +265,10 @@ const controller = {
     destroy: ( req, res ) => {  
 
         Product.destroy(
+
             {
-                where:{id:req.params.id}
+                where:{id:req.params.id},
+                force: true
             }
         )
         .then(()=>{
@@ -290,18 +297,28 @@ const controller = {
         
         res.redirect('/products');*/
 
+    },
+    searching : (req,res) =>{
+
+        let productoBuscado = req.body.search;
+        
+
+        Product.findAll( {
+            where:{ 
+                name: {[Op.like]: '%' + productoBuscado +'%'}
+            }                    
+        })
+            .then(products=>{
+                res.render('./products/productSearch', {products})
+                console.log(products);
+        }) 
+
     }
     
   }
   
   module.exports = controller;
 
-  /*<% allStatuses.forEach(status => { %>
-                        <option value="<%= status.id %>" <% if (product.statusId == status.id) { %><%= 'selected' %><% }; %>><%= status.name %></option>
-                        <% }); %>
+ 
                         
-                        
-    <% allCategories.forEach(category => { %>
-                      <option value="<%= category.id %>" <% if (product.categoryId == category.id) { %><%= 'selected' %><% }; %>><%= category.name %></option>
-                      <% }); %>
-                      */
+    
