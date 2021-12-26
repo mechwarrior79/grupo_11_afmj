@@ -49,13 +49,12 @@ const controller = {
     // Login de usuario
 
     login: (req, res) => { 
-        //console.log(req.session);
         res.render('./users/userLogin')
     },
 
 
     loginProcess: (req, res) => {
-
+         
         //  Busco al usuario por email y guardo los datos de la búsqueda del usuario en la variable 
         //  userToLogin
         User.findAll({
@@ -64,8 +63,6 @@ const controller = {
             }
         })
         .then( (userToLogin) => {
-
-            
 
             if (userToLogin.length > 0) { // Con esto me fijo si existe el usuario en la base de datos
                                        // Si existe el mail del usuario va a tener un largo en caracteres
@@ -78,11 +75,9 @@ const controller = {
 
                 //  /* Comparo la password que me vino por el request del body con la password
                 //  hasheada y guardo el resultado de la comparación en isOkPassword. Puede ser true o false */
-                
-    
-
+                    
                                                              //texto plano       //texto hasheado
-                    let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin[0].dataValues.password);
+                    let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin[0].password);
                     
                     if (isOkPassword) { /* Si la password ingresada es correcta, ya puedo loguear al usuario
                          en su página de perfil */
@@ -91,9 +86,10 @@ const controller = {
 
                 //     Con esto guardo todos los datos del usuario a lo largo de todas las páginas del 
                 //     navegador y le borro el campo de la password al userToLogin por seguridad
-
-                         delete userToLogin[0].dataValues.password;
-                         req.session.userLogged = userToLogin;
+                        
+                        
+                        delete userToLogin[0].password; //para ver por qué no lo borra
+                        req.session.userLogged = userToLogin[0];
 
                 //          /* Verifico en el request del body si está tildado "Recordar usuario".
                 //          Si está puesto, quiere decir que el usuario está logueado, con lo cual
@@ -108,15 +104,15 @@ const controller = {
                         // Redirecciono al usuario a su página de perfil
 
                         
-                        return res.redirect('./detail/' + userToLogin[0].dataValues.id);
+                        return res.redirect('./detail/' + userToLogin[0].id);
                         
                      }
 
-                //      //Si hay algo mal se redirecciona a la página del login mandando un mensaje de error
+                //      //Si puso mal la contraseña se redirecciona a la página del login mandando un mensaje de error
 
                      return res.render('./users/userlogin', {
                          errors: {
-                             email: {
+                             password: {
                                  msg: 'Contraseña inválida'
                              }
                          }
@@ -135,7 +131,7 @@ const controller = {
 
 
                 // PARA VER CON MAS TIEMPO LAS VALIDACIONES
-                // return res.render('./users/userAdd', {
+                // return res.render('./users/userRegister', {
                 //     errors: {
                 //          email: {
                 //              msg: 'Este email ya está registrado'
@@ -169,13 +165,13 @@ const controller = {
     
     // Creación de usuario registrandolo
 
-    add: (req, res) => {
+    register: (req, res) => {
         let promRole = Role.findAll();
         let promSex = Sex.findAll();
         Promise
         .all([promRole, promSex])
         .then( ([allRoles, allSexes]) => {
-            return res.render('./users/userAdd', { allRoles, allSexes } ); // Renderizo la vista userAdd tomando 
+            return res.render('./users/userRegister', { allRoles, allSexes } ); // Renderizo la vista userRegister tomando 
                 // los datos de las tablas Role y Sex
             })
             //Si hay errores en el proceso se nos muestra
@@ -186,7 +182,21 @@ const controller = {
 
     // Almaceno los datos cargados en el formulario de creación en la base de datos 
 
-    create: (req, res) => {
+    processRegister: (req, res) => {
+
+            // const resultValidation = validationResult(req);
+
+            // if (resultValidation.errors.length > 0) {
+            //     return res.sender('./users/userRegister', {
+            //         errors: resultValidation.mapped(),
+            //         oldData: req.body
+            //     });
+            // }
+
+            // return res.send('Ok, las validaciones pasaron y no tienes errores');
+
+
+            
 
        
             // Antes de crear al usuario me tengo que fijar si hay un usuario creado con el mismo email
@@ -205,22 +215,13 @@ const controller = {
                 }
             })
             .then( (userInDb) => {
-                //console.log(userInDb);
+                
                 if (userInDb.length > 0) { // Con esto me fijo si existe el usuario en la base de datos
                                            // Si existe el mail del usuario userInDb va a tener un largo en caracteres
                                            // mayor a 0
 
                     res.redirect('../users/login');
-
-                    // PARA VER CON MAS TIEMPO LAS VALIDACIONES
-                    // return res.render('./users/userAdd', {
-                    //     errors: {
-                    //          email: {
-                    //              msg: 'Este email ya está registrado'
-                    //          }
-                    //     },
-                    //     oldData: req.body
-                    // });
+               
                 
                 } else { // Si no existe el mail del usuario userInDb va a tener un largo en caracteres
                          // igual a 0 
@@ -342,14 +343,15 @@ const controller = {
 
     logout: (req, res) => {
         
-       /*  //Borra todo lo que está en sesión
+        //Borra todo lo que está en sesión
         req.session.destroy();
 
-        //Destruyo la cookie para que cuando me loguee de vuelta no me aparezca el usuario
-        res.clearCookie('userEmail');
-
         //Lo redirijo al '/' de la página
-        return res.redirect('/'); */
+        return res.redirect('/'); 
+
+        //Destruyo la cookie para que cuando me loguee de vuelta no me aparezca el usuario
+        // res.clearCookie('userEmail');
+
     },
 
      //Muestro el perfil del usuario
@@ -364,16 +366,14 @@ const controller = {
             include: [ {association: 'role' } ,  { association: 'sex' } ] 
             })
             .then( ( user ) => {
-                //console.log('estas en profile');
-                //console.log('Usuario en sesion: ' + req.session.userLogged);
-               
+                               
                 //En la vista cuando vea los detalles le paso los datos de mi usuario en sesion
                 res.render('./users/userDetail', { user } ); 
             } )
             
             //Si hay errores en el proceso se nos muestra
             .catch((error) => res.send(error));
-
+            console.log('El usuario en sesión es: ', req.session);
       
 
         // VER que tiene la información guardada 

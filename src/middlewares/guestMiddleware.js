@@ -6,7 +6,7 @@ function guestMiddleware(req, res, next) {
 de perfil del usuario */ 
 
     if (req.session.userLogged) {
-        return res.redirect('./profile');
+        return res.redirect('./detail/' + req.session.userLogged.id);
         
     }
     

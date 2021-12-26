@@ -38,6 +38,11 @@
             <div class="field">
                 <label for="password">Contraseña:</label>
                 <input type="password" name="password" id="password" required class="input">
+                <% if (locals.errors && errors.password) { %>
+                    <div class="textError">
+                        <%= errors.password.msg %>
+                    </div>
+                <% } %>
             </div>
 
             <!-- BOTONES PARA INGRESAR Y CANCELAR -->
