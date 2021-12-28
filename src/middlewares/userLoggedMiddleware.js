@@ -1,9 +1,11 @@
-const user = require('../controllers/usersController');
 
-/* Quiero saber si hay alguien en sesión.
-Si hay alguien, muestro cierta parte de la barra de navegación */
+const { User } = require('../database/models'); //De los modelos voy a usar esta tabla
 
-function userLoggedMiddleware (req, res, next) {
+// /* Quiero saber si hay alguien en sesión.
+// Si hay alguien, muestro cierta parte de la barra de navegación */
+
+async function userLoggedMiddleware (req, res, next) {
+
   
     //En la variable res.locals.isLogged le digo que el usuario no está logueado (false)
     //res.locals son variables que se pueden compartir en todas las vistas sin tener en cuenta el controlador
@@ -11,18 +13,30 @@ function userLoggedMiddleware (req, res, next) {
     res.locals.isLogged = false;
 
     let emailInCookie = req.cookies.userEmail;
-    let userFromCookie = user.userFromCookie(emailInCookie);
+   
+    let userFromCookie;
 
-    //Si encontró el usuario de la cookie, lo paso a sesión
-
-    if ( userFromCookie ) {
-        req.session.userLogged = userFromCookie;
-
-    };
+    if (emailInCookie) {
+        userFromCookie = await User.findAll( {
+            where: 
+                {
+                    email: emailInCookie
+                }
+        })
+        .then( user => {
+            data= JSON.parse(JSON.stringify(user));
+            return data;
+        })
+    }
     
-    //Si hay un usuario logueado en sesión, le digo que el usuario está logueado (true)
+    
+    if (userFromCookie ) {
+        req.session.userLogged = userFromCookie;
+    }
+        
+    //Si estoy en sesión y hay un usuario logueado en sesión, le digo que el usuario está logueado (true)
 
-    if (req.session.userLogged) {
+    if ( req.session.userLogged) {
 
         res.locals.isLogged = true;
 
@@ -30,12 +44,10 @@ function userLoggedMiddleware (req, res, next) {
         con la variable res.locals.userLogged */
 
         res.locals.userLogged = req.session.userLogged;
-      
     }
+    next();
 
-    
-    next ();
-
-};
+}
 
 module.exports = userLoggedMiddleware;
+

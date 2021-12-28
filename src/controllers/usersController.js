@@ -17,14 +17,10 @@ const { User, Role, Sex } = require('../database/models'); //De los modelos voy 
 const { Op } = require('sequelize');
 
 
+//Defino la variable para definir el tiempo de duración de la cookie
+//En este caso está seteado en 60 segundos
 
-// //Defino en usersFilePath la ruta en donde está el archivo JSON users
-// const usersFilePath = path.join(__dirname, '../data/users.json');
-
-// /*En users almaceno el contenido del archivo JSON convertido en un array de
-// objetos literales*/
-// const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
+const cookieDuration = 1000 * 60;
 
 // Cargo las funciones que quiero que haga
 
@@ -49,7 +45,7 @@ const controller = {
     // Login de usuario
 
     login: (req, res) => { 
-        res.render('./users/userLogin')
+        res.render('./users/userLogin');
     },
 
 
@@ -91,18 +87,17 @@ const controller = {
                         delete userToLogin[0].password; //para ver por qué no lo borra
                         req.session.userLogged = userToLogin[0];
 
-                //          /* Verifico en el request del body si está tildado "Recordar usuario".
-                //          Si está puesto, quiere decir que el usuario está logueado, con lo cual
-                //          voy a guardar en la cookie userEmail el email que me vino en el request del body
-                //          con duración 30 segundos de prueba
-                //          */
+                         /* Verifico en el request del body si está tildado "Recordar usuario".
+                         Si está puesto, quiere decir que el usuario está logueado, con lo cual
+                         voy a guardar en la cookie userEmail el email que me vino en el request del body
+                         con duración 30 segundos de prueba */
+                        
 
-                //          if (req.body.rememberUser) {
-                //              res.cookie('userEmail', req.body.email, { maxAge: ( 1000 * 60 ) } );     
-                //          }
+                         if (req.body.rememberUser) {
+                             res.cookie('userEmail', req.body.email, { maxAge: cookieDuration } );     
+                         }
 
                         // Redirecciono al usuario a su página de perfil
-
                         
                         return res.redirect('./detail/' + userToLogin[0].id);
                         
@@ -166,6 +161,7 @@ const controller = {
     // Creación de usuario registrandolo
 
     register: (req, res) => {
+
         let promRole = Role.findAll();
         let promSex = Sex.findAll();
         Promise
@@ -342,21 +338,24 @@ const controller = {
     // Proceso de salir de sesión del usuario
 
     logout: (req, res) => {
-        
+
+        //Destruyo la cookie para que cuando me loguee de vuelta no me aparezca el usuario
+        res.clearCookie('userEmail');
+
         //Borra todo lo que está en sesión
         req.session.destroy();
 
         //Lo redirijo al '/' de la página
         return res.redirect('/'); 
 
-        //Destruyo la cookie para que cuando me loguee de vuelta no me aparezca el usuario
-        // res.clearCookie('userEmail');
-
+        
     },
 
      //Muestro el perfil del usuario
 
      detail: (req, res) => {
+
+        console.log(req.cookies.userEmail);
         
         // A la página del profile le voy a mandar la información del usuario de la base de datos 
         // almacenada en el req.params.id que viene por parámetro
@@ -374,14 +373,7 @@ const controller = {
             //Si hay errores en el proceso se nos muestra
             .catch((error) => res.send(error));
             console.log('El usuario en sesión es: ', req.session);
-      
-
-        // VER que tiene la información guardada 
-        // en session con los datos del usuario logueado (userLogged) 
-        
-        //return res.render('./users/userProfile', {
-          //   user: req.session.userLogged
-        //});
+              
     }
 
 

@@ -17,7 +17,7 @@
 
                     <% if (locals.isLogged) { %>
 
-                       <li class="buys"><a class="text-nav-bar" href="/users/profile"><%= locals.userLogged.name %></a></li> 
+                        <li class="buys"><a class="text-nav-bar" href="/users/detail/<%=locals.userLogged.id%>"><%= locals.userLogged.name %></a></li> 
 
                         <img class="img-user" src="/images/users/<%= locals.userLogged.image %>" width=10px style="border-radius: 100%;" alt="">
 
@@ -25,14 +25,14 @@
                         <li class="buys"><a class="text-nav-bar" href="/products/cart">Carrito<i class="icon fas fa-shopping-cart"></i></a></li>               
                         <li class="buys"><a class="text-nav-bar" href="/products/">Productos<i class="icon fas fa-clipboard-list"></i></a></li>
                     
-                    <!-- SI EL USUARIO NO ESTA LOGUEADO, MUESTRO ESTOS MENUES, MUESTRO ESTOS MENUES -->
+                    <!-- SI EL USUARIO NO ESTA LOGUEADO, MUESTRO ESTOS MENUES -->
 
                     <% } else { %>
 
                         <li class="user"><a class="text-nav-bar" href="/users/login">Usuario<i class="icon fas fa-user"></i> </a> </li>
                         <li class="news"><a class="text-nav-bar" href="/users/register">Registro<i class="icon fas fa-sign-in-alt"></i></a></li>
                         <li class="buys"><a class="text-nav-bar" href="/products/cart">Carrito<i class="icon fas fa-shopping-cart"></i></a></li>
-                        <li class="buys"><a class="text-nav-bar" href="/products/">Productos<i class="icon fas fa-clipboard-list"></i></a></li>
+                        <!-- <li class="buys"><a class="text-nav-bar" href="/products/">Productos<i class="icon fas fa-clipboard-list"></i></a></li> -->
                     
                     <% } %>
                     

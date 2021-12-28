@@ -39,10 +39,8 @@ app.use(session({
 //Sirve para poder usar las cookies
 app.use(cookies());
 
-
 //Sirve para poder usar el middleware userLoggedMiddleware para saber si un usuario está logueado
-//app.use(userLoggedMiddleware);
-
+app.use(userLoggedMiddleware);
 
 
 //Inicializo ejs
