@@ -100,6 +100,7 @@ const controller = {
                         // Redirecciono al usuario a su página de perfil
                         
                         return res.redirect('./detail/' + userToLogin[0].id);
+
                         
                      }
 
