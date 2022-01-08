@@ -3,7 +3,7 @@
 //Permite codificar (hashear) la password del usuario y comparar su contenido para el login
 const bcryptjs = require('bcryptjs');
 
-//Permite ver el resulado de las validaciones de datos
+//Permite ver el resultado de las validaciones de datos
 const { validationResult } = require('express-validator'); 
 
 //Permite usar archivos
@@ -50,111 +50,116 @@ const controller = {
 
 
     loginProcess: (req, res) => {
-         
-        //  Busco al usuario por email y guardo los datos de la búsqueda del usuario en la variable 
-        //  userToLogin
-        User.findAll({
-            where: {
-                email: req.body.email
-            }
-        })
-        .then( (userToLogin) => {
 
-            if (userToLogin.length > 0) { // Con esto me fijo si existe el usuario en la base de datos
-                                       // Si existe el mail del usuario va a tener un largo en caracteres
-                                       // mayor a 0
+        // Guardo los resultados de la validación de los campos
 
-                
-                //  Si encuentro un usuario pregunto si su password es la misma que tengo hasheada.
-                //  Si es verdad redirijo al usuario al perfil de su usuario.
-                //  Sino lo redirecciono al login con mensajes de error 
-
-                //  /* Comparo la password que me vino por el request del body con la password
-                //  hasheada y guardo el resultado de la comparación en isOkPassword. Puede ser true o false */
-                    
-                                                             //texto plano       //texto hasheado
-                    let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin[0].password);
-                    
-                    if (isOkPassword) { /* Si la password ingresada es correcta, ya puedo loguear al usuario
-                         en su página de perfil */
-
-                   
-
-                //     Con esto guardo todos los datos del usuario a lo largo de todas las páginas del 
-                //     navegador y le borro el campo de la password al userToLogin por seguridad
-                        
-                        
-                        delete userToLogin[0].password; //para ver por qué no lo borra
-                        req.session.userLogged = userToLogin[0];
-
-                         /* Verifico en el request del body si está tildado "Recordar usuario".
-                         Si está puesto, quiere decir que el usuario está logueado, con lo cual
-                         voy a guardar en la cookie userEmail el email que me vino en el request del body
-                         con duración 30 segundos de prueba */
-                        
-
-                         if (req.body.rememberUser) {
-                             res.cookie('userEmail', req.body.email, { maxAge: cookieDuration } );     
-                         }
-
-                        // Redirecciono al usuario a su página de perfil
-                        
-                        return res.redirect('./detail/' + userToLogin[0].id);
-
-                        
-                     }
-
-                //      //Si puso mal la contraseña se redirecciona a la página del login mandando un mensaje de error
-
-                     return res.render('./users/userlogin', {
-                         errors: {
-                             password: {
-                                 msg: 'Contraseña inválida'
-                             }
-                         }
-                     });
-
-                //  }
-
-                //  return res.render('./users/login', {
-                //      errors: {
-                //          email: {
-                //              msg: 'Email no encontrado en la base de datos'
-                //          }
-                //      }
-                //  });
-                // )
-
-
-                // PARA VER CON MAS TIEMPO LAS VALIDACIONES
-                // return res.render('./users/userRegister', {
-                //     errors: {
-                //          email: {
-                //              msg: 'Este email ya está registrado'
-                //          }
-                //     },
-                //     oldData: req.body
-                // });
-                //res.send('encontrado');
-            
-            } else { // Si no existe el mail del usuario va a tener un largo en caracteres
-                     // igual a 0 
-
-                // Mando un mensaje de error diciendo que el email no fue encontrado
-            
-                return res.render('./users/userLogin', {
-                         errors: {
-                             email: {
-                                 msg: 'Email no encontrado en la base de datos'
-                             }
-                         }
-                     });
-                
-            }
-        })
+        const resultValidation = validationResult(req);
         
-        // Si no hubo errores lo redirige a la página donde muestra la lista actualizada de usuarios
-        .catch((error) => res.send(error));
+        // Me fijo si hay errores viendo si la longitud de resultValidation en su propiedad errors es > 0
+        // Si hay errores, renderizo la vista de login mostrando los errores
+        // Si no hay errores sigo con el proceso de login
+
+
+        if (resultValidation.errors.length > 0) {
+
+            // Renderizo la vista userLogin tomando los datos de las tablas y le paso los errores 
+            // convertidos en un objeto literal con mapped 
+            return res.render('./users/userLogin', { 
+                errors: resultValidation.mapped(), 
+                oldData: req.body // Con oldData le mando todo lo que me enviaron por el req.body 
+            }); 
+            
+        } 
+
+
+            //  Busco al usuario por email y guardo los datos de la búsqueda del usuario en la variable 
+            //  userToLogin
+            User.findAll({
+                where: {
+                    email: req.body.email
+                }
+            })
+            .then( (userToLogin) => {
+
+                if (userToLogin.length > 0) { // Con esto me fijo si existe el usuario en la base de datos
+                                           // Si existe el mail del usuario va a tener un largo en caracteres
+                                           // mayor a 0
+
+
+                    //  Si encuentro un usuario pregunto si su password es la misma que tengo hasheada.
+                    //  Si es verdad redirijo al usuario al perfil de su usuario.
+                    //  Sino lo redirecciono al login con mensajes de error 
+
+                    //  /* Comparo la password que me vino por el request del body con la password
+                    //  hasheada y guardo el resultado de la comparación en isOkPassword. Puede ser true o false */
+
+                                                                 //texto plano       //texto hasheado
+                        let isOkPassword = bcryptjs.compareSync(req.body.password, userToLogin[0].password);
+
+                        if (isOkPassword) { /* Si la password ingresada es correcta, ya puedo loguear al usuario
+                             en su página de perfil */
+
+                        
+
+                    //     Con esto guardo todos los datos del usuario a lo largo de todas las páginas del 
+                    //     navegador y le borro el campo de la password al userToLogin por seguridad
+
+
+                            delete userToLogin[0].password; //para ver por qué no lo borra
+                            req.session.userLogged = userToLogin[0];
+
+                             /* Verifico en el request del body si está tildado "Recordar usuario".
+                             Si está puesto, quiere decir que el usuario está logueado, con lo cual
+                             voy a guardar en la cookie userEmail el email que me vino en el request del body
+                             con duración 30 segundos de prueba */
+
+
+                             if (req.body.rememberUser) {
+                                 res.cookie('userEmail', req.body.email, { maxAge: cookieDuration } );     
+                             }
+
+                            // Redirecciono al usuario a su página de perfil
+                         
+                            return res.redirect('./detail/' + userToLogin[0].id);
+
+                         
+                        } else {
+                            //Si puso mal la contraseña se redirecciona a la página del login mandando un mensaje de error
+                            // Le paso los datos del req.body para que se pueda ver la contraseña
+                            return res.render('./users/userlogin', {
+                                errors: {
+                                    password: {
+                                        msg: 'Contraseña inválida'
+                                    }
+                                },
+                                oldData: req.body
+                            });
+                        }    
+
+
+                     
+                } 
+                
+                    // Si no existe el mail del usuario va a tener un largo en caracteres igual a 0 
+
+                    // Mando un mensaje de error diciendo que el email no fue encontrado
+                
+                    return res.render('./users/userLogin', {
+                             errors: {
+                                 email: {
+                                     msg: 'Email no encontrado en la base de datos'
+                                 }
+                             },
+                    
+                    });
+                     
+                
+            })
+
+            // Si no hubo errores lo redirige a la página donde muestra la lista actualizada de usuarios
+            .catch((error) => res.send(error));
+
+        
                 
     },
 
@@ -181,20 +186,37 @@ const controller = {
 
     processRegister: (req, res) => {
 
-            // const resultValidation = validationResult(req);
+            //TENGO QUE VER ROLES Y SEXES
 
-            // if (resultValidation.errors.length > 0) {
-            //     return res.sender('./users/userRegister', {
-            //         errors: resultValidation.mapped(),
-            //         oldData: req.body
-            //     });
-            // }
+            // Guardo los resultados de la validación de los campos
 
-            // return res.send('Ok, las validaciones pasaron y no tienes errores');
+            const resultValidation = validationResult(req);
+
+            // Me fijo si hay errores viendo si la longitud de resultValidation en su propiedad errors es > 0
+            // Si hay errores, renderizo la vista de registro del usuario mostrando los errores
+            // Si no hay errores sigo con el proceso de registración
 
 
-            
+            if (resultValidation.errors.length > 0) {
 
+                let promRole = Role.findAll();
+                let promSex = Sex.findAll();
+                Promise
+                .all([promRole, promSex])
+                .then( ([allRoles, allSexes]) => {
+                    
+                    // Renderizo la vista userRegister tomando los datos de las tablas Role y Sex y le paso los errores 
+                    // convertidos en un objeto literal con mapped 
+                    return res.render('./users/userRegister', { allRoles, allSexes , errors: resultValidation.mapped(), 
+                    oldData: req.body
+                    }); // Con oldData le mando todo lo que me enviaron por el req.body 
+                })
+                //Si hay errores en el proceso se nos muestra
+                .catch((error) => res.send(error));
+                
+               
+                
+            } else { 
        
             // Antes de crear al usuario me tengo que fijar si hay un usuario creado con el mismo email
 
@@ -249,6 +271,7 @@ const controller = {
             })
             .catch((error) => res.send(error));
 
+            }
                     
     },
 

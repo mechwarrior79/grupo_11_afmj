@@ -1,4 +1,7 @@
 //Defino la variable express para usarla
+const path = require('path');
+
+//Defino la variable express para usarla
 const express = require('express');
 
 //Habilito la función router para mandar las funciones
@@ -16,26 +19,17 @@ const authMiddleware = require('../middlewares/authMiddleware');
 //Defino la variable del middleware multerMiddlewareUsers
 const upload = require('../middlewares/multerUserMiddleware');
 
+//Defino la variable del middleware validationsUserRegisterMiddleware
+const validationsUserRegisterMiddleware = require('../middlewares/validationsUserRegisterMiddleware');
+
+//Defino la variable del middleware validationsUserLoginMiddleware
+const validationsUserLoginMiddleware = require('../middlewares/validationsUserLoginMiddleware');
+
+
 // Guardo en la variable usersController la ruta y el archivo que tiene todas las funciones que está en controllers/usersController.js
 
 const usersController = require('../controllers/usersController');
 const req = require('express/lib/request');
-
-// Guardo en en el array validations los resultados de las validaciones que tienen los campos 
-/*
-const validations = [
-
-    body ('userLogin').notEmpty().withMessage('Nombre de usuario vacío. Por favor completar el nombre de usuario'),
-    body ('name').notEmpty().withMessage('Nombre vacío. Por favor completar el nombre'),
-    body ('surname').notEmpty().withMessage('Apellido vacío. Por favor completar el apellido'),
-    body (' sex').notEmpty().withMessage('Sexo vacío. Tienes que elegir el sexo'),
-    body (' birthDate').notEmpty().withMessage('Fecha de nacimiento vacío. Tienes que elegir una fecha de nacimiento'),
-    body (' email').notEmpty().withMessage('Email vacío. Por favor completar el email'),
-    body (' password').notEmpty().withMessage('Password vacía. Por favor completar el Password'),
- 
-];*/
-
-
 
 // Con router, de acuerdo a la ruta que ponga, le digo que haga tal función 
 
@@ -58,7 +52,7 @@ de perfil del usuario */
 router.get('/login', guestMiddleware, usersController.login); 
 
 //Proceso la información cargada en el login del usuario
-router.post ('/login', usersController.loginProcess);
+router.post ('/login', validationsUserLoginMiddleware, usersController.loginProcess);
 
 
 //Proceso de registro del usuario
@@ -73,7 +67,7 @@ router.get('/register', guestMiddleware, usersController.register);
 /* Almaceno la información cargada del formulario en la base de datos y agrego el archivo de la imagen
 subido por multer */
 
-router.post ('/register', upload.single('newUserImage'), usersController.processRegister) 
+router.post ('/register', upload.single('newUserImage'), validationsUserRegisterMiddleware, usersController.processRegister) 
 
 
 //Edición de información del usuario

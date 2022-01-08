@@ -26,10 +26,17 @@
 
             <div class="field">
                 <label for="email">Correo electrónico:</label>
-                <input type="text" name="email" id="email" minlength="1" required class="input">
+                <input 
+                    type="text" 
+                    name="email" 
+                    id="email" 
+                   
+                    class="input"
+                    value="<%= locals.oldData ? oldData.email : null %>"
+                    >
                 <!-- SI HUBO ERRORES Y SI VINO EN LOS ERRORES EL CAMPO EMAIL IMPRIMO UN MENSAJE DE ERROR  -->
                 <% if (locals.errors && errors.email) { %>
-                    <div class="textError">
+                    <div class="text-danger">
                         <%= errors.email.msg %>
                     </div>
                 <% } %>
@@ -37,9 +44,14 @@
         
             <div class="field">
                 <label for="password">Contraseña:</label>
-                <input type="password" name="password" id="password" required class="input">
+                <input 
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                
+                    class="input <%= locals.errors && errors.password ? 'is-invalid': null %>">
                 <% if (locals.errors && errors.password) { %>
-                    <div class="textError">
+                    <div class="text-danger">
                         <%= errors.password.msg %>
                     </div>
                 <% } %>

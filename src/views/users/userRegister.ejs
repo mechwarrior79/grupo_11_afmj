@@ -18,6 +18,7 @@
 
         <div class="register-container">
 
+
               <!-- TITULO DEL REGISTRO-->
 
               <div class="field check">
@@ -32,51 +33,129 @@
                 <div class="registration-title"> Ingresá tus datos para crear tu cuenta</div>
               
                <!-- CAMPOS A COMPLETAR DEL NOMBRE Y APELLIDO -->
-                         
+                      
+               
+                  <!-- ME FIJO EN CADA CAMPO SI EN LAS VARIABLES LOCALES HUBO ERRORES Y SI VINO UN MENSAJE DE ERROR
+                  SI HUBO, MUESTRO EL MENSAJE DE ERROR CON SU FORMATO DE VISTA DE ERROR
+                  SI SE CARGO ALGO EN EL CAMPO ANTES, QUE USE LA INFORMACION QUE VIENE POR OLDDATA
+                  ESTO SE REPITE PARA TODOS LOS CAMPOS -->
+                  
                 <div class="field">
                   <label for="name">Nombre:</label>
-                  <input type="text" name="name" id="name" required minlenght="1" class="input">
+                  <input 
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    class="input <%= locals.errors && errors.name ? 'is-invalid': null %> "
+                    value="<%= locals.oldData ? oldData.name : null %>"
+                    >
+
+                  <% if (locals.errors && errors.name) { %>
+                    <div class="text-danger">
+                      <%= errors.name.msg %> 
+                    </div>
+                  <% } %>
                 </div>
             
             
                 <div class="field">
                   <label for="surname">Apellido:</label>
-                  <input type="text" name="surname" id="surname" required  minlenght="1" class="input">
+                  <input 
+                    type="text" 
+                    name="surname" 
+                    id="surname" 
+                    class="input <%= locals.errors && errors.surname ? 'is-invalid': null %> "
+                    value="<%= locals.oldData ? oldData.surname : null %>"
+                    >
+
+                  <% if (locals.errors && errors.surname) { %>
+                    <div class="text-danger">
+                      <%= errors.surname.msg %> 
+                    </div>
+                  <% } %>
                 </div>
+                
             
                 <!-- CAMPOS A COMPLETAR DEL SEXO, FECHA DE NACIMIENTO, E-MAIL, ROL DEL USUARIO -->
-
-
+                
+                
                 <div class="field">
                   <label for="sex">Sexo:</label>
-                  <select name="sexId" class="input" >
+                  <select 
+                    name="sexId" 
+                    class="input <%= locals.errors && errors.sexId ? 'is-invalid': null %>" >
+                    
+                    
                     <option disabled hidden selected>Seleccionar sexo</option>
                     <% for ( let i = 0; i < allSexes.length; i++) { %> 
                       <option value="<%= allSexes[i].id %>"><%= allSexes[i].sex %></option>
                     <% } %> 
                   </select>
+
+                  <% if (locals.errors && errors.sexId) { %>
+                    <div class="text-danger">
+                      <%= errors.sexId.msg %> 
+                    </div>
+                  <% } %> 
                 </div>  
 
 
                 <div class="field">
                   <label for="birthDate">Fecha de nacimiento </label>
-                  <input type="date" name="birthDate" id="birthDate" required class="input">     
+                  <input 
+                    type="date" 
+                    name="birthDate" 
+                    id="birthDate" 
+                    class="input <%= locals.errors && errors.birthDate ? 'is-invalid': null %>"
+                    value="<%= locals.oldData ? oldData.birthDate : null %>"
+                    > 
+
+                  <% if (locals.errors && errors.birthDate) { %>
+                    <div class="text-danger">
+                      <%= errors.birthDate.msg %> 
+                    </div>
+                  <% } %>
                 </div>
+                  
             
                 <div class="field">
                   <label for="email">Correo electrónico:</label>
-                  <input type="email" name="email" id="email" required class="input" >
+                  <input 
+                    type="email" 
+                    name="email" 
+                    id="email"  
+                    class="input <%= locals.errors && errors.email ? 'is-invalid': null %>" 
+                    value="<%= locals.oldData ? oldData.email : null %>"
+                    >
+
+                  <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                      <%= errors.email.msg %> 
+                    </div>
+                  <% } %>
                 </div>
               
                
                 <div class="field">
                   <label for="role">Rol:</label>
-                  <select name="roleId" class="input" >
+                  <select 
+                    name="roleId" 
+                    class="input <%= locals.errors && errors.roleId ? 'is-invalid': null %>" >
                     <option disabled hidden selected>Seleccionar rol</option>
                     <% for ( let i = 0; i < allRoles.length; i++) { %> 
                       <option value="<%= allRoles[i].id %>"><%= allRoles[i].role %></option>
+                        
+                        
+                        
+                  
                     <% } %> 
                   </select>
+
+                  <% if (locals.errors && errors.roleId) { %>
+                    <div class="text-danger">
+                      <%= errors.roleId.msg %> 
+                    </div>
+                  <% } %>
                 </div>  
                
                
@@ -86,16 +165,41 @@
               
                 <div class="field">
                   <input type="file" name="newUserImage">
+                  <% if (locals.errors && errors.newUserImage) { %>
+                    <div class="text-danger">
+                      <%= errors.newUserImage.msg %> 
+                    </div>
+                  <% } %>
                 </div>
   
                 <div class="field">
                   <label for="password">Contraseña:</label>
-                  <input type="password" name="password" id="password" required  minlenght="1" class="input">
+                  <input 
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                    class="input <%= locals.errors && errors.password ? 'is-invalid': null %>">
+
+                  <% if (locals.errors && errors.password) { %>
+                    <div class="text-danger">
+                      <%= errors.password.msg %> 
+                    </div>
+                  <% } %>  
                 </div>
                 
                 <div class="field">
                   <label for="repeatPassword">Repetir contraseña:</label>
-                  <input type="password" name="repeatPassword" id="repeatPassword" required  minlenght="1" class="input">
+                  <input 
+                    type="password" 
+                    name="repeatPassword" 
+                    id="repeatPassword" 
+                    class="input <%= locals.errors && errors.repeatPassword ? 'is-invalid': null %>">
+
+                  <% if (locals.errors && errors.repeatPassword) { %>
+                    <div class="text-danger">
+                      <%= errors.repeatPassword.msg %> 
+                    </div>
+                  <% } %>
                 </div>
               
 
