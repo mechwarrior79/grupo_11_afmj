@@ -781,6 +781,9 @@ img {
     color: #f2f2f2;
   }
   
+  .text-danger {
+    color: #721817;
+  }
   .product-box:hover p {
     height: 40px;
     margin-top: 15px;

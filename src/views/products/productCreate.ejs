@@ -21,9 +21,9 @@
               <!-- TITULO DEL REGISTRO-->
               
               
-              <form action="../products/" method="POST" enctype="multipart/form-data">
+              <form action="../products/" method="POST" enctype="multipart/form-data" id="form">
 
-                <div class="registration-title"> Ingresá los datos para crear el producto</div>
+                <div class="registration-title" id="titulo"> Ingresá los datos para crear el producto</div>
               
                 <!-- CAMPOS A COMPLETAR DEL NOMBRE, DESCRIPCION PRINCIPAL Y SECUNDARIA DEL PRODUCTO -->
               
@@ -34,6 +34,8 @@
                   <%if (locals.errors && locals.errors.name) { %> 
                     <p class="errors"><%= errors.name.msg %> </p>
                   <%} %> 
+
+                  <div class="text-danger " id="nameError"></div>
                   
                 </div>
               
@@ -46,6 +48,8 @@
                     <p class="errors"><%= errors.mainDescription.msg %> </p>
                   <%} %> 
 
+                  <div class="text-danger " id="mainError"></div>
+
                 </div>
 
 
@@ -56,7 +60,7 @@
                   <%if (locals.errors && locals.errors.secondaryDescription) { %> 
                     <p class="errors"><%= errors.secondaryDescription.msg %> </p>
                   <%} %> 
-
+                  <div class="text-danger " id="secondaryError"></div>
                 </div>
               
                <!-- CAMPOS A COMPLETAR DE LA IMAGEN, CATEGORIA DEL PRODUCTO, TIPO DE PRECIO, PRECIO Y DESCUENTO -->
@@ -105,6 +109,7 @@
                   <%if (locals.errors && locals.errors.price) { %> 
                     <p class="errors"><%= errors.price.msg %> </p>
                   <%} %>    
+                  <div class="text-danger " id="priceError"></div>
                 </div>
               
                 <div class="field">
@@ -114,12 +119,13 @@
                     <p class="errors"><%= errors.discount.msg %> </p>
                   <%} %>       
                 </div>
+                <div class="text-danger " id="discountError"></div>
               
                 <!-- BOTONES PARA INGRESAR Y CANCELAR REGISTRO -->
                 
                 <div class="login-cancel-button">
 
-                  <button type="submit" required class="registration-button">Ingresar</button>
+                  <button type="submit" required class="registration-button" id="send">Ingresar</button>
               
                   <button type="reset" required class="registration-button">Cancelar</button>
                 
@@ -132,9 +138,14 @@
          
     </main>
    
+     
+     <script src="/js/validationCreateProduct.js"></script>
+     
     <!-- LLAMO AL FOOTER DE PARTIALS-->
 
     <%- include('../partials/footer') %> 
+
+    
 
     
 </body>
