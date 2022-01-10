@@ -27,6 +27,9 @@ const storage = multer.diskStorage( {
 
 const upload = multer ({storage}); //Ejecuto multer pasando como objeto literal la constante storage
 
+const validationsProductCreateMiddleware = require ('../middlewares/validationsProductCreateMiddleware');
+const validationsProductUpdateMiddleware = require ('../middlewares/validationsProductUpdateMiddleware');
+
 
 
 // Con router, de acuerdo a la ruta que ponga, le digo que haga tal función 
@@ -45,7 +48,7 @@ router.get('/list/:id', productsController.productDetail);
 
 
 //Almaceno la información cargada del formulario en la base de datos
-router.post('/', upload.single('newProductImage'), productsController.created); 
+router.post('/', upload.single('newProductImage'), validationsProductCreateMiddleware ,productsController.created); 
 
 
 //Edición del producto
@@ -55,7 +58,7 @@ para editar los datos */
 router.get('/edit/:id/', productsController.edit);
 
 //Modifico los datos del producto y actualizo la base de datos
-router.put('/edit/:id/', upload.single('editedProductImage'), productsController.edited); /*Hay que modificar 
+router.put('/edit/:id/', upload.single('editedProductImage'), validationsProductUpdateMiddleware ,productsController.edited); /*Hay que modificar 
 //con esto en el form del productUpdate*/ 
 
 //Eliminación del producto

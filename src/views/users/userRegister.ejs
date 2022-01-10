@@ -164,7 +164,8 @@
                 <!-- CAMPOS A COMPLETAR DE IMAGEN, CONTRASEÑA Y REPETIR CONTRASEÑA  -->
               
                 <div class="field">
-                  <input type="file" name="newUserImage">
+                  <label for = "newProductImage">Imagen de Usuario:</label>
+                  <input type="file" name="newUserImage" class="input color-white">
                   <% if (locals.errors && errors.newUserImage) { %>
                     <div class="text-danger">
                       <%= errors.newUserImage.msg %> 

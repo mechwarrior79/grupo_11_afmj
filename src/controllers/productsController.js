@@ -8,6 +8,9 @@ const path = require('path');
 //Defino en productsFilePath la ruta en donde está el archivo JSON products
 const productsFilePath = path.join(__dirname, '../data/products.json');
 
+//Permite ver el resultado de las validaciones de datos
+const { validationResult } = require('express-validator'); 
+
 /*En products almaceno el contenido del archivo JSON convertido en un array de
 objetos literales*/
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -70,11 +73,13 @@ const controller = {
 
         let promCategory = Category.findAll();
         let promStatus = Status.findAll();
+        let errors = null;
+
         
         Promise
-        .all([promCategory, promStatus])
-        .then(([allCategories, allStatuses]) => {
-            return res.render('./products/productCreate', {allCategories,allStatuses})})
+        .all([promCategory, promStatus, errors])
+        .then(([allCategories, allStatuses, errors]) => {
+            return res.render('./products/productCreate', {allCategories,allStatuses, errors})})
         .catch(error => res.send(error))
 
         //Logica de JSON
@@ -83,23 +88,42 @@ const controller = {
 
     // Almaceno los datos cargados en el formulario de creación en la base de datos 
 
-    created: (req, res) => {
-        Product.create(
-            {
-                name: req.body.name,
-                mainDescription: req.body.mainDescription,
-                secondaryDescription: req.body.secondaryDescription,
-                categoryId: req.body.category,
-                statusId: req.body.status,
-                price: req.body.price,
-                discount: req.body.discount,
-                //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
-                image: req.file ? req.file.filename : "default-image.png" 
+    created: (req, res) => {  // Guardo los resultados de la validación de los campos
+
+       //guardo en una variable las validaciones que vienen del req
+       let resultValidation = validationResult(req);
+       //guardo en una variable el array mappeado en un objeto para luego enviarlo a la vista (es mas facil enviarlo ya que el nombre de los objetos es el name del campo del formulario)
+       let errors = resultValidation.mapped();
+       let oldData = req.body
+       
+       if (resultValidation.errors.length > 0) {
+           let promCategory = Category.findAll();
+           let promStatus = Status.findAll();
+           Promise
+           .all([promCategory, promStatus, errors])
+           .then(([allCategories, allStatuses, errors]) => {
+               return res.render('./products/productCreate', {allCategories,allStatuses, errors, oldData})})
+               .catch(error => res.send(error))
+            
+        } else {  
+            
+            Product.create(
+                {
+                    name: req.body.name,
+                    mainDescription: req.body.mainDescription,
+                    secondaryDescription: req.body.secondaryDescription,
+                    categoryId: req.body.category,
+                    statusId: req.body.status,
+                    price: req.body.price,
+                    discount: req.body.discount,
+                    //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
+                    image: req.file ? req.file.filename : "default-image.png" 
+                }
+            )
+            .then(()=> {
+                return res.redirect('/products')})            
+            .catch(error => res.send(error))
             }
-        )
-        .then(()=> {
-            return res.redirect('/products')})            
-        .catch(error => res.send(error))
 
         //Logica de JSON
         /*let newProduct = {/*Creo el objeto literal almacenando los datos recogidos del formulario
@@ -118,8 +142,6 @@ const controller = {
        //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
         image: req.file ? req.file.filename : "default-image.png" 
         }
-        
-
         //Agrego los datos del nuevo producto a la base de datos
 
         //Agrego este nuevo producto a products con un push
@@ -131,7 +153,6 @@ const controller = {
          // Lo redirige a la página de productos donde muestra la lista actualizada
         res.redirect('/products');
       */
-        
     },
    
     // Busco los datos de un producto y mando el formulario para editarlo (vino por GET)
@@ -144,6 +165,7 @@ const controller = {
         let promProducts = Product.findByPk(productId);
         let promCategory = Category.findAll();
         let promStatus = Status.findAll();
+        let errors= null;
         
         /*Product.findByPk(productId)
 
@@ -154,7 +176,7 @@ const controller = {
         Promise
         .all([promProducts,promCategory, promStatus])
         .then(([product,allCategories, allStatuses]) => {
-            return res.render('./products/productUpdate', {product,allCategories,allStatuses})})
+            return res.render('./products/productUpdate', {product,allCategories,allStatuses,errors})})
         .catch(error => res.send(error))
         
         //Logica de JSON
@@ -181,35 +203,61 @@ const controller = {
 
     edited: (req, res) => {
 
-         /*falta la funcionalidad que si no se agrega una imagen nueva te deje por defecto la imagen anterior
-         ahora esta funcioando que si no se coloca una imagen nueva te pisa la vieja por una por defecto*/
-        let productToEdit;
+           //guardo en una variable las validaciones que vienen del req
+           let resultValidation = validationResult(req);
+           //guardo en una variable el array mappeado en un objeto para luego enviarlo a la vista (es mas facil enviarlo ya que el nombre de los objetos es el name del campo del formulario)
+           let errors = resultValidation.mapped();
+           let oldData = req.body
 
-        Product.findByPk(req.params.id) 
+        if (resultValidation.errors.length > 0) {
+            console.log(errors)
+          
+
+            let productId = req.params.id;
+            let promProducts = Product.findByPk(productId);
+            let promCategory = Category.findAll();
+            let promStatus = Status.findAll();
+            
+            /*Product.findByPk(productId)
+
+                .then(product=>{
+                    res.render ('./products/productUpdate', {product})
+            });*/
+
+            Promise
+            .all([promProducts,promCategory, promStatus])
+            .then(([product,allCategories, allStatuses]) => {
+                return res.render('./products/productUpdate', {product,allCategories,allStatuses, errors, oldData})})
+            .catch(error => res.send(error))
+        }else {
+            let productToEdit;
+            Product.findByPk(req.params.id)
             .then((product)=>{
                 productToEdit = product;   
-                Product.update(
-                    {
-                        name: req.body.name,
-                        mainDescription: req.body.mainDescription,
-                        secondaryDescription: req.body.secondaryDescription,
-                        categoryId: req.body.category,
-                        statusId: req.body.status,
-                        price: req.body.price,
-                        discount: req.body.discount,
-                        //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
-                        image: req.file ? req.file.filename : productToEdit.image 
-                    },
-                    {
-                        where: {id:req.params.id}
-                    }
-                )
-                .then(()=>{
-                    return res.redirect('/products')
+                    Product.update(
+                        {
+                            name: req.body.name,
+                            mainDescription: req.body.mainDescription,
+                            secondaryDescription: req.body.secondaryDescription,
+                            categoryId: req.body.category,
+                            statusId: req.body.status,
+                            price: req.body.price,
+                            discount: req.body.discount,
+                            //Si vino un archivo de imagen lo tomo, sino pongo imagen por default
+                            image: req.file ? req.file.filename : productToEdit.image 
+                        },
+                        {
+                            where: {id:req.params.id}
+                        }
+                    )
+                    .then(()=>{
+                        return res.redirect('/products')
+                    })
+                    .catch(error => res.send(error))
                 })
-                .catch(error => res.send(error))
-            })
             .catch(error => res.send(error))   
+        }
+            
     },
        
 
