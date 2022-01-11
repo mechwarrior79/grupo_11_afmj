@@ -11,12 +11,12 @@ const validationsProductUpdateMiddleware = [
     body('secondaryDescription').notEmpty().withMessage('Debe completar este campo obligatoriamente para el registro!').bail().isLength({min:20}).withMessage('La descripcion secundaria debe contener al menos 20 caracteres'),
     body('category').notEmpty().withMessage('Debe seleccionar obligatoriamente una categoria para el registro!'),
     body('status').notEmpty().withMessage('Debe seleccionar obligatoriamente un status para el registro!'),
-    body('price').notEmpty().withMessage('Debe completar este campo obligatoriamente para el registro!').bail().isLength({min:2}).withMessage('El precio debe tener al menos 2 numeros!'),
-    body('discount').notEmpty().withMessage('Debe completar este campo obligatoriamente para el registro!'),
+    body('price').notEmpty().withMessage('El precio no puede estar vacio!'),
+    body('discount').notEmpty().withMessage('El descuento no puede estar vacio!'),
     body('editedProductImage').custom((value , {req})=>{
 
         let file = req.file;
-        let acceptedExtension = ['.jpg', '.png' , '.gif','.jpeg' ,'JPG', 'JPEG', 'PNG', 'GIF'];
+        let acceptedExtension = [ '.jpeg','.png' , '.gif','.jpg' ,'JPG', 'JPEG', 'PNG', 'GIF'];
         
         if(!file){
             throw new Error ('Debe subir una imagen para su producto!')

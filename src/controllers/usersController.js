@@ -20,7 +20,7 @@ const { Op } = require('sequelize');
 //Defino la variable para definir el tiempo de duración de la cookie
 //En este caso está seteado en 60 segundos
 
-const cookieDuration = 1000 * 60;
+const cookieDuration = 15000 * 60;
 
 // Cargo las funciones que quiero que haga
 

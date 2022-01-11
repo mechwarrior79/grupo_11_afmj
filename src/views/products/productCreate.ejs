@@ -60,17 +60,21 @@
                   <%if (locals.errors && locals.errors.secondaryDescription) { %> 
                     <p class="errors"><%= errors.secondaryDescription.msg %> </p>
                   <%} %> 
+
                   <div class="text-danger " id="secondaryError"></div>
+
                 </div>
               
                <!-- CAMPOS A COMPLETAR DE LA IMAGEN, CATEGORIA DEL PRODUCTO, TIPO DE PRECIO, PRECIO Y DESCUENTO -->
               
                <div class="field">
                  <label for = "newProductImage">Imagen de Producto:</label>
-                <input type="file" name="newProductImage" class="input color-white" >
+                <input type="file" accept=".jpg,.png,.jpeg,.gif,.JPG,.JPEG,.PNG, GIF" id="archivo" name="newProductImage" class="input color-white">
                 <%if (locals.errors && locals.errors.newProductImage) { %>
                   <p class="errors"><%= errors.newProductImage.msg %> </p>
                 <%} %>
+
+                <div class="text-danger " id="fileError"> </div>
                
               </div>
 
@@ -109,7 +113,9 @@
                   <%if (locals.errors && locals.errors.price) { %> 
                     <p class="errors"><%= errors.price.msg %> </p>
                   <%} %>    
+
                   <div class="text-danger " id="priceError"></div>
+
                 </div>
               
                 <div class="field">
@@ -117,9 +123,12 @@
                   <input type="number" step="0.01" name="discount" id="discount" class="input form-control <%=locals.errors && locals.errors.discount ? 'is-invalid' : null  %> " value="<%= locals.oldData ? oldData.discount : null %>">
                   <%if (locals.errors && locals.errors.discount) { %> 
                     <p class="errors"><%= errors.discount.msg %> </p>
-                  <%} %>       
+                  <%} %>   
+
+                  <div class="text-danger " id="discountError"></div>  
+
                 </div>
-                <div class="text-danger " id="discountError"></div>
+                
               
                 <!-- BOTONES PARA INGRESAR Y CANCELAR REGISTRO -->
                 

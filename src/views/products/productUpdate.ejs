@@ -21,7 +21,7 @@
               <!-- TITULO DEL REGISTRO-->
               
               
-              <form action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+              <form id="form" action="/products/edit/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
                 <div class="registration-title"> Modificá los datos del producto: <strong style="color: green"> <%= product.name %> </strong></div>
               
@@ -38,6 +38,7 @@
                   <%if (locals.errors && locals.errors.name) { %> 
                     <p class="errors"><%= errors.name.msg %> </p>
                   <%} %> 
+                  <div class="text-danger " id="nameError"></div>
 
                 </div>
               
@@ -53,6 +54,7 @@
                   <%if (locals.errors && locals.errors.mainDescription) { %> 
                     <p class="errors"><%= errors.mainDescription.msg %> </p>
                   <%} %> 
+                  <div class="text-danger " id="mainError"></div>
 
                 </div>
               
@@ -68,6 +70,7 @@
                   <%if (locals.errors && locals.errors.secondaryDescription) { %> 
                     <p class="errors"><%= errors.secondaryDescription.msg %> </p>
                   <%} %> 
+                  <div class="text-danger " id="secondaryError"></div>
 
                 </div>
               
@@ -76,11 +79,13 @@
                
                 <div class="field">
                   <label for = "newProductImage">Imagen de Producto:</label>
-                  <input type="file" name="editedProductImage" class="input color-white"> <!-- Con esto habilito el botón para agregar archivo -->
+                  <input type="file" accept=".jpeg,.png,.jpg,.gif,.JPG,.JPEG,.PNG, GIF" id="archivo" name="editedProductImage" class="input color-white"> <!-- Con esto habilito el botón para agregar archivo -->
 
                   <%if (locals.errors && locals.errors.editedProductImage) { %>
                     <p class="errors"><%= errors.editedProductImage.msg %> </p>
                   <%} %>
+
+                  <div class="text-danger " id="fileError"> </div>
                  
                 </div>
                     
@@ -130,6 +135,7 @@
                   <%if (locals.errors && locals.errors.price) { %> 
                     <p class="errors"><%= errors.price.msg %> </p>
                   <%} %>    
+                  <div class="text-danger " id="priceError"> </div>
                 </div>
 
                 <div class="field">
@@ -142,6 +148,7 @@
                   <%if (locals.errors && locals.errors.discount) { %> 
                     <p class="errors"><%= errors.discount.msg %> </p>
                   <%} %>   
+                  <div class="text-danger " id="discountError"> </div>
                 </div>
               
                   
@@ -149,7 +156,7 @@
                 
                  <div class="login-cancel-button">
 
-                  <button type="submit" required class="registration-button">Guardar</button>
+                  <button type="submit" id="send" required class="registration-button">Guardar</button>
               
                   <button type="reset" required class="registration-button">Cancelar</button>
                 
