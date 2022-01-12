@@ -28,7 +28,7 @@
              </div>
               
               
-              <form action="/users/register" method="POST" enctype="multipart/form-data">
+              <form action="/users/register" method="POST" enctype="multipart/form-data" id="form">
 
                 <div class="registration-title"> Ingresá tus datos para crear tu cuenta</div>
               
@@ -46,7 +46,7 @@
                     type="text" 
                     name="name" 
                     id="name" 
-                    class="input <%= locals.errors && errors.name ? 'is-invalid': null %> "
+                    class="input form-control <%= locals.errors && errors.name ? 'is-invalid': null %> "
                     value="<%= locals.oldData ? oldData.name : null %>"
                     >
 
@@ -55,6 +55,8 @@
                       <%= errors.name.msg %> 
                     </div>
                   <% } %>
+
+                  <div class="text-danger " id="nameError"></div>
                 </div>
             
             
@@ -64,7 +66,7 @@
                     type="text" 
                     name="surname" 
                     id="surname" 
-                    class="input <%= locals.errors && errors.surname ? 'is-invalid': null %> "
+                    class="input form-control <%= locals.errors && errors.surname ? 'is-invalid': null %> "
                     value="<%= locals.oldData ? oldData.surname : null %>"
                     >
 
@@ -73,6 +75,9 @@
                       <%= errors.surname.msg %> 
                     </div>
                   <% } %>
+
+                  <div class="text-danger " id="surnameError"></div>
+                  
                 </div>
                 
             
@@ -83,8 +88,8 @@
                   <label for="sex">Sexo:</label>
                   <select 
                     name="sexId" 
-                    class="input <%= locals.errors && errors.sexId ? 'is-invalid': null %>" >
-                    
+                    class="input form-control <%= locals.errors && errors.sexId ? 'is-invalid': null %>" 
+                    >
                     
                     <option disabled hidden selected>Seleccionar sexo</option>
                     <% for ( let i = 0; i < allSexes.length; i++) { %> 
@@ -97,6 +102,8 @@
                       <%= errors.sexId.msg %> 
                     </div>
                   <% } %> 
+
+                  <div class="text-danger " id="sexIdError"></div>
                 </div>  
 
 
@@ -106,7 +113,7 @@
                     type="date" 
                     name="birthDate" 
                     id="birthDate" 
-                    class="input <%= locals.errors && errors.birthDate ? 'is-invalid': null %>"
+                    class="input form-control <%= locals.errors && errors.birthDate ? 'is-invalid': null %>"
                     value="<%= locals.oldData ? oldData.birthDate : null %>"
                     > 
 
@@ -115,6 +122,9 @@
                       <%= errors.birthDate.msg %> 
                     </div>
                   <% } %>
+
+                  <div class="text-danger " id="birthDateError"></div>
+
                 </div>
                   
             
@@ -124,7 +134,7 @@
                     type="email" 
                     name="email" 
                     id="email"  
-                    class="input <%= locals.errors && errors.email ? 'is-invalid': null %>" 
+                    class="input form-control <%= locals.errors && errors.email ? 'is-invalid': null %>" 
                     value="<%= locals.oldData ? oldData.email : null %>"
                     >
 
@@ -133,6 +143,9 @@
                       <%= errors.email.msg %> 
                     </div>
                   <% } %>
+
+                  <div class="text-danger " id="emailError"></div>
+
                 </div>
               
                
@@ -140,13 +153,10 @@
                   <label for="role">Rol:</label>
                   <select 
                     name="roleId" 
-                    class="input <%= locals.errors && errors.roleId ? 'is-invalid': null %>" >
+                    class="input form-control <%= locals.errors && errors.roleId ? 'is-invalid': null %>" >
                     <option disabled hidden selected>Seleccionar rol</option>
                     <% for ( let i = 0; i < allRoles.length; i++) { %> 
                       <option value="<%= allRoles[i].id %>"><%= allRoles[i].role %></option>
-                        
-                        
-                        
                   
                     <% } %> 
                   </select>
@@ -156,6 +166,9 @@
                       <%= errors.roleId.msg %> 
                     </div>
                   <% } %>
+
+                  <div class="text-danger " id="roleIdError"></div>
+
                 </div>  
                
                
@@ -165,12 +178,15 @@
               
                 <div class="field">
                   <label for = "newProductImage">Imagen de Usuario:</label>
-                  <input type="file" name="newUserImage" class="input color-white">
+                  <input type="file" accept=".jpg,.png,.jpeg,.gif,.JPG,.JPEG,.PNG, GIF" id="archivo" name="newUserImage" class="input color-white">
                   <% if (locals.errors && errors.newUserImage) { %>
                     <div class="text-danger">
                       <%= errors.newUserImage.msg %> 
                     </div>
                   <% } %>
+
+                  <div class="text-danger " id="fileError"> </div>
+
                 </div>
   
                 <div class="field">
@@ -179,13 +195,17 @@
                     type="password" 
                     name="password" 
                     id="password" 
-                    class="input <%= locals.errors && errors.password ? 'is-invalid': null %>">
+                    class="input form-control <%= locals.errors && errors.password ? 'is-invalid': null %>"
+                    >
 
                   <% if (locals.errors && errors.password) { %>
                     <div class="text-danger">
                       <%= errors.password.msg %> 
                     </div>
                   <% } %>  
+
+                  <div class="text-danger " id="passwordError"></div>
+
                 </div>
                 
                 <div class="field">
@@ -194,13 +214,17 @@
                     type="password" 
                     name="repeatPassword" 
                     id="repeatPassword" 
-                    class="input <%= locals.errors && errors.repeatPassword ? 'is-invalid': null %>">
+                    class="input form-control <%= locals.errors && errors.repeatPassword ? 'is-invalid': null %>"
+                    >
 
                   <% if (locals.errors && errors.repeatPassword) { %>
                     <div class="text-danger">
                       <%= errors.repeatPassword.msg %> 
                     </div>
                   <% } %>
+
+                  <div class="text-danger " id="repeatPasswordError"></div>
+
                 </div>
               
 
@@ -209,7 +233,7 @@
                 
                 <div class="login-cancel-button">
 
-                  <button type="submit" required class="registration-button">Ingresar</button>
+                  <button type="submit" required class="registration-button" id="send">Ingresar</button>
               
                   <button type="reset" required class="registration-button">Cancelar</button>
                 
@@ -222,6 +246,8 @@
         </div>
          
     </main>
+
+    <script src="/js/validationUserRegister.js"></script>
    
     <!-- LLAMO AL FOOTER DE PARTIALS-->
 

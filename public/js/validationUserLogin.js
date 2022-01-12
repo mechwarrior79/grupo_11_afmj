@@ -17,6 +17,8 @@ window.addEventListener('load', function(){
     let form = this.document.querySelector('#form');
     
     console.log("Validaciones por el front-end")
+
+            form.email.focus();
     
       
             enviar.addEventListener('click', (event)=>{ 
@@ -26,7 +28,10 @@ window.addEventListener('load', function(){
                 // Evito que se envíe el formulario por hacer el click en 'Enviar'
                 event.preventDefault();
 
+
                 //Evalúo los campos según las condiciones requeridas y pongo mensajes de error o de éxito
+    
+                
     
                 // Email
                 if(email.value.length == 0){
@@ -63,19 +68,23 @@ window.addEventListener('load', function(){
 
                 };
 
-
                 //password
+                console.log(req.body);
+
+                if(password.value.length > 0) {
+                    password.className = 'input form-control is-valid'
+                    passwordError.innerText = null;
+                };
+
                 if (password.value.length == 0) {
-                    errores.password= 'La password no debe estar vacía';
-                    password.innerText = errores.password;
+                    errores.password = 'La password no debe estar vacía';
+                    passwordError.innerText = errores.password;
                     password.className = 'input form-control is-invalid'
                 };
     
-                if(password.value.length != 0) {
-                    password.className = 'input form-control is-valid'
-                    password.innerText = null;
-                };
-    
+               
+
+                
                
                 // Si hay errores me los muestra, si no hay errores envía el formulario
     
