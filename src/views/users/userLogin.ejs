@@ -18,7 +18,7 @@
 
       <!-- TITULO DEL LOGIN-->
 
-      <form action="../users/login" method="POST" class="create-formularie">
+      <form action="../users/login" method="POST" class="create-formularie" id="form">
 
             <h3 class="login-title"> Coloca tus datos para ingresar</h3>
       
@@ -31,7 +31,7 @@
                     name="email" 
                     id="email" 
                    
-                    class="input"
+                    class="input form-control <%=locals.errors && locals.errors.email ? 'is-invalid' : null  %> "
                     value="<%= locals.oldData ? oldData.email : null %>"
                     >
                 <!-- SI HUBO ERRORES Y SI VINO EN LOS ERRORES EL CAMPO EMAIL IMPRIMO UN MENSAJE DE ERROR  -->
@@ -40,6 +40,7 @@
                         <%= errors.email.msg %>
                     </div>
                 <% } %>
+                <div class="text-danger " id="emailError"></div>
             </div>
         
             <div class="field">
@@ -49,17 +50,20 @@
                     name="password" 
                     id="password" 
                 
-                    class="input <%= locals.errors && errors.password ? 'is-invalid': null %>">
+                    class="input form-control <%=locals.errors && locals.errors.password ? 'is-invalid' : null  %> "
+                    value="<%= locals.oldData ? oldData.password : null %>"
+                    >
                 <% if (locals.errors && errors.password) { %>
                     <div class="text-danger">
                         <%= errors.password.msg %>
                     </div>
+                    <div class="text-danger " id="passwordError"></div>
                 <% } %>
             </div>
 
             <!-- BOTONES PARA INGRESAR Y CANCELAR -->
             <div class="buttons-login">
-                <button type="submit" class="login-button">Ingresar</button>
+                <button type="submit" class="login-button" id="send">Ingresar</button>
             
                 <button type="reset" class="login-button">Cancelar</button>
 
@@ -82,6 +86,8 @@
       
 
     </main>
+
+    <script src="/js/validationUserLogin.js"></script>
 
      <!-- LLAMO AL FOOTER DE PARTIALS-->
 
