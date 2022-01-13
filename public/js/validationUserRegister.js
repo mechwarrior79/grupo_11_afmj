@@ -99,17 +99,16 @@ window.addEventListener('load', function(){
                     form.email.focus();
                     surnameError.innerText = null;
                 };
-
-                //email
+                
+                
+                // email
                 if(email.value.length == 0){
                     errores.email = 'El email no debe estar vacio';
                     emailError.innerText = errores.email;
-                    email.className = 'input form-control is-invalid'
-                };
+                    email.className = 'input form-control is-invalid';
 
-                if(email.value.length > 0) {
-
-            
+                } else {
+   
                     /* Guardo en la variable regex las condiciones a cumplir para que el formato del email sea válido  */
                     const regex = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
     
@@ -121,7 +120,7 @@ window.addEventListener('load', function(){
                     console.log(email.value); //Chequeo front-end
                     
                     if (resultEmailEvaluation == true ) {
-                        email.className = 'input form-control is-valid'; // No sé por qué no se pone el simbolo de la tilde
+                        email.className = 'input form-control is-valid' 
                         form.password.focus();
                         emailError.innerText = null;
                     };
@@ -130,14 +129,13 @@ window.addEventListener('load', function(){
                         errores.email = 'Email no válido';
                         emailError.innerText = errores.email;
                         email.className = 'input form-control is-invalid';
-                        
+                        form.email.focus();
                     };
-                    
-
                 };
+                
+                
 
-
-
+                // password
                 if (password.value.length < 8) {
                     errores.password = 'La contraseña debe contener al menos 8 caracteres';
                     passwordError.innerText = errores.password;

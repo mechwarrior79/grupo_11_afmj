@@ -33,16 +33,14 @@ window.addEventListener('load', function(){
     
                 
     
-                // Email
+                // email
                 if(email.value.length == 0){
                     errores.email = 'El email no debe estar vacio';
                     emailError.innerText = errores.email;
-                    email.className = 'input form-control is-invalid'
-                };
+                    email.className = 'input form-control is-invalid';
 
-                if(email.value.length > 0) {
-
-            
+                } else {
+   
                     /* Guardo en la variable regex las condiciones a cumplir para que el formato del email sea válido  */
                     const regex = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
     
@@ -54,7 +52,7 @@ window.addEventListener('load', function(){
                     console.log(email.value); //Chequeo front-end
                     
                     if (resultEmailEvaluation == true ) {
-                        email.className = 'input form-control is-valid' // No sé por qué no se pone el simbolo de la tilde
+                        email.className = 'input form-control is-valid' 
                         form.password.focus();
                         emailError.innerText = null;
                     };
@@ -65,9 +63,10 @@ window.addEventListener('load', function(){
                         email.className = 'input form-control is-invalid';
                         form.email.focus();
                     };
+                };
                    
 
-                };
+                
 
                 //password
                
