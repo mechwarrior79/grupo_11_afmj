@@ -198,7 +198,7 @@ const controller = {
 
 
             if (resultValidation.errors.length > 0) {
-
+                
                 let promRole = Role.findAll();
                 let promSex = Sex.findAll();
                 Promise
@@ -208,7 +208,7 @@ const controller = {
                     // Renderizo la vista userRegister tomando los datos de las tablas Role y Sex y le paso los errores 
                     // convertidos en un objeto literal con mapped 
                     return res.render('./users/userRegister', { allRoles, allSexes , errors: resultValidation.mapped(), 
-                    oldData: req.body
+                    oldData : req.body
                     }); // Con oldData le mando todo lo que me enviaron por el req.body 
                 })
                 //Si hay errores en el proceso se nos muestra

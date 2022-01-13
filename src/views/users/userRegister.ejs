@@ -27,7 +27,6 @@
                 </label>
              </div>
               
-              
               <form action="/users/register" method="POST" enctype="multipart/form-data" id="form">
 
                 <div class="registration-title"> Ingresá tus datos para crear tu cuenta</div>
@@ -93,7 +92,7 @@
                     
                     <option disabled hidden selected>Seleccionar sexo</option>
                     <% for ( let i = 0; i < allSexes.length; i++) { %> 
-                      <option value="<%= allSexes[i].id %>"><%= allSexes[i].sex %></option>
+                      <option value="<%= allSexes[i].id %>"  ><%= allSexes[i].sex %></option>
                     <% } %> 
                   </select>
 

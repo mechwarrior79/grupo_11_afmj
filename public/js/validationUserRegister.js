@@ -120,6 +120,11 @@ window.addEventListener('load', function(){
                     console.log('El resultEmail es: ', resultEmailEvaluation); //Chequeo front-end
                     console.log(email.value); //Chequeo front-end
                     
+                    if (resultEmailEvaluation == true ) {
+                        email.className = 'input form-control is-valid'; // No sé por qué no se pone el simbolo de la tilde
+                        form.password.focus();
+                        emailError.innerText = null;
+                    };
                    
                     if (resultEmailEvaluation != true ) {
                         errores.email = 'Email no válido';
@@ -127,22 +132,11 @@ window.addEventListener('load', function(){
                         email.className = 'input form-control is-invalid';
                         
                     };
-                    if (resultEmailEvaluation == true ) {
-                        email.className = 'input form-control is-valid'; // No sé por qué no se pone el simbolo de la tilde
-                        form.password.focus();
-                        email.innerText = null;
-                    };
+                    
 
                 };
 
 
-                // password
-                // if (password.value.length == 0){
-                //     errores.password = 'La contraseña no debe estar vacía';
-                //     passwordError.innerText = errores.password;
-                //     password.className = 'input form-control is-invalid'
-                   
-                // };
 
                 if (password.value.length < 8) {
                     errores.password = 'La contraseña debe contener al menos 8 caracteres';
