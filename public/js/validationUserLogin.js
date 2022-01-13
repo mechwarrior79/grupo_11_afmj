@@ -5,7 +5,7 @@ window.addEventListener('load', function(){
     //input de email
     let email = this.document.querySelector('#email');
     //div de error email esperando hacer un innerHtml
-    let emailError = this.document.querySelector('#emailError')
+    let emailError = this.document.querySelector('#emailError');
     //input de password
     let password = this.document.querySelector('#password');
     //div de error password esperando hacer un innerHtml
@@ -69,7 +69,7 @@ window.addEventListener('load', function(){
                 };
 
                 //password
-                console.log(req.body);
+               
 
                 if(password.value.length > 0) {
                     password.className = 'input form-control is-valid'
@@ -82,9 +82,6 @@ window.addEventListener('load', function(){
                     password.className = 'input form-control is-invalid'
                 };
     
-               
-
-                
                
                 // Si hay errores me los muestra, si no hay errores envía el formulario
     

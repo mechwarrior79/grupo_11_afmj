@@ -145,8 +145,6 @@ console.log("entro por el front")
               }
               validar();
 
-           
-            
 
             if (Object.keys (errores).length >= 1 ){ 
                 console.log(errores)

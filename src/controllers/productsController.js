@@ -66,7 +66,6 @@ const controller = {
         res.render('./products/cart')
     },
 
-   
     // Creo un producto
 
     create: (req, res) => {
@@ -75,10 +74,9 @@ const controller = {
         let promStatus = Status.findAll();
         let errors = null;
 
-        
         Promise
-        .all([promCategory, promStatus, errors])
-        .then(([allCategories, allStatuses, errors]) => {
+        .all([promCategory, promStatus])
+        .then(([allCategories, allStatuses]) => {
             return res.render('./products/productCreate', {allCategories,allStatuses, errors})})
         .catch(error => res.send(error))
 
@@ -159,8 +157,6 @@ const controller = {
     
     edit: (req, res) => {
        
-
-        
         let productId = req.params.id;
         let promProducts = Product.findByPk(productId);
         let promCategory = Category.findAll();
@@ -198,7 +194,6 @@ const controller = {
         */
     },
 
-
      // Con los datos actualizados del producto los reemplazo en el archivo (vino por PUT)
 
     edited: (req, res) => {
@@ -212,7 +207,6 @@ const controller = {
         if (resultValidation.errors.length > 0) {
             console.log(errors)
           
-
             let productId = req.params.id;
             let promProducts = Product.findByPk(productId);
             let promCategory = Category.findAll();
@@ -259,8 +253,6 @@ const controller = {
         }
             
     },
-       
-
      /*
         // En la variable id tengo el id del producto a modificar que me mandaron por parámetro en req.params.id
         let id = req.params.id;
