@@ -14,7 +14,8 @@ const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const mainRouter = require('./routes/mainRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
-const productAPIRouter = require ('./routes/api/products')
+const usersAPIRouter = require('./routes/api/users');
+const productAPIRouter = require ('./routes/api/products');
 
 //Para tomar los parámetros de los formularios POST 
 
@@ -66,6 +67,8 @@ app.use('/', mainRouter);
 
 //Cuando use '/users' se va a manejar desde usersRouter
 app.use('/users', usersRouter);
+
+app.use('/api/users', usersAPIRouter);
 
 //Cuando use '/products' se va a manejar desde productsRouter
 app.use('/products', productsRouter);
