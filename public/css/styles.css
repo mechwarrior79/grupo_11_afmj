@@ -175,6 +175,7 @@ a{
 }
 
 main{
+    
     background-color:#031926 ;
     margin-top: -8px;
 }
@@ -369,8 +370,6 @@ footer{
   /* CUANDO HAGO HOVER SOBRE LOS BOTONES DE INGRESAR, CANCELAR, OLVIDO DE CONTRASEÑA Y USUARIO, 
 Y CREAR NUEVA CONTRASEÑA CAMBIAN DE FORMATO */
   
-
-
 .login-button:hover  {
     color: #f9f8f8;
     background-color: rgb( 34, 200, 81);

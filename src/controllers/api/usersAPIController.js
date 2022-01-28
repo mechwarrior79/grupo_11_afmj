@@ -1,6 +1,7 @@
 //Permite usar las bases de datos
 const { User } = require('../../database/models');
 
+
 const usersAPIController = {
 
     // Muestro la lista de usuarios
@@ -11,7 +12,7 @@ const usersAPIController = {
             .then(users => {
 
                 // Para poder sacar seleccionar los campos de cada usuario, lo que voy a hacer es
-                // convertir los datos de los usuarios que se reciben en un array, así los puedo
+                // convertir los datos de los usuarios que se reciben en un array de objetos literales, así los puedo
                 // manipular con mayor facilidad
 
                 const usersArray = users.map( ( user ) => {
@@ -22,14 +23,14 @@ const usersAPIController = {
                 // o sensible
                 // Agrego el link para información individual del usuario
 
-                usersArray.forEach( (user ) => {
+                usersArray.forEach( ( user ) => {
                     delete user.surname;
                     delete user.birthDate;
                     delete user.password;
                     delete user.image;
                     delete user.roleId;
                     delete user.sexId;
-                    user.detail = `http://localhost:3000/api/users/${user.id}`;
+                    user.detail = `http://localhost:3050/api/users/${user.id}`;
                 });
 
 
@@ -41,7 +42,7 @@ const usersAPIController = {
                 return res.status(200).json({
                         status: 200,
                         count: users.length,
-                        data: usersArray
+                        users: usersArray
                 })
             })
             //Si hay errores en el proceso se nos muestra
@@ -69,9 +70,9 @@ const usersAPIController = {
                     delete userDetail.password;
                     delete userDetail.roleId;
                     delete userDetail.sexId;
-                    userDetail.image = `/public/users/${userDetail.image}`;
-
-                    // Voy a retornar en un JSON el dato del usuario en data
+                    userDetail.image = `/images/users/${userDetail.image}`;
+                    
+                    // Voy a retornar en un JSON el dato del usuario en users
 
                     // Indico que la operación fue ok con el código de status 200
 
@@ -91,6 +92,7 @@ const usersAPIController = {
         //Si hay errores en el proceso se nos muestra
         .catch((error) => console.error(error));
     }
+    
 
 }
 

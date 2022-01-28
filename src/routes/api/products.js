@@ -7,12 +7,12 @@ const path = require('path');
 //Habilito la función router para mandar las funciones
 const router = express.Router();
 
-const productAPIcontroller = require ('../../controllers/api/productsAPIcontroller');
+const productsAPIController = require ('../../controllers/api/productsAPIController');
 
 //get de product
-router.get('/', productAPIcontroller.index);
+router.get('/', productsAPIController.index);
 //get de product con id
-router.get('/list/:id', productAPIcontroller.productDetail);
+router.get('/:id', productsAPIController.productDetail);
 
 
 

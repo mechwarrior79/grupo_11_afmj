@@ -15,7 +15,9 @@ const mainRouter = require('./routes/mainRouter');
 const productsRouter = require('./routes/productsRouter');
 const usersRouter = require('./routes/usersRouter');
 const usersAPIRouter = require('./routes/api/users');
-const productAPIRouter = require ('./routes/api/products');
+const productsAPIRouter = require ('./routes/api/products');
+
+const cors = require('cors');
 
 //Para tomar los parámetros de los formularios POST 
 
@@ -41,6 +43,8 @@ app.use(session({
 //Sirve para poder usar las cookies
 app.use(cookies());
 
+app.use(cors());
+
 //Sirve para poder usar el middleware userLoggedMiddleware para saber si un usuario está logueado
 app.use(userLoggedMiddleware);
 
@@ -51,7 +55,7 @@ app.set('view engine', 'ejs');
 
 //listen en localHost 3000
 
-app.listen( 3000 , () => { console.log("Servidor levantado "," http://localhost:3000/")
+app.listen( 3050, () => { console.log("Servidor levantado "," http://localhost:3050/")
 });
 
 
@@ -73,7 +77,7 @@ app.use('/api/users', usersAPIRouter);
 //Cuando use '/products' se va a manejar desde productsRouter
 app.use('/products', productsRouter);
 
-app.use('/productos/api' , productAPIRouter);
+app.use('/api/products', productsAPIRouter);
 
 
 
