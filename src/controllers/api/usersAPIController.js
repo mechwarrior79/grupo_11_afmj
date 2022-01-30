@@ -52,7 +52,12 @@ const usersAPIController = {
     // Veo el detalle del usuario
 
     detail: (req, res) => {
-        User.findByPk(req.params.id)
+        User.findByPk(req.params.id, 
+            // Vinculo la información guardada en el modelo Sex con esta tabla
+            { 
+                include: [ {association: 'sex' },  ] 
+            } )
+            
             .then(user => {
                 // En caso que el usuario exista, procedemos a procesar la información
                 // para mostrarla después, sino muestro un mensaje de error diciendo
@@ -70,6 +75,7 @@ const usersAPIController = {
                     delete userDetail.password;
                     delete userDetail.roleId;
                     delete userDetail.sexId;
+                    userDetail.sex = userDetail.sex.sex;
                     userDetail.image = `/images/users/${userDetail.image}`;
                     
                     // Voy a retornar en un JSON el dato del usuario en users
@@ -78,7 +84,7 @@ const usersAPIController = {
 
                     return res.status(200).json({
                         status: 200,
-                        data: userDetail
+                        user: userDetail
                     })
                 };
 

@@ -1,8 +1,5 @@
 //Permite usar las bases de datos
 const { Product, Category } = require('../../database/models');
-/*const { Category } = require('../database/models');
-const { Status } = require('../database/models');
-const { Op } = require('sequelize');*/
 
 const productsAPIController = {
 
@@ -11,11 +8,12 @@ const productsAPIController = {
 
     index: (req, res) => {
 
-        // Hago llamados asincrónicos con promesas para recolectar todos los productos y las categorias de la base de datos
+        // Hago llamados asincrónicos con promesas para recolectar todos los productos y las categorias 
+        // de la base de datos
 
         let promProducts = Product.findAll({
-            // Vinculo la información guardada en los modelos Role y Sex con esta tabla
-            include: [ {association: 'category' } ] }
+            // Vinculo la información guardada en los modelos Category y Status con esta tabla
+            include: [ {association: 'category' }, {association: 'status' },  ] }
         );
         let promCategory = Category.findAll();
         Promise
@@ -26,9 +24,9 @@ const productsAPIController = {
                 // convertir los datos de productos y categorias que se reciben en un array de objetos literales, así los 
                 // puedo manipular con mayor facilidad
 
-                const categoriesArray = allCategories.map( ( category ) => {
-                    return category.dataValues;
-                });
+                // const categoriesArray = allCategories.map( ( category ) => {
+                //     return category.dataValues;
+                // });
 
                 const productsArray = allProducts.map( ( product ) => {
                     return product.dataValues;
@@ -38,18 +36,19 @@ const productsAPIController = {
                 // Solución basada en 2 categorias. No está abierto el sistema para incorporar más categorias
 
                 let cantElectricCar = 0;
-                let cantAccesory = 0;
+                let cantAccessory = 0;
 
                 // Me fijo si en el campo categoria de cada posición si es 1
 
                 // Si es 1 se lo sumo al contador autos eléctricos, sino al de accesorios
                 
                 productsArray.forEach(product => {
-                    product.categoryId == 1 ? cantElectricCar++ : cantAccesory++  
+                    product.categoryId == 1 ? cantElectricCar++ : cantAccessory++  
                 });
 
                 console.log('Electric ' , cantElectricCar);
-                console.log('Accesory ' , cantAccesory);
+                console.log('Accessory ' , cantAccessory);
+
 
                 // Del productsArray saco por cada producto la información que no es necesaria 
                 // o sensible
@@ -62,6 +61,10 @@ const productsAPIController = {
                     delete product.discount;
                     delete product.CategoryId; // No sé por qué apareció. Se elimina
                     delete product.StatusId; // No sé por qué apareció. Se elimina
+                    delete product.categoryId; 
+                    delete product.statusId; 
+                    product.category = product.category.category;
+                    product.status = product.status.status; 
                     product.detail = `http://localhost:3050/api/products/${product.id}`;
                 });
 
@@ -75,12 +78,10 @@ const productsAPIController = {
 
                     status: 200,
                     count: allProducts.length,
-                    countByCategory: {
-
-                        'Electric car': cantElectricCar,
-                        'Accesory': cantAccesory
-                    },
-                    data: productsArray
+                    countByCategory: allCategories.length,
+                    countByCategoryECar: cantElectricCar,
+                    countByCategoryAcc: cantAccessory,
+                    products: productsArray
                 })
             })
             //Si hay errores en el proceso se nos muestra
@@ -94,7 +95,11 @@ const productsAPIController = {
     // Veo el detalle del producto
 
     productDetail: (req, res) => {
-        Product.findByPk(req.params.id)
+        Product.findByPk(req.params.id, 
+            // Vinculo la información guardada en los modelos Category y Status con esta tabla
+            { 
+                include: [ {association: 'category' }, {association: 'status' },  ] 
+            } )
             .then(product => {
                 // En caso que el producto exista, procedemos a procesar la información
                 // para mostrarla después, sino muestro un mensaje de error diciendo
@@ -111,6 +116,10 @@ const productsAPIController = {
                     // Saco la información que no es necesaria o sensible
                     delete productDetail.CategoryId; // No sé por qué apareció. Se elimina
                     delete productDetail.StatusId; // No sé por qué apareció. Se elimina
+                    delete productDetail.categoryId; 
+                    delete productDetail.statusId; 
+                    productDetail.category = productDetail.category.category;
+                    productDetail.status = productDetail.status.status; 
                     productDetail.image = `/images/productos/${productDetail.image}`;
 
                     // Voy a retornar en un JSON el dato del producto en products
@@ -119,7 +128,7 @@ const productsAPIController = {
 
                     return res.status(200).json({
                         status: 200,
-                        products: productDetail
+                        product: productDetail
                     })
                 };
 
@@ -134,49 +143,6 @@ const productsAPIController = {
         .catch((error) => console.error(error));
     }
 
-
-
-
-
-
-   /* //Muestro la lista de productos
-
-    index: (req, res) => {
-
-        Product.findAll()
-            .then(product => {
-                let respuesta = {
-                    meta: {
-                        status: 200,
-                        count: product.length,
-                        countByCategory: "aca va la categoria hay que traerlo de la base de datos",
-                        detail: 'http://localhost:300/productos/api'
-                    },
-
-                    data: product
-                }
-                res.json(respuesta);
-            })
-    },
-
-    // Veo el detalle del producto
-
-    productDetail: (req, res) => {
-        Product.findByPk(req.params.id)
-            .then(product => {
-                let respuesta = {
-                    meta: {
-                        status: 200,
-                        url: 'imagen de producto'
-
-                    },
-                    data: product
-                }
-                res.json(respuesta);
-            });
-    }
-
-*/
 }
 
 module.exports = productsAPIController;
