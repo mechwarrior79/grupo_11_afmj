@@ -166,17 +166,19 @@
                     <!--CONTENEDOR DE BOTONES COMPRAR, AGREGAR CARRITO, ELIMINAR Y EDITAR PRODUCTO -->
                 
           <div class="buttons-buy-addToChart">
-                
-            
-            
+
+            <% if (locals.isLogged) { %>
             <button type="submit" class="button-buy-add">Comprar</button>
             <button type="submit" class="button-buy-add">Agregar al carrito</button>
-        
             <a href="/products/edit/<%= product.id %>" class="button-buy-add">Editar producto</a>
-
             <form class="eliminar" action="/products/delete/<%= product.id %>?_method=DELETE" method="POST"> 
               <button type="submit" class="button-buy-add">Eliminar producto</button>
             </form>
+            
+            <%} else {%>
+              <button type="submit" class="button-buy-add">Comprar</button>
+              <button type="submit" class="button-buy-add">Agregar al carrito</button>
+              <%}%>
             
       
       

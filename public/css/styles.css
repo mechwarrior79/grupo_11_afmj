@@ -802,6 +802,28 @@ img {
   color: #721817;
   font-weight: 700;
 }
+
+.loop{
+  color: #031926;
+}
+
+.weight{
+  font-weight: 900;
+}
+
+.bord{
+  color: #721817;
+}
+
+.align-center{
+  text-align: center;
+}
+
+.background-color{
+  background-color: #dfdfdf;
+}
+
+
   
 
 @media (min-width: 480px){

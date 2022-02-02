@@ -5,59 +5,82 @@
 
         <div class="logo-nav">
 
-            
-                <a href="/" class="logo"><img src="/images/logo-afmj01.png" alt="logo-afmj">
 
-            <nav class="nav-bar">
+            <a href="/" class="logo"><img src="/images/logo-afmj01.png" alt="logo-afmj">
 
-                
+                <nav class="nav-bar">
 
-                <ul class="main-nav-bar">
-                    <!-- SI EL USUARIO ESTA LOGUEADO, MUESTRO ESTOS MENUES, SINO MUESTRO OTROS MENUES -->
 
-                    <% if (locals.isLogged) { %>
 
-                        <li class="buys"><a class="text-nav-bar" href="/users/detail/<%=locals.userLogged.id%>"><%= locals.userLogged.name %></a></li> 
+                    <ul class="main-nav-bar">
+                        <!-- SI EL USUARIO ESTA LOGUEADO, MUESTRO ESTOS MENUES, SINO MUESTRO OTROS MENUES -->
 
-                        <img class="img-user" src="/images/users/<%= locals.userLogged.image %>" width=10px style="border-radius: 100%;" alt="">
+                        <% if (locals.isLogged) { %>
 
-                        <li class="buys"><a class="text-nav-bar" href="/products/create">Crear<i class="icon fas fa-plus-square"></i></a></li>
-                        <li class="buys"><a class="text-nav-bar" href="/products/cart">Carrito<i class="icon fas fa-shopping-cart"></i></a></li>               
-                        <li class="buys"><a class="text-nav-bar" href="/products/">Productos<i class="icon fas fa-clipboard-list"></i></a></li>
-                    
-                    <!-- SI EL USUARIO NO ESTA LOGUEADO, MUESTRO ESTOS MENUES -->
+                            <li class="buys"><a class="text-nav-bar" href="/users/detail/<%=locals.userLogged.id%>">
+                                    <%= locals.userLogged.name %>
+                                </a></li>
 
-                    <% } else { %>
+                            <img class="img-user" src="/images/users/<%= locals.userLogged.image %>" width=10px
+                                style="border-radius: 100%;" alt="">
 
-                        <li class="user"><a class="text-nav-bar" href="/users/login">Usuario<i class="icon fas fa-user"></i> </a> </li>
-                        <li class="news"><a class="text-nav-bar" href="/users/register">Registro<i class="icon fas fa-sign-in-alt"></i></a></li>
-                        <li class="buys"><a class="text-nav-bar" href="/products/cart">Carrito<i class="icon fas fa-shopping-cart"></i></a></li>
-                        <!-- <li class="buys"><a class="text-nav-bar" href="/products/">Productos<i class="icon fas fa-clipboard-list"></i></a></li> -->
-                    
-                    <% } %>
-                    
-                
-                
-                </ul>
+                            <li class="buys"><a class="text-nav-bar" href="/products/create">Crear<i
+                                        class="icon fas fa-plus-square"></i></a></li>
+                            <li class="buys"><a class="text-nav-bar" href="/products/cart">Carrito<i
+                                        class="icon fas fa-shopping-cart"></i></a></li>
+                            <li class="buys"><a class="text-nav-bar" href="/products/">Productos<i
+                                        class="icon fas fa-clipboard-list"></i></a></li>
 
-            </nav>
+                            <!-- SI EL USUARIO NO ESTA LOGUEADO, MUESTRO ESTOS MENUES -->
 
-            <div class="hamburguer-bar">
-                <i class="fas fa-caret-square-down"></i>
-            </div>
+                            <% } else { %>
+
+                                <li class="user"><a class="text-nav-bar" href="/users/login">Usuario<i
+                                            class="icon fas fa-user"></i> </a> </li>
+                                <li class="news"><a class="text-nav-bar" href="/users/register">Registro<i
+                                            class="icon fas fa-sign-in-alt"></i></a></li>
+                                <li class="buys"><a class="text-nav-bar" href="/products/cart">Carrito<i
+                                            class="icon fas fa-shopping-cart"></i></a></li>
+                                <!-- <li class="buys"><a class="text-nav-bar" href="/products/">Productos<i class="icon fas fa-clipboard-list"></i></a></li> -->
+
+                                <% } %>
+
+
+
+                    </ul>
+
+                </nav>
+
+                <div class="hamburguer-bar">
+                    <i class="fas fa-caret-square-down"></i>
+                </div>
 
         </div>
         <div class="search-bar">
 
+            <form action="/products/search" class="container-fluid" style="background-color: #f2f2f2;" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control " aria-label="Busqueda" aria-describedby="basic-addon1"
+                        name="search" placeholder="Busqueda" required>
+                    <span type="submit" class="input-group-text" id="basic-addon1"><i
+                            class="loop fas fa-search"></i></span>
+                </div>
+            </form>
+
+        </div>
+
+
+        <!-- <div class="search-bar">
+
             <form action="/products/search" method="post" class="searching"> 
             
                 <input class="search" type="text" name="search" placeholder="Busqueda" required>
-                <!--<button type="button" class="btn btn-primary btn-sm">?</button> --> 
                 <input type="submit" value="Ir">
-            
+                
             </form> 
-
-        </div>  
+            
+        </div> -->
+        <!--<button type="button" class="btn btn-primary btn-sm">?</button> -->
 
     </div>
 
