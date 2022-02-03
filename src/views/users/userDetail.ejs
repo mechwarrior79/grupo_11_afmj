@@ -3,19 +3,122 @@
 
 <!-- LLAMO AL HEAD DE PARTIALS-->
 
-<%- include('../partials/head', { title: 'Perfil de usuario'}) %>
+<%- include('../partials/head', { title: 'Perfil de usuario' }) %>
 
-<body >
+	<body>
 
-	<main>
+		<main>
 
-    <!-- LLAMO AL HEADER DE PARTIALS-->
+			<!-- LLAMO AL HEADER DE PARTIALS-->
 
-    <%- include('../partials/header') %> 
+			<%- include('../partials/header') %>
 
-	
-	
-	<!-- Container -->
+
+				<div class="container margin-top">
+					<div class="row gutters">
+						<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+							<div class="card h-100">
+								<div class="card-body">
+									<div class="account-settings">
+										<div class="user-profile">
+											<div class="user-avatar">
+												<img src="/images/users/<%=user.image%>" alt="img-profile">
+											</div>
+											<br></br>
+											<h5 class="user-name">
+												<%= user.name%>
+											</h5>
+											<h6 class="user-email">
+												<%=user.email%>
+											</h6>
+										</div>
+										<div class="about">
+											<h5 class="detail-text">Rol</h5>
+											<p>
+												<%= user.role.role %>
+											</p>
+										</div>
+										<div class="icons-flex">
+											<a class="link-profile" href="http://localhost:3000"><i
+													class="fab fa-react">Dashboard</i></a>
+											<a class="link-profile-out" href="/users/logout"><i
+													class="fas fa-door-open">Logout</i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 shadow">
+							<div class="card h-100">
+								<div class="card-body">
+									<div class="row gutters">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+											<h4 class="weight hoja">Datos de Usuario</strong></h6>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+											<div class="form-group">
+												<h4 class="detail-text">Nombre Completo:</h3>
+
+													<h5 class="margin-left">
+														<%= user.name %>
+															<%= user.surname %>
+													</h5>
+
+													<h4 class="detail-text">Fecha de nacimiento:</h3>
+														<h5 class="margin-left">
+															<%= user.birthDate %>
+														</h5>
+														<h4 class="detail-text">Sexo:</h3>
+															<h5 class="margin-left">
+																<%= user.sex.sex %>
+															</h5>
+
+															<h4 class="detail-text">Email:</h3>
+
+																<h5 class="margin-left">
+																	<%= user.email %>
+																</h5>
+
+																<h4 class="detail-text">Rol:</h3>
+
+																	<h5 class="margin-left">
+																		<%= user.role.role %>
+																	</h5>
+											</div>
+										</div>
+
+										<div class="row gutters">
+											<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
+
+												<div class="buttons-buy-addToChart">
+													<a class="login-button btn-color" href="/users/register">Agregar</a>
+
+													<a class="login-button btn-color"
+														href="/users/edit/<%=user.id%>">Editar</a>
+
+													<a class="login-button btn-color hover"
+														href="/users/delete/<%=user.id%>">Eliminar</a>
+
+													<a class="login-button btn-color" href="/users/list">Listado de
+														usuarios</a>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+
+
+				<!-- Container 
 	<p class="info"> <i class="hoja fas fa-leaf"></i> Productos con impacto positivo <i class="bateria fas fa-battery-three-quarters"></i></p>
 
 	<div class="info-profile">
@@ -28,7 +131,8 @@
 		<img class="img-user-profile" src="/images/users/<%=user.image%>"  alt="imagen del usuario">
 	</div>
 
-	<!-- MUESTRO LOS DATOS DEL USUARIO -->
+	-->
+				<!-- MUESTRO LOS DATOS DEL USUARIO 
 	<br>
 	<div class="info-profile">
 		<h5>Email: <strong class="user-info"><%=user.email%></strong></h5>
@@ -41,8 +145,9 @@
 	</div>
 	
 	</br>
+	-->
 
-	<!-- BOTONES DE ACCESO PARA AGREGAR, EDITAR, ELIMINAR USUARIO Y LISTADO DE USUARIOS -->
+				<!-- BOTONES DE ACCESO PARA AGREGAR, EDITAR, ELIMINAR USUARIO Y LISTADO DE USUARIOS 
 
 	
 		<div class="buttons-buy-addToChart">
@@ -55,11 +160,12 @@
 			<a class="login-button" href="/users/list">Listado de usuarios</a>
 		</div>
 		
-	
-	 
-	 <!-- LLAMO AL FOOTER DE PARTIALS-->
+	-->
 
-     <%- include('../partials/footer') %> 
-	</main>
-</body>
+				<!-- LLAMO AL FOOTER DE PARTIALS-->
+
+				<%- include('../partials/footer') %>
+		</main>
+	</body>
+
 </html>
