@@ -15,7 +15,7 @@
                     <ul class="main-nav-bar">
                         <!-- SI EL USUARIO ESTA LOGUEADO, MUESTRO ESTOS MENUES, SINO MUESTRO OTROS MENUES -->
 
-                        <% if (locals.isLogged) { %>
+                        <% if (locals.isLogged ) { %>
 
                             <li class="buys"><a class="text-nav-bar" href="/users/detail/<%=locals.userLogged.id%>">
                                     <%= locals.userLogged.name %>
@@ -23,9 +23,10 @@
 
                             <img class="img-user" src="/images/users/<%= locals.userLogged.image %>" width=10px
                                 style="border-radius: 100%;" alt="">
-
+                                <% if (locals.userLogged.roleId === 1 ) { %>
                             <li class="buys"><a class="text-nav-bar" href="/products/create">Crear<i
                                         class="icon fas fa-plus-square"></i></a></li>
+                                        <% } %> 
                             <li class="buys"><a class="text-nav-bar" href="/products/cart">Carrito<i
                                         class="icon fas fa-shopping-cart"></i></a></li>
                             <li class="buys"><a class="text-nav-bar" href="/products/">Productos<i
