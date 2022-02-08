@@ -167,7 +167,7 @@
                 
           <div class="buttons-buy-addToChart">
 
-            <% if (locals.isLogged) { %>
+            <% if (locals.isLogged && locals.userLogged.roleId === 1) { %>
             <button type="submit" class="button-buy-add">Comprar</button>
             <button type="submit" class="button-buy-add">Agregar al carrito</button>
             <a href="/products/edit/<%= product.id %>" class="button-buy-add">Editar producto</a>

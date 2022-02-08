@@ -22,7 +22,7 @@
 									<div class="account-settings">
 										<div class="user-profile">
 											<div class="user-avatar">
-												<img src="/images/users/<%=user.image%>" alt="img-profile">
+												<img src="/images/users/<%=user.image%>" alt="img-profile" width="40%">
 											</div>
 											<br></br>
 											<h5 class="user-name">
@@ -39,10 +39,12 @@
 											</p>
 										</div>
 										<div class="icons-flex">
-											<a class="link-profile" href="http://localhost:3000"><i
-													class="fab fa-react">Dashboard</i></a>
-											<a class="link-profile-out" href="/users/logout"><i
-													class="fas fa-door-open">Logout</i></a>
+											<% if(locals.isLogged && locals.userLogged.roleId===1){ %>
+												<a class="link-profile" href="http://localhost:3000"><i
+														class="fab fa-react">Dashboard</i></a>
+												<% } %>
+													<a class="link-profile-out" href="/users/logout"><i
+															class="fas fa-door-open">Logout</i></a>
 										</div>
 									</div>
 								</div>
@@ -92,16 +94,20 @@
 
 
 												<div class="buttons-buy-addToChart">
-													<a class="login-button btn-color" href="/users/register">Agregar</a>
+													<!--<a class="login-button btn-color" href="/users/register">Agregar</a>-->
 
 													<a class="login-button btn-color"
 														href="/users/edit/<%=user.id%>">Editar</a>
 
+													
 													<a class="login-button btn-color hover"
 														href="/users/delete/<%=user.id%>">Eliminar</a>
+														
 
-													<a class="login-button btn-color" href="/users/list">Listado de
-														usuarios</a>
+													<% if(locals.isLogged && locals.userLogged.roleId===1){ %>
+														<a class="login-button btn-color" href="/users/list">Listado de
+															usuarios</a>
+														<% } %>
 												</div>
 
 											</div>
